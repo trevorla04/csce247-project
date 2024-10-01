@@ -1,0 +1,12 @@
+[
+  {
+    "question": "What is the capital of Mexico?",
+    "answerChoices": ["Guadalajara", "Mexico City", "Tijuana", "Ciudad Juarez"],
+    "correctAnswer": 2
+  },
+  {
+    "question": "What is the Spanish word for to draw?",
+    "answerChoices": ["dibujar", "pintar", "producir", "recibir"],
+    "correctAnswer": 1
+  }
+]

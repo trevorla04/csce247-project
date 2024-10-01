@@ -1,0 +1,11 @@
+[
+  {
+    "name": "Spanish",
+    "abbreviation": "ES",
+    "wordsList": "WordList1",
+    "phrasesList": "PhraseList1",
+    "lessons": ["Lesson1"],
+    "currentProgress": "Progress1",
+    "uuid": "f521f865-1d38-481b-809c-8715e77512f8"
+  }
+]

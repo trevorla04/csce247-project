@@ -1,0 +1,19 @@
+[
+  {
+    "categoryProgress": {
+      "School": 3
+    },
+    "lessonProgress": {
+      "Class Subjects": 2
+    }
+  },
+
+  {
+    "categoryProgress": {
+      "Household Items": 5
+    },
+    "lessonProgress": {
+      "Kitchen Items": 4
+    }
+  }
+]

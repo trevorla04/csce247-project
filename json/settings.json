@@ -1,0 +1,11 @@
+[
+  {
+    "notificationsEnabled": true,
+    "instance": "SettingsInstance1"
+  },
+
+  {
+    "notificationsEnabled": false,
+    "instance": "SettingsInstance2"
+  }
+]

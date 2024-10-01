@@ -1,0 +1,24 @@
+[
+  {
+    "title": "El Perro Pequeño",
+    "content": {
+      "1": "Había una vez un perro pequeño llamado Max.",
+      "2": "Max amaba jugar en el parque y perseguir mariposas."
+    },
+    "language": "f521f865-1d38-481b-809c-8715e77512f8",
+    "keyVocab": "WordList1",
+    "comprehensionQuestions": ["MCQ1", "MCQ2"],
+    "numPages": 2
+  },
+  {
+    "title": "El Gato Curioso",
+    "content": {
+      "1": "Había una vez un gato curioso llamado Felix.",
+      "2": "Felix disfrutaba subir a los árboles y perseguir ratones."
+    },
+    "language": "f521f865-1d38-481b-809c-8715e77512f8",
+    "keyVocab": "WordList2",
+    "comprehensionQuestions": ["MQ1", "MQ2"],
+    "numPages": 2
+  }
+]

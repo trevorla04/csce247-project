@@ -1,0 +1,21 @@
+[
+  {
+    "word": "Perro",
+    "definition": "A common animal with four legs, especially kept by people as a pet or to hunt or guard things.",
+    "language": "Spanish",
+    "translations": {
+      "English": "Dog"
+    },
+    "partOfSpeech": "noun"
+  },
+
+  {
+    "word": "Gato",
+    "definition": "A small animal with fur, four legs, a tail, and claws, usually kept as a pet or for catching mice.",
+    "language": "Spanish",
+    "translations": {
+      "English": "Cat"
+    },
+    "partOfSpeech": "noun"
+  }
+]
