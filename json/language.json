@@ -1,0 +1,161 @@
+{
+  "language": {
+    "name": "Spanish",
+    "abbreviation": "ES",
+    "uuid": "f521f865-1d38-481b-809c-8715e77512f8",
+    "wordsList": [
+      {
+        "word": "Perro",
+        "definition": "A common animal with four legs, especially kept by people as a pet or to hunt or guard things.",
+        "language": "Spanish",
+        "translations": {
+          "English": "Dog"
+        },
+        "partOfSpeech": "noun"
+      },
+      {
+        "word": "Gato",
+        "definition": "A small animal with fur, four legs, a tail, and claws, usually kept as a pet or for catching mice.",
+        "language": "Spanish",
+        "translations": {
+          "English": "Cat"
+        },
+        "partOfSpeech": "noun"
+      }
+    ],
+
+    "phrasesList": [
+      {
+        "phrase": "Buenos días",
+        "definition": "Something you say to greet someone politely when you meet them in the morning.",
+        "language": "Spanish",
+        "translations": {
+          "English": "Good morning"
+        }
+      },
+      {
+        "phrase": "Buenas noches",
+        "definition": "Phrase said when people leave each other in the evening or before going to bed or to sleep.",
+        "language": "Spanish",
+        "translations": {
+          "English": "Good night"
+        }
+      }
+    ],
+
+    "lessons": [
+      {
+        "questions": ["MCQ1", "MCQ2", "MQ1"],
+        "category": "School",
+        "progress": "Class Subjects",
+        "difficulty": 1
+      },
+      {
+        "questions": ["FC1", "FC2", "MQ1"],
+        "category": "Household Items",
+        "progress": "Kitchen Items",
+        "difficulty": 2
+      }
+    ],
+
+    "stories": [
+      {
+        "title": "El Perro Pequeño",
+        "content": {
+          "1": "Había una vez un perro pequeño llamado Max.",
+          "2": "Max amaba jugar en el parque y perseguir mariposas."
+        },
+        "language": "f521f865-1d38-481b-809c-8715e77512f8",
+        "keyVocab": "WordList1",
+        "comprehensionQuestions": ["MCQ1", "MCQ2"],
+        "numPages": 2
+      },
+      {
+        "title": "El Gato Curioso",
+        "content": {
+          "1": "Había una vez un gato curioso llamado Felix.",
+          "2": "Felix disfrutaba subir a los árboles y perseguir ratones."
+        },
+        "language": "f521f865-1d38-481b-809c-8715e77512f8",
+        "keyVocab": "WordList2",
+        "comprehensionQuestions": ["MQ1", "MQ2"],
+        "numPages": 2
+      }
+    ],
+
+    "progress": [
+      {
+        "categoryProgress": {
+          "School": 3
+        },
+        "lessonProgress": {
+          "Class Subjects": 2
+        }
+      },
+      {
+        "categoryProgress": {
+          "Household Items": 5
+        },
+        "lessonProgress": {
+          "Kitchen Items": 4
+        }
+      }
+    ],
+
+    "settings": [
+      {
+        "notificationsEnabled": true,
+        "instance": "SettingsInstance1"
+      },
+      {
+        "notificationsEnabled": false,
+        "instance": "SettingsInstance2"
+      }
+    ],
+
+    "dictionary": [
+      {
+        "wordsLearned": ["Hola", "Gato", "Perro"],
+        "phrasesLearned": ["Buenos días", "¿Cómo estás?"]
+      },
+      {
+        "wordsLearned": ["Gracias", "Salud", "Búho"],
+        "phrasesLearned": ["Lo siento", "¿Cómo te llamas?"]
+      }
+    ],
+
+    "matching": [
+      {
+        "question": "Match the verbs to their definitions.",
+        "itemsToMatch": ["trabajar", "jugar", "comer"],
+        "correctMatches": {
+          "comer": "to eat",
+          "jugar": "to play or do",
+          "trabajar": "to work"
+        }
+      },
+      {
+        "question": "Match the words to their definitions.",
+        "itemsToMatch": ["el lápiz", "el carro", "Italy"],
+        "correctMatches": {
+          "el lapiz": "the pencil",
+          "el carro": "the car",
+          "la puerta": "the door"
+        }
+      }
+    ],
+    
+    "multipleChoice": [
+      {
+        "question": "What is the capital of Mexico?",
+        "answerChoices": ["Guadalajara", "Mexico City", "Tijuana", "Ciudad Juarez"],
+        "correctAnswer": 2
+      },
+      {
+        "question": "What is the Spanish word for to draw?",
+        "answerChoices": ["dibujar", "pintar", "producir", "recibir"],
+        "correctAnswer": 1
+      }
+    ]
+  }
+}
