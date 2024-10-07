@@ -1,4 +1,5 @@
 public class LanguageList {
+
     private languages List<Language>;
 
     public LanguageList() {
@@ -40,6 +41,4 @@ public class LanguageList {
     public void loadLanguages() {
 
     }
-
-
 }
