@@ -1,4 +1,6 @@
-public class WordList {
+import java.util.List;
+
+public class WordList extends Word {
     private List<Word> words;
 
     public WordList() {

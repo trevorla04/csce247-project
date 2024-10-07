@@ -1,5 +1,3 @@
-package speek.src.main.java.com.narriation;
-
 public class Word {
     private String word;
     private String definition;

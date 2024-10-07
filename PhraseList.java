@@ -1,5 +1,7 @@
-public class PhraseList {
-    private phrases List<Phrase>;
+import java.util.List;
+
+public class PhraseList extends Phrase {
+    private List<Phrase> phrases;
 
     public PhraseList() {
 

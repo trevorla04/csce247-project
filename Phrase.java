@@ -1,5 +1,3 @@
-package speek.src.main.java.com.narriation;
-
 import java.util.HashMap;
 
 public class Phrase {
