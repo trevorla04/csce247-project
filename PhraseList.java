@@ -14,15 +14,15 @@ public class PhraseList {
     }
 
     public Phrase getPhrase(int index) {
-
+        return null;
     }
 
     public Phrase findPhrase(String searchPhrase) {
-
+        return null;
     }
 
     public int getSize() {
-
+        return 0;
     }
 
     public void printPhrase() {
