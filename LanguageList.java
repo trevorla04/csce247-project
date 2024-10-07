@@ -15,11 +15,11 @@ public class LanguageList {
     }
 
     public Language getLanguage(int index) {
-
+        return null;
     }
 
     public Language findLanguage(String search) {
-
+        return null;
     }
 
     public void printLanguage() {
@@ -27,7 +27,7 @@ public class LanguageList {
     }
 
     public int getSize() {
-
+        return 0;
     }
 
     public void clear() {
