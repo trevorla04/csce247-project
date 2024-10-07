@@ -1,7 +1,7 @@
 package com.narriation;
 import java.util.ArrayList;
 
-public class DataLoader 
+public class DataLoader extends DataConstants
 {
     public ArrayList<Users> getUsers ()
     {

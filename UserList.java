@@ -1,4 +1,3 @@
-package com.narriation;
 import java.util.ArrayList;
 
 public class UserList 
