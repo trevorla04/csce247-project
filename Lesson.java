@@ -1,6 +1,4 @@
-package com.narriation;
-
-public class Lesson 
+public class Lesson
 {
     private List<Question> questions;
     private Category category;
