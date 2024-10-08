@@ -42,7 +42,7 @@ public class PhraseList extends Phrase {
 
     public void clear() {
         for (Phrase phrase : phrases)
-            System.out.println(phrase);
+            phrases.remove(phrase);
     }
 
     public void savePhrases() {
