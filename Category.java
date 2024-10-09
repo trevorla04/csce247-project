@@ -10,11 +10,22 @@ public class Category {
     public UUID uuid;  /** The unique identifier for the category. */
 
     /**
+     * Constructor to initialize a category with a name, language, and a UUID
+     * @param name the name of the category
+     * @param language the language asssociated with the category
+     */
+    public Category(String name, Language language) {
+        this.name = name;
+        this.language = language;
+        this.uuid = UUID.randomUUID();
+    }
+
+    /**
      * Sets the name of the category.
      * @param name the new name for the category
      */
     public void setName(String name) {
-        // Set name implementation
+        this.name = name;
     }
 
     /**
@@ -22,7 +33,7 @@ public class Category {
      * @return the name of the category
      */
     public String getName() {
-        // Get name implementation
+        return name;
     }
 
     /**
@@ -30,7 +41,7 @@ public class Category {
      * @param language the new language for the category
      */
     public void setLanguage(Language language) {
-        // Set language implementation
+        this.language = language;
     }
 
     /**
@@ -38,6 +49,14 @@ public class Category {
      * @return the language of the category
      */
     public Language getLanguage() {
-        // Get language implementation
+        return language;
+    }
+
+    /**
+     * Returns the unique identifier of the category
+     * @return the UUID of the category
+     */
+    public UUID getUUID() {
+        return uuid;
     }
 }

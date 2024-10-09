@@ -35,6 +35,7 @@ public class DataWriter extends DataConstants {
 
     /**
      * Saves a LanguageApplication instance to a specified file.
+     * 
      * @param learningToSave the LanguageApplication object to be saved
      * @return true if the learning data was successfully saved; false otherwise
      */

@@ -24,7 +24,12 @@ public class Story {
      * @param comprehensionQuestions a list of questions for comprehension
      */
     public Story(String title, HashMap<Integer, String> content, Language language, WordList keyVocab, List<Question> comprehensionQuestions) {
-        // Constructor implementation
+        this.title = title;
+        this.content = content;
+        this.language = language;
+        this.keyVocab = keyVocab;
+        this.comprehensionQuestions = comprehensionQuestions;
+        this.numPages = content.size();
     }
 
     /**
@@ -32,7 +37,7 @@ public class Story {
      * @return the title of the story
      */
     public String getTitle() {
-        // Get title implementation
+        return title;
     }
 
     /**
@@ -40,7 +45,7 @@ public class Story {
      * @param title the new title for the story
      */
     public void setTitle(String title) {
-        // Set title implementation
+        this.title = title;
     }
 
     /**
@@ -48,7 +53,7 @@ public class Story {
      * @return a map of page numbers to content strings
      */
     public HashMap<Integer, String> getContent() {
-        // Get content implementation
+        return content;
     }
 
     /**
@@ -57,7 +62,8 @@ public class Story {
      * @param content the content string for the specified page
      */
     public void setContent(int pageNumber, String content) {
-        // Set content implementation
+        this.content.put(pageNumber, content);
+        this.numPages = Math.max(this.numPages, pageNumber);
     }
 
     /**
@@ -65,7 +71,7 @@ public class Story {
      * @return the language of the story
      */
     public Language getLanguage() {
-        // Get language implementation
+        return language;
     }
 
     /**
@@ -73,7 +79,7 @@ public class Story {
      * @param language the new language for the story
      */
     public void setLanguage(Language language) {
-        // Set language implementation
+        this.language = language;
     }
 
     /**
@@ -81,7 +87,7 @@ public class Story {
      * @return the key vocabulary
      */
     public WordList getKeyVocab() {
-        // Get key vocabulary implementation
+        return keyVocab;
     }
 
     /**
@@ -89,7 +95,7 @@ public class Story {
      * @param keyVocab the key vocabulary to be added
      */
     public void addKeyVocab(WordList keyVocab) {
-        // Add key vocabulary implementation
+        this.keyVocab.addAll(keyVocab);
     }
 
     /**
@@ -97,7 +103,7 @@ public class Story {
      * @return a list of comprehension questions
      */
     public List<Question> getComprehensionQuestions() {
-        // Get comprehension questions implementation
+        return comprehensionQuestions;
     }
 
     /**
@@ -105,7 +111,7 @@ public class Story {
      * @param question the question to be added
      */
     public void addComprehensionQuestion(Question question) {
-        // Add comprehension question implementation
+        comprehensionQuestions.add(question);
     }
 
     /**
@@ -113,6 +119,8 @@ public class Story {
      * @return a string containing the title and other story details
      */
     public String toString() {
-        // String representation implementation
+        StringBuilder sb = new StringBuilder();
+        sb.append("Title: ").append(title).append("\n").append("Language: ").append(language).append("\n").append("Number of Pages: ").append(numPages).append("\n").append("Key Vocabulary: ").append(keyVocab).append("\n").append("Comprehension Questions: ").append(comprehensionQuestions).append("\n");
+        return sb.toString();
     }
 }

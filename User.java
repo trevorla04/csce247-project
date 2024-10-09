@@ -25,7 +25,12 @@ public class User {
      * @param password the password of the user
      */
     public void User(String username, String email, String password) {
-        // Constructor implementation
+        this.username = username;
+        this.email = email;
+        this.password = password;
+        this.friendsList = new ArrayList<>();
+        this.languageProgress = new ArrayList<>();
+        this.uuid = UUID.randomUUID();
     }
 
     /**
@@ -40,7 +45,7 @@ public class User {
      * @return true if the login is valid; false otherwise
      */
     public boolean validLogin() {
-        // Login validation implementation
+        return this.email.equals(inputEmail) && this.password.equals(inputPassword);
     }
 
     /**
@@ -56,7 +61,11 @@ public class User {
      * @return a message indicating the result of the operation
      */
     public String addFriend(User user) {
-        // Friend addition implementation
+        if(friendsList.contain(user)) {
+            return "User is already in your friends list.";
+        }
+        friendsList.add(user);
+        return "User added as a friend.";
     }
 
     /**
@@ -64,7 +73,7 @@ public class User {
      * @return a referral message or code
      */
     public String refer() {
-        // Referral implementation
+        return "Referral code: "+UUID.randomUUID().toString();
     }
 
     /**
@@ -72,7 +81,8 @@ public class User {
      * @return a map of categories to the user's progress
      */
     public HashMap<Category, Integer> checkCategoryProgress() {
-        // Category progress check implementation
+        HashMap<Category, Integer> progressMap = new HashMap<>();
+        return progressMap;
     }
 
     /**
@@ -80,7 +90,8 @@ public class User {
      * @return a map of lessons to the user's progress
      */
     public HashMap<Lesson, Integer> checkLessonProgress() {
-        // Lesson progress check implementation
+        HashMap<Category, Integer> lessonProgressMap = new HashMap<>();
+        return lessonProgressMap;
     }
 
     /**
@@ -88,7 +99,7 @@ public class User {
      * @param pfp the new profile picture
      */
     public void setProfilePicture(Image pfp) {
-        // Set profile picture implementation
+        this.profilePicture = pfp;
     }
 
     /**
