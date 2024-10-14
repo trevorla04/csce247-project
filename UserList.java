@@ -44,6 +44,10 @@ public class UserList
         return users;
     }
 
+    public void clear() {
+        users.clear();
+    }
+
     public void saveUsers ()
     {
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("users.dat"))) 
