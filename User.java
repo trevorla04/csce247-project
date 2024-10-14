@@ -111,4 +111,34 @@ public class User {
     public void saveUser() {
         // User saving implementation
     }
+
+    public String getEamil ()
+    {
+        return email;
+    }
+
+    public String getPassword ()
+    {
+        return password;
+    }
+
+    public String getBio ()
+    {
+        return bio;
+    }
+
+    public List <User> getFriendsList ()
+    {
+        return friendsList;
+    }
+
+    public List <Progress> getLanguageProgress ()
+    {
+        return languageProgress;
+    }
+
+    public UUID getUIID ()
+    {
+        return uuid;
+    }
 }
