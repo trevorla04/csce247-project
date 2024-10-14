@@ -1,3 +1,5 @@
+import java.util.HashMap;
+
 public class Word {
     private String word;
     private String definition;
@@ -43,7 +45,7 @@ public class Word {
         // Unsure as to what this does?
         //TODO: Method Stub
     }
-    public void removeTranslation(Language){
+    public void removeTranslation(Language language){
         //TODO: Method Stub
     }
     
@@ -52,7 +54,7 @@ public class Word {
         //TODO: Method Stub
     }
     
-    public boolean equals(Word){
+    public boolean equals(Word word) {
         //TODO: Method Stub
     }
     

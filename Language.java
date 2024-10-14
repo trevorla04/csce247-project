@@ -6,15 +6,15 @@ public class Language {
     public String abbreviation;
     private WordList wordList;
     private PhraseList phraseList;
-    private List<Lesons> lessons;
+    private List<Lesson> lessons;
     private Progress currentProgress;
     private UUID uuid;
     
     // Now the reverse issue, these dont have data types.
-    public Language(String name, String abbreviation, WordList wordList, PhraseList phraseList, List<Lessons> lessons){
+    public Language(String name, String abbreviation, WordList wordList, PhraseList phraseList, List<Lesson> lessons){
         //TODO: Method Stub
     }
-    public void addWord(String){
+    public void addWord(String word) {
         //TODO: Method Stub
     }
     public void addLesson(Lesson lesson){

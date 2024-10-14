@@ -30,11 +30,11 @@ public class LanguageApplication {
         //TODO: Method Stub
     }
     
-    public addLanguage(String pleaseNameYourVariablesInTheUMLNextTime, String iDontKnowWhatTheseAreFor){
+    public void addLanguage(String pleaseNameYourVariablesInTheUMLNextTime, String iDontKnowWhatTheseAreFor){
         //TODO: Method Stub
     }
     
-    public addLesson(String unknownName, Lesson lesson){
+    public void addLesson(String unknownName, Lesson lesson){
         //TODO: Method Stub
     }
     public void addWordToLanguage(String language, Word word){
@@ -59,7 +59,7 @@ public class LanguageApplication {
     public void addWord(Word word){
         //TODO: Method Stub
     }
-    public addPhrase(Phrase phrase){
+    public void addPhrase(Phrase phrase){
         //TODO: Method Stub
     }
     public Word getWordOfTheDay(){
@@ -68,7 +68,7 @@ public class LanguageApplication {
     public void saveAllLanguages(){
         //TODO: Method Stub
     }
-    public loadAllLanguages(){
+    public void loadAllLanguages(){
         //TODO: Method Stub
     }
     

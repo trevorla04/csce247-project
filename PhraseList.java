@@ -2,15 +2,23 @@ import java.util.List;
 import java.util.ArrayList;
 
 public class PhraseList extends Phrase {
+    private static PhraseList phraseList;
     private List<Phrase> phrases;
 
     public PhraseList() {
         phrases = new ArrayList<Phrase>();
     }
 
+    public static PhraseList getInstance() {
+        if (phraseList == null) {
+            phraseList = new PhraseList();
+        }
+        return phraseList;
+    }
+
     public void addPhrase(Phrase phrase) {
         if (!phrases.contains(phrase))
-            phrases.add(phrase)
+            phrases.add(phrase);
     }
 
     public void removePhrase(Phrase phrase) {

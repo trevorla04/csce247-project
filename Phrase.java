@@ -49,7 +49,7 @@ public class Phrase {
     public String toString(){
         //TODO: Method Stub
     }
-    public boolean equals(Phrase){
+    public boolean equals(Phrase phrase){
         //TODO: Method Stub
     }
     
