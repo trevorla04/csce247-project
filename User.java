@@ -112,7 +112,7 @@ public class User {
         // User saving implementation
     }
 
-    public String getEamil ()
+    public String getEmail ()
     {
         return email;
     }
@@ -137,7 +137,7 @@ public class User {
         return languageProgress;
     }
 
-    public UUID getUIID ()
+    public UUID getUUID ()
     {
         return uuid;
     }
