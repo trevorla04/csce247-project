@@ -28,7 +28,7 @@ public class Phrase {
     public String getTranslation(Language language) {
         //TODO: Method Stub
     }
-    public void addTranslations(String phrase, String unknown) {
+    public void addTranslations(String language, String unknown) {
         // What is the unknown for?
         //TODO: Method Stub
     }
@@ -42,9 +42,6 @@ public class Phrase {
     public void setDefinition(String definition){
         //TODO: Method Stub
     }
-    
-    
-    
     
     public String toString(){
         //TODO: Method Stub
