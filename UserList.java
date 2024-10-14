@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 public class UserList 
 {
-    private UserList userList;
+    private static UserList userList;
     private ArrayList<User> users;
 
     private UserList ()
@@ -15,7 +15,7 @@ public class UserList
         users = new ArrayList<>();
     }
 
-    public UserList getInstance ()
+    public static UserList getInstance ()
     {
         if (userList == null) 
         {
@@ -29,18 +29,6 @@ public class UserList
         for (User user : users) 
         {
             if (user.getUsername().equalsIgnoreCase(s))
-            {
-                return user;
-            }
-        }
-        return null;
-    }
-
-    public User getUser (String s, String x)
-    {
-        for (User user : users) 
-        {
-            if (user.getUsername(s).equals(x)) 
             {
                 return user;
             }

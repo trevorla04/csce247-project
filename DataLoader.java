@@ -3,15 +3,15 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.UUID;
-import java.util.ArrayList;
-import org.json.JSONObject;
-import org.json.JSONArray;
+import org.json.*;
+
+
 
 public class DataLoader extends DataConstants
 {
-    public static ArrayList<User> loadUsers() 
+    public static ArrayList<User> loadUsers()
     {
-        users = new ArrayList<User>();
+        UserList users = UserList.getInstance();
 
         try 
         {
@@ -28,7 +28,7 @@ public class DataLoader extends DataConstants
                     String type = (String) userJSON.get(USER_TYPE);
                     String email = (String) userJSON.get(USER_EMAIL);
                     User aU = new User(userName, email, password);
-                    users.add(aU);
+                    users.addUser(aU);
                 }
             }
             reader.close();
