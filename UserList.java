@@ -36,6 +36,10 @@ public class UserList
         return null;
     }
 
+    public void addUser(User user) {
+        users.add(user);
+    }
+
     public void saveUsers ()
     {
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("users.dat"))) 

@@ -9,7 +9,7 @@ import org.json.*;
 
 public class DataLoader extends DataConstants
 {
-    public static ArrayList<User> loadUsers()
+    public static UserList loadUsers()
     {
         UserList users = UserList.getInstance();
 
@@ -25,7 +25,6 @@ public class DataLoader extends DataConstants
                     String password = (String) userJSON.get(USER_PASSWORD);
                     String userName = (String) userJSON.get(USER_USERNAME);
                     UUID userID = UUID.fromString((String) userJSON.get(USER_ID));
-                    String type = (String) userJSON.get(USER_TYPE);
                     String email = (String) userJSON.get(USER_EMAIL);
                     User aU = new User(userName, email, password);
                     users.addUser(aU);
