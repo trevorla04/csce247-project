@@ -40,6 +40,10 @@ public class UserList
         users.add(user);
     }
 
+    public ArrayList<User> getAllUsers() {
+        return users;
+    }
+
     public void saveUsers ()
     {
         try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("users.dat"))) 

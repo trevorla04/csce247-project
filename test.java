@@ -4,7 +4,7 @@ import java.util.UUID;
 public class test {
     public static void main(String[] args) {
         // Load users from the JSON file
-        ArrayList<User> users = DataLoader.loadUsers();
+        UserList users = DataLoader.loadUsers();
 
         // Check if users were loaded successfully
         if (users != null) {
