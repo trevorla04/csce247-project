@@ -23,9 +23,9 @@ public class LanguageList {
     }
 
     public Language findLanguage(String search) {
-        for (int i = 0; i < languages.size(); i++) {
-            if (languages.get(i).) {
-                return languages.get(i);
+        for (Language language : languages) {
+            if (language.getName().equalsIgnoreCase(search)) {
+                return language;
             }
         }
         return null;

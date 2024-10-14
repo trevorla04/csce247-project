@@ -3,18 +3,37 @@ import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
-public class DataWriter {
-    
-    private ObjectMapper objectMapper = new ObjectMapper();
+public class DataWriter extends DataConstants
+{
+    private ObjectMapper objectMapper;
 
-    public boolean writeUsersToJson(List<User> users, String filePath) 
+    public DataWriter() 
+    {
+        this.objectMapper = new ObjectMapper(); 
+    }
+
+    public boolean saveUsers (ArrayList<User> users) //thought maybe we should add this paramater??
     {
         try 
         {
-            objectMapper.writeValue(new File(filePath), users);
+            objectMapper.writeValue(new File(/*file name??*/), users);
             return true; 
         } 
-        catch (IOException e) 
+        catch (Exception e) 
+        {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public boolean saveLearning (LanguageApplication learningToSave) //this one too
+    {
+        try 
+        {
+            objectMapper.writeValue(new File(USER_FILE_NAME.replace(/*file name??*/)), learningToSave);
+            return true; 
+        } 
+        catch (Exception e) 
         {
             e.printStackTrace();
             return false; 

@@ -1,9 +1,10 @@
-public class Lesson
+
 import java.util.ArrayList;
 import java.util.Dictionary;
 import java.util.List;
 import java.util.Locale.Category;
-{
+
+public class Lesson {
     private List<Question> questions;
     private Category category;
     private Progress progress;

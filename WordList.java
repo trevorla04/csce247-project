@@ -23,10 +23,9 @@ public class WordList extends Word {
     }
 
     public Word findWord(String searchWord) {
-        for (int i = 0; i < words.size(); i++) {
-            if (words.get(i).getWord().contains(searchWord)) {
-                return words.get(i);
-            }
+        for (Word word : words) {
+            if (word.getWord().equalsIgnoreCase(searchWord))
+                return word;
         }
         return null;
     }

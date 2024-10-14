@@ -7,35 +7,31 @@ import java.util.ArrayList;
 
 public class DataLoader extends DataConstants
 {
-    public static ArrayList<User> loadUsers() 
-    {
-        users = new ArrayList<User>();
+    private ObjectMapper objectMapper; //not too familiar with this class. discovered it when researching how to write json files.
 
+    public DataLoader() 
+    {
+        this.objectMapper = new ObjectMapper(); 
+    }
+
+    public ArrayList<Users> getUsers ()
+    {
         try 
         {
-            FileReader reader = new FileReader("users.json");
-            JSONArray usersJSON = (JSONArray) new JSONParser().parse(reader);
+            return objectMapper.readValue(new File(/*file name?? */), new TypeReference<ArrayList<User>>() {});
+        } 
+        catch (Exception e) 
+        {
+            e.printStackTrace();
+            return new ArrayList<>(); 
+        }
+    }
 
-            for (int i = 0; i < usersJSON.size(); i++) 
-            {
-                JSONObject userJSON = (JSONObject) usersJSON.get(i);
-                if (userJSON != null) 
-                {
-                    String phoneNumber = (String) userJSON.get(USER_PHONE_NUMBER);
-                    String firstName = (String) userJSON.get(USER_FIRST_NAME);
-                    String lastName = (String) userJSON.get(USER_LAST_NAME);
-                    String password = (String) userJSON.get(USER_PASSWORD);
-                    String userName = (String) userJSON.get(USER_USERNAME);
-                    UUID userID = UUID.fromString((String) userJSON.get(USER_ID));
-                    String type = (String) userJSON.get(USER_TYPE);
-                    String email = (String) userJSON.get(USER_EMAIL);
-                    User aU = new User(userID, firstName, lastName, userName, password, email, phoneNumber, type);
-                    users.add(aU);
-                }
-            }
-            reader.close();
-            return users;
-
+    public LanguageApplication getLearning ()
+    {
+        try 
+        {  
+            return objectMapper.readValue(new File(/*file name?? */)), LanguageApplication.class);
         } 
         catch (Exception e) 
         {
