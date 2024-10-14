@@ -1,6 +1,7 @@
 import java.util.List;
 import java.util.UUID;
 import java.util.HashMap;
+import java.util.ArrayList;
 
 /**
  * Represents a user in the application.
@@ -14,7 +15,7 @@ public class User {
     private String password;  /** The password of the user. */
     public String bio;  /** The bio of the user. */
     private List<User> friendsList;  /** The list of friends associated with the user. */
-    public Image profilePicture;  /** The profile picture of the user. */
+    //public Image profilePicture;  /** The profile picture of the user. */
     private List<Progress> languageProgress;  /** The progress of the user in various languages. */
     private UUID uuid;  /** The unique identifier for the user. */
 
@@ -24,7 +25,7 @@ public class User {
      * @param email the email address of the user
      * @param password the password of the user
      */
-    public void User(String username, String email, String password) {
+    public User(String username, String email, String password) {
         this.username = username;
         this.email = email;
         this.password = password;
@@ -44,7 +45,7 @@ public class User {
      * Validates the user's login credentials.
      * @return true if the login is valid; false otherwise
      */
-    public boolean validLogin() {
+    public boolean validLogin(String inputEmail, String inputPassword) {
         return this.email.equals(inputEmail) && this.password.equals(inputPassword);
     }
 
@@ -61,7 +62,7 @@ public class User {
      * @return a message indicating the result of the operation
      */
     public String addFriend(User user) {
-        if(friendsList.contain(user)) {
+        if(friendsList.contains(user)) {
             return "User is already in your friends list.";
         }
         friendsList.add(user);
@@ -90,7 +91,7 @@ public class User {
      * @return a map of lessons to the user's progress
      */
     public HashMap<Lesson, Integer> checkLessonProgress() {
-        HashMap<Category, Integer> lessonProgressMap = new HashMap<>();
+        HashMap<Lesson, Integer> lessonProgressMap = new HashMap<>();
         return lessonProgressMap;
     }
 
@@ -98,8 +99,10 @@ public class User {
      * Sets the profile picture for the user.
      * @param pfp the new profile picture
      */
-    public void setProfilePicture(Image pfp) {
-        this.profilePicture = pfp;
+    //public void setProfilePicture(Image pfp) { this.profilePicture = pfp; }
+
+    public String getUsername() {
+        return username;
     }
 
     /**

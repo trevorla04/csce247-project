@@ -1,11 +1,11 @@
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.UUID;
 import java.util.ArrayList;
+import org.json.JSONObject;
+import org.json.JSONArray;
 
 public class DataLoader extends DataConstants
 {
@@ -22,15 +22,12 @@ public class DataLoader extends DataConstants
             {
                 JSONObject userJSON = (JSONObject) usersJSON.get(i);
                 if (userJSON != null) {
-                    String phoneNumber = (String) userJSON.get(USER_PHONE_NUMBER);
-                    String firstName = (String) userJSON.get(USER_FIRST_NAME);
-                    String lastName = (String) userJSON.get(USER_LAST_NAME);
                     String password = (String) userJSON.get(USER_PASSWORD);
                     String userName = (String) userJSON.get(USER_USERNAME);
                     UUID userID = UUID.fromString((String) userJSON.get(USER_ID));
                     String type = (String) userJSON.get(USER_TYPE);
                     String email = (String) userJSON.get(USER_EMAIL);
-                    User aU = new User(userID, firstName, lastName, userName, password, email, phoneNumber, type);
+                    User aU = new User(userName, email, password);
                     users.add(aU);
                 }
             }

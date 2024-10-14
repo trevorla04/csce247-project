@@ -28,7 +28,7 @@ public class UserList
     {
         for (User user : users) 
         {
-            if (user.getUsername().equals(username)) 
+            if (user.getUsername().equalsIgnoreCase(s))
             {
                 return user;
             }
