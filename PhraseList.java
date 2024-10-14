@@ -24,10 +24,9 @@ public class PhraseList extends Phrase {
     }
 
     public Phrase findPhrase(String searchPhrase) {
-        for (int i = 0; i < phrases.size(); i++) {
-            if (phrases.get(i).phrase.contains(searchPhrase)) {
-                return phrases.get(i);
-            }
+        for (Phrase phrase: phrases) {
+            if(phrase.getPhrase().equalsIgnoreCase(searchPhrase))
+                return phrase;
         }
         return null;
     }

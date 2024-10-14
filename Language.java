@@ -23,6 +23,9 @@ public class Language {
     public Progress calculateProgress(){
         //TODO: Method Stub
     }
+    public String getName() {
+        return name;
+    }
 
 }
 
