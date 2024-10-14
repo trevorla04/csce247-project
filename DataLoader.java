@@ -3,18 +3,14 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.UUID;
-import org.json.*;
+import org.json.simple.*;
+import org.json.simple.parser.JSONParser;
 
-
-
-public class DataLoader extends DataConstants
-{
-    public static UserList loadUsers()
-    {
+public class DataLoader extends DataConstants {
+    public static UserList loadUsers()  {
         UserList users = UserList.getInstance();
 
-        try 
-        {
+        try {
             FileReader reader = new FileReader("users.json");
             JSONArray usersJSON = (JSONArray) new JSONParser().parse(reader);
 
@@ -24,7 +20,7 @@ public class DataLoader extends DataConstants
                 if (userJSON != null) {
                     String password = (String) userJSON.get(USER_PASSWORD);
                     String userName = (String) userJSON.get(USER_USERNAME);
-                    UUID userID = UUID.fromString((String) userJSON.get(USER_ID));
+                    UUID userID = UUID.fromString((String) userJSON.get(USER_UUID));
                     String email = (String) userJSON.get(USER_EMAIL);
                     User aU = new User(userName, email, password);
                     users.addUser(aU);
@@ -34,8 +30,7 @@ public class DataLoader extends DataConstants
             return users;
 
         } 
-        catch (Exception e) 
-        {
+        catch (Exception e) {
             e.printStackTrace();
         }
 
