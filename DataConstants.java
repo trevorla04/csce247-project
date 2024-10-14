@@ -1,6 +1,6 @@
 public class DataConstants 
 {
-    protected static final String USER_FILE_NAME = (System.getProperty("os.name").equals("Linux")
+    protected static final String USER_FILE_NAME = (System.getProperty("os.name").equals("Linux") 
     ? "./demo/src/main/java/data/user.json"
     : ".\\demo\\src\\main\\java\\data\\user.json");
     protected static final String USER = "user";

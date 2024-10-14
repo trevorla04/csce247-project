@@ -73,7 +73,7 @@ import java.util.Locale.Category;
 
     public void exitStory() 
     {
-        //TODO, unsire on meaning of story
+        //TODO, unsure on meaning of story
     }
 
     public void startLesson() 
