@@ -4,11 +4,7 @@ import java.util.List;
 public class test {
 
     public static void main(String[] args) {
-        testDataLoaderWriter();
-
-    }
-
-    public static void testDataLoaderWriter() {
+        // Testing DataLoader & DataWriter
         User user1 = new User("john_doe", "john@example.com", "password123");
         User user2 = new User("jane_smith", "jane@example.com", "securepassword");
         User user3 = new User("alice_wonder", "alice@example.com", "alice1234");
@@ -32,6 +28,7 @@ public class test {
         } else {
             System.out.println("Failed to load users from JSON file.");
         }
+
     }
 
     public static void testValidLogin() {
