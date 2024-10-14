@@ -29,6 +29,13 @@ public class test {
             System.out.println("Failed to load users from JSON file.");
         }
 
+        // Testing valid login
+        System.out.println("Testing user1's valid login: " + user1.validLogin("john@example.com",
+                "password123"));
+
+        // Testing valid add user
+        System.out.println("Testing adding a valid user: " +);
+
     }
 
     public static void testValidLogin() {

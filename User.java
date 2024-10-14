@@ -37,8 +37,20 @@ public class User {
     /**
      * Creates a new account for the user.
      */
-    public void createAccount() {
-        // Account creation implementation
+    public boolean createAccount(String username, String email, String password) {
+        UserList userList = UserList.getInstance();
+
+        for (User user : userList.getAllUsers()) {
+            if (user.getEmail().equals(email)) {
+                System.out.println("Email already exists.");
+                return false;
+            }
+        }
+
+        User newUser = new User(username, email, password);
+        userList.addUser(newUser);
+        System.out.println("New user created with username: " + newUser.getUsername());
+        return true;
     }
 
     /**
