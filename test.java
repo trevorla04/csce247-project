@@ -9,7 +9,7 @@ public class test {
         // Check if users were loaded successfully
         if (users != null) {
             System.out.println("Loaded Users:");
-            for (User user : users) {
+            for (User user : users.getAllUsers()) {
                 System.out.println(user); // Assuming User has a toString() method
             }
         } else {
