@@ -1,6 +1,7 @@
 import java.util.List;
 
 public class LanguageApplication {
+    private static LanguageApplication languageApplication;
     private UserList userList;
     private User currentUser;
     private Language currentLanguage;
@@ -20,25 +21,9 @@ public class LanguageApplication {
         this.languageList = languageList;
     }
 
-    public static LanguageApplication getInstance ()
-    {
-        if (LanguageApplication == null) 
-        {
-            LanguageApplication = new LanguageApplication();
-        }
-        return LanguageApplication;
-    }
     // This UML really needs to name the variables
     public User createAccount(String username, String email, String password){
-<<<<<<< HEAD
         return User.createAccount(username, email, password);
-        
-=======
-        //TODO: Method Stub
-        User user = new User(username, email, password);
-        // How to add user?
-
->>>>>>> ca30b45365003a9a9c27b0a8694338cbb8268039
     }
     
     public User login(String username, String password){
