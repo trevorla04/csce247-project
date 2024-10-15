@@ -37,7 +37,7 @@ public class User {
     /**
      * Creates a new account for the user.
      */
-    public boolean createAccount(String username, String email, String password) {
+    public static boolean createAccount(String username, String email, String password) {
         UserList userList = UserList.getInstance();
 
         for (User user : userList.getAllUsers()) {

@@ -1,7 +1,6 @@
 import java.util.List;
 
 public class LanguageApplication {
-    private static LanguageApplication languageApplication;
     private UserList userList;
     private User currentUser;
     private Language currentLanguage;
@@ -22,8 +21,9 @@ public class LanguageApplication {
     }
 
     // This UML really needs to name the variables
-    public User createAccount(String username, String email, String password){
-        return User.createAccount(username, email, password);
+    public User createAccount(String username, String email, String password) {
+        User.createAccount(username, email, password);
+        return currentUser = userList.getUser(username);
     }
     
     public User login(String username, String password){
