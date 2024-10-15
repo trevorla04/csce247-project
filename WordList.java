@@ -2,11 +2,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class WordList extends Word {
-    private List<Word> words;
+    private static WordList words;
+    private ArrayList<Word> wordList;
 
     public WordList() {
-        this.words = new ArrayList<>();
+        wordList = new ArrayList<>();
     }
+
+    public static WordList getInstance ()
+    {
+        if (words == null)
+        {
+            words = new WordList();
+        }
+        return words;
+    }
+
 
     public void addWord(Word word) {
         if (!words.contains(word))

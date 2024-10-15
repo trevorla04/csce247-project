@@ -83,47 +83,6 @@
       }
     ],
 
-    "progress": [
-      {
-        "categoryProgress": {
-          "School": 3
-        },
-        "lessonProgress": {
-          "Class Subjects": 2
-        }
-      },
-      {
-        "categoryProgress": {
-          "Household Items": 5
-        },
-        "lessonProgress": {
-          "Kitchen Items": 4
-        }
-      }
-    ],
-
-    "settings": [
-      {
-        "notificationsEnabled": true,
-        "instance": "SettingsInstance1"
-      },
-      {
-        "notificationsEnabled": false,
-        "instance": "SettingsInstance2"
-      }
-    ],
-
-    "dictionary": [
-      {
-        "wordsLearned": ["Hola", "Gato", "Perro"],
-        "phrasesLearned": ["Buenos días", "¿Cómo estás?"]
-      },
-      {
-        "wordsLearned": ["Gracias", "Salud", "Búho"],
-        "phrasesLearned": ["Lo siento", "¿Cómo te llamas?"]
-      }
-    ],
-
     "matching": [
       {
         "question": "Match the verbs to their definitions.",

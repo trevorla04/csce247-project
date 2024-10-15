@@ -22,7 +22,7 @@ public class DataWriter extends DataConstants
             usersJSON.add(userJSON);
         }
 
-        try (FileWriter file = new FileWriter("users.json")) {
+        try (FileWriter file = new FileWriter(USER_FILE_NAME)) {
             file.write(usersJSON.toJSONString());
             file.flush();
         } catch (IOException e) {
