@@ -29,10 +29,7 @@ public class LanguageApplication {
         //TODO: Method Stub
         User user = new User(username, email, password);
         // How to add user?
-        
-        
-        
-        
+
     }
     
     public User login(String username, String password){

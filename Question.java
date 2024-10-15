@@ -1,4 +1,4 @@
-public interface Question{
+public interface Question {
 
     String getType();
 

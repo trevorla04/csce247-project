@@ -11,7 +11,7 @@ public class DataLoader extends DataConstants {
         UserList users = UserList.getInstance();
 
         try {
-            FileReader reader = new FileReader("users.json");
+            FileReader reader = new FileReader(USER_FILE_NAME);
             JSONArray usersJSON = (JSONArray) new JSONParser().parse(reader);
 
             for (int i = 0; i < usersJSON.size(); i++) 

@@ -1,12 +1,17 @@
-
+import java.util.List;
+import java.util.UUID;
 public class MultipleChoice {
 
     private String question;
     private List<String> answerChoices;
-    private int correctAnswer;
+    private String correctAnswer;
+    private UUID uuid;
 
-    public MultipleChoice(String question, List<String> answerChoices, int correctAnswer) {
-  
+    public MultipleChoice(String question, List<String> answerChoices, String correctAnswer) {
+        this.question = question;
+        this.answerChoices = answerChoices;
+        this.correctAnswer = correctAnswer;
+        this.uuid = UUID.randomUUID();
     }
 
     public String getType() {
@@ -19,5 +24,9 @@ public class MultipleChoice {
 
     public boolean checkAnswer(String answer) {
       
+    }
+
+    public UUID getUuid() {
+        return uuid;
     }
 }
