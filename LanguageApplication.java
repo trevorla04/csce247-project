@@ -1,8 +1,7 @@
 import java.util.List;
 
 public class LanguageApplication {
-    private LanguageApplication instance;
-    private UserList userList = UserList.getInstance();
+    private UserList userList;
     private User currentUser;
     private Language currentLanguage;
     private Dictionary dictionary;
@@ -11,55 +10,43 @@ public class LanguageApplication {
     private Progress progress;
     private LanguageList languageList;
     
-    private LanguageApplication(){
-        //TODO: Method Stub
+    public LanguageApplication (UserList userlist, User currentUser, Language currentLanguage, Dictionary dictionary, List<Lesson> lessonList, Lesson currentLesson, Progress progress, LanguageList languageList) {
+        this.userList = userlist;
+        this.currentUser = currentUser;
+        this.currentLanguage = currentLanguage;
+        this.dictionary = dictionary;
+        this.lessonList = lessonList;
+        this.progress = progress;
+        this.languageList = languageList;
     }
-    public static LanguageApplication getInstance(){
-        if(instance == null){
-            instance = new LanguageApplication();
+
+    public static LanguageApplication getInstance ()
+    {
+        if (LanguageApplication == null) 
+        {
+            LanguageApplication = new LanguageApplication();
         }
-        return instance;
-        
-        
+        return LanguageApplication;
     }
-    
-    
     // This UML really needs to name the variables
     public User createAccount(String username, String email, String password){
-        //TODO: Method Stub
-        User user = new User(username, email, password);
-        // How to add user?
-        
-        
-        
+        return User.createAccount(username, email, password);
         
     }
     
     public User login(String username, String password){
-        //TODO: Method Stub
+        User newLogin = new User(username.)
     }
     
     public void logout(){
         //TODO: Method Stub
-        // Clean up user changes
-        
-        
-        
-        
-        
-        
-        currentUser = null;
-        
-        
-        
     }
     
     public void setLanguage(){
         //TODO: Method Stub
     }
     
-    public addLanguage(String name, String abbreviation){
-        Language language = new Language(name, abbreviation, new WordList(), new PhraseList(), new ArrayList<Lesson>);
+    public void addLanguage(String pleaseNameYourVariablesInTheUMLNextTime, String iDontKnowWhatTheseAreFor){
         //TODO: Method Stub
     }
     
