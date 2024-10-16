@@ -12,7 +12,7 @@ public class Lesson {
 
     public Lesson(List<Question> questions, Category category, int difficulty) 
     {
-        this.questions = new List<Question> ();
+        this.questions = new List<Question>();
         this.category = category;
         this.difficulty = difficulty;
     }
@@ -34,7 +34,7 @@ public class Lesson {
 
     public void goToNextLesson() 
     {
-        if (QuestionIndex < questions.size() - 1) 
+        if (QuestionIndex < questions.size() - 1)
         {
             //QuestionIndex++; need to see question class
         } 

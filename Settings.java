@@ -1,16 +1,13 @@
 public class Settings {
     private boolean notificationsEnabled;
-    private Settings instance;
     
-    private Settings(){
-        //TODO: Method Stub
+    private Settings(boolean notificationsEnabled) {
+        this.notificationsEnabled = notificationsEnabled;
     }
-    
-    public void enableNotifications(){
-        //TODO: Method Stub
+
+    public void toggleNotifications(){
+        notificationsEnabled = !notificationsEnabled;
     }
-    public static Settings getInstance(){
-        //TODO: Method Stub
-    } 
+
     
 }
