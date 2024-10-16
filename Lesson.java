@@ -39,7 +39,7 @@ public class Lesson {
         if(currentQuestionIndex < questions.size()-1)
         {
             currentQuestionIndex ++;
-            questions(currentQuestionIndex).askQuestion();
+            questions.get(currentQuestionIndex).askQuestion();
         }
         else
         {
