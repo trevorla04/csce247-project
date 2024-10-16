@@ -12,16 +12,20 @@ public class Language {
     
     // Now the reverse issue, these dont have data types.
     public Language(String name, String abbreviation, WordList wordList, PhraseList phraseList, List<Lesson> lessons){
-        //TODO: Method Stub
+        this.name = name;
+        this.abbreviation = abbreviation;
+        this.wordList = wordList;
+        this.phraseList = phraseList;
+        this.lessons = lessons;
     }
-    public void addWord(String word) {
-        //TODO: Method Stub
+    public void addWord(Word word) {
+        wordList.addWord(word);
     }
     public void addLesson(Lesson lesson){
-        //TODO: Method Stub
+        lessons.add(lesson);
     }
     public Progress calculateProgress(){
-        //TODO: Method Stub
+        // TODO calc progress
     }
     public String getName() {
         return name;
