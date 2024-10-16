@@ -36,11 +36,7 @@ public class Lesson {
 
     public void goToNextQuestion() 
     {
-<<<<<<< HEAD
         if(currentQuestionIndex < questions.size()-1)
-=======
-        if (QuestionIndex < questions.size() - 1)
->>>>>>> 5bf72ead887c90bcc59b0b527c9c0546485773a8
         {
             currentQuestionIndex ++;
             questions(currentQuestionIndex).askQuestion();
@@ -48,6 +44,7 @@ public class Lesson {
         else
         {
             System.out.println("No more questions...");
+            //test
         }
     }
 
