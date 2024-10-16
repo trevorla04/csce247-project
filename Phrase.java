@@ -1,36 +1,39 @@
 import java.util.HashMap;
+import java.util.ArrayList;
 
 public class Phrase {
-    String phrase;
-    String definition;
-    Language language;
-    HashMap<Language,String> translations;
+    private String phrase;
+    private String definition;
+    private Language language;
+    private HashMap<Language, String> translations;
     
-    public Phrase(String phrase, String definition, String unknown){
-        //TODO: Method Stub
-        // What is the third string value for?
-        
+    public Phrase(String phrase, String definition, Language language, ArrayList<HashMap<String,String>> translations) {
+        this.phrase = phrase;
+        this.definition = definition;
+        this.language = language;
+        this.translations = translations != null ? translations : new HashMap<>();
     }
     public String getPhrase(){
-        //TODO: Method Stub
+        return phrase;
     }
     public void setPhrase(String phrase){
-        //TODO: Method Stub
+        if (phrase == null)
+            this.phrase = phrase;
     }
     
     public Language getLanguage(){
-        //TODO: Method Stub
+        return language;
     }
     
     public void setLanguage(Language language) {
-        //TODO: Method Stub
+        if (language == null)
+            this.language = language;
     }
     public String getTranslation(Language language) {
-        //TODO: Method Stub
+        translations.get
     }
-    public void addTranslations(String language, String unknown) {
-        // What is the unknown for?
-        //TODO: Method Stub
+    public void addTranslations(Language language, String phrase) {
+        translations.put(language, phrase);
     }
     public void removetranslation(Language language){
         //TODO: Method Stub
