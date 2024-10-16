@@ -9,12 +9,14 @@ public class Lesson {
     private Category category;
     private Progress progress;
     private int difficulty;
+    private int currentQuestionIndex;
 
     public Lesson(List<Question> questions, Category category, int difficulty) 
     {
         this.questions = new List<Question> ();
         this.category = category;
         this.difficulty = difficulty;
+        this.currentQuestionIndex = 0;
     }
 
     public void addQuestion(Question question) 
@@ -32,29 +34,31 @@ public class Lesson {
         System.out.println(question.toString());
     }
 
-    public void goToNextLesson() 
+    public void goToNextQuestion() 
     {
-        if (QuestionIndex < questions.size() - 1) 
+        if(currentQuestionIndex < questions.size()-1)
         {
-            //QuestionIndex++; need to see question class
-        } 
-        else 
+            currentQuestionIndex ++;
+            questions(currentQuestionIndex).askQuestion();
+        }
+        else
         {
-            System.out.println("No more questions!.");
+            System.out.println("No more questions...");
         }
     }
 
-    public void goToPreviousLesson() 
+    public void goToPreviousQuestion() 
     {
-        if (QuestionIndex > 0) 
+        if(currentQuestionIndex > 0)
         {
-            //QuestionIndex--; need to see question class
-
-        } 
-        else 
-        {
-            System.out.println("No previous questions!");
+            currentQuestionIndex --;
+            questions(currentQuestionIndex).askQuestion();
         }
+        else
+        {
+            System.out.println("No previous questions...");
+        }
+        
     }
 
     public void increaseDifficulty()
