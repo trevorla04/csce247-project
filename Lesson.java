@@ -53,7 +53,7 @@ public class Lesson {
         if(currentQuestionIndex > 0)
         {
             currentQuestionIndex --;
-            questions(currentQuestionIndex).askQuestion();
+            questions.get(currentQuestionIndex).askQuestion();
         }
         else
         {
