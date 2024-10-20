@@ -1,32 +1,28 @@
-import java.util.List;
-import java.util.UUID;
+import java.util.Arrays;
+import java.util.Scanner;
+
 public class MultipleChoice {
+    public static void main(String[] args) {
+        List<String> choices = Arrays.asList("Option A", "Option B", "Option C", "Option D");
+        MultipleChoice question = new MultipleChoice("What is the capital of France?", choices, 1); // Correct answer is Option B
 
-    private String question;
-    private List<String> answerChoices;
-    private String correctAnswer;
-    private UUID uuid;
+        question.askQuestion();
 
-    public MultipleChoice(String question, List<String> answerChoices, String correctAnswer) {
-        this.question = question;
-        this.answerChoices = answerChoices;
-        this.correctAnswer = correctAnswer;
-        this.uuid = UUID.randomUUID();
+        Scanner scanner = new Scanner(System.in);
+        int userAnswer = scanner.nextInt();
+
+        if (question.checkAnswer(userAnswer)) {
+            System.out.println("Correct!");
+        } else {
+            System.out.println("Incorrect.");
+        }
     }
 
-    public String getType() {
-        return "Multiple Choice";
+    private void askQuestion() {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 
-    public void askQuestion() {
-       
-    }
-
-    public boolean checkAnswer(String answer) {
-      
-    }
-
-    public UUID getUuid() {
-        return uuid;
+    private boolean checkAnswer(int userAnswer) {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 }

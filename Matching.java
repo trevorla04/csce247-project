@@ -1,19 +1,16 @@
-import java.util.List;
 import java.util.HashMap;
-import java.util.UUID;
+import java.util.List;
 
 public class Matching {
 
     private String question;
     private List<String> itemsToMatch;
     private HashMap<String, String> correctMatches;
-    private UUID uuid;
 
     public Matching(String question, List<String> itemsToMatch, HashMap<String, String> correctMatches) {
-      this.question = question;
-      this.itemsToMatch = itemsToMatch;
-      this.correctMatches = correctMatches;
-      this.uuid = UUID.randomUUID();
+        this.question = question;
+        this.itemsToMatch = itemsToMatch;
+        this.correctMatches = correctMatches;
     }
 
     public String getType() {
@@ -21,14 +18,30 @@ public class Matching {
     }
 
     public void askQuestion() {
-     
+        System.out.println(question);
+        for (String item : itemsToMatch) {
+            System.out.println(item);
+        }
+        System.out.println("Please provide your answers in the format 'item1:match1,item2:match2,...'");
     }
 
     public boolean checkAnswer(String answer) {
-        return false; // Temporary
-    }
+        String[] pairs = answer.split(",");
+        HashMap<String, String> userMatches = new HashMap<>();
 
-    public UUID getUuid() {
-        return uuid;
+        for (String pair : pairs) {
+            String[] items = pair.split(":");
+            if (items.length == 2) {
+                userMatches.put(items[0].trim(), items[1].trim());
+            }
+        }
+
+        // Check if user's matches are correct
+        for (String item : itemsToMatch) {
+            if (!userMatches.getOrDefault(item, "").equals(correctMatches.get(item))) {
+                return false; // One or more matches are incorrect
+            }
+        }
+        return true; // All matches are correct
     }
 }
