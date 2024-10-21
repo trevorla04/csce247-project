@@ -39,6 +39,18 @@ public class PhraseList extends Phrase {
         return null;
     }
 
+    public boolean contains(Phrase cWord) {
+        for (Phrase phrase : phrases)
+            if (phrases.contains(phrase)) {
+                return true;
+            }
+        return false;
+    }
+
+    public boolean isEmpty() {
+        return phrases.isEmpty();
+    }
+
     public int getSize() {
         return phrases.size();
     }
@@ -46,6 +58,7 @@ public class PhraseList extends Phrase {
     public void printPhrase(int index) {
         System.out.println(phrases.get(index));
     }
+
 
     public void clear() {
         for (Phrase phrase : phrases)
