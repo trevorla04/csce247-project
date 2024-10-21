@@ -53,7 +53,7 @@ public class WordList extends Word {
             words.remove(word);
     }
 
-    public boolean contains (String word)
+    public boolean contains (Word word)
     {
         
         for (Word w : wordList) 
