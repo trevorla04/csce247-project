@@ -18,7 +18,6 @@ public class WordList extends Word {
         return words;
     }
 
-
     public void addWord(Word word) {
         if (!words.contains(word))
             words.add(word);
@@ -49,16 +48,22 @@ public class WordList extends Word {
         System.out.println(words.get(index));
     }
 
-    public boolean contains(Word cWord) {
-        for (Word word : words)
-            if (words.getWord().equalsIgnoreCase(cWord.get)) {
-
-        }
-    }
-
     public void clear() {
         for (Word word : words)
             words.remove(word);
+    }
+
+    public boolean contains (String word)
+    {
+        
+        for (Word w : wordList) 
+        {
+            if (w.equals(word)) 
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
     public void saveWord() {
@@ -68,4 +73,5 @@ public class WordList extends Word {
     public void loadWord() {
 
     }
+
 }
