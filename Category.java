@@ -1,13 +1,16 @@
+import java.util.ArrayList;
 import java.util.UUID;
+import java.util.List;
 
 /**
  * Represents a category with a name, associated language, and a unique identifier.
  */
 public class Category {
     
-    public String name;  /** The name of the category. */
-    public Language language;  /** The language associated with the category. */
-    public UUID uuid;  /** The unique identifier for the category. */
+    private String name;  /** The name of the category. */
+    private Language language;  /** The language associated with the category. */
+    private List<Lesson> lessonList;
+    private UUID uuid;  /** The unique identifier for the category. */
 
     /**
      * Constructor to initialize a category with a name, language, and a UUID
@@ -18,6 +21,7 @@ public class Category {
         this.name = name;
         this.language = language;
         this.uuid = UUID.randomUUID();
+        this.lessonList = new ArrayList<Lesson>();
     }
 
     /**
@@ -58,5 +62,9 @@ public class Category {
      */
     public UUID getUUID() {
         return uuid;
+    }
+
+    public void addLesson(Lesson lesson) {
+        lessonList.add(lesson);
     }
 }

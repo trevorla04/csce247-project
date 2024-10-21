@@ -1,24 +1,24 @@
 public class Dictionary {
 
-    private List<String> wordsLearned;   
-    private List<String> phrasesLearned; 
+    private WordList wordsLearned;
+    private PhraseList phrasesLearned;
 
     public Dictionary() {
-        wordsLearned = new ArrayList<>();
-        phrasesLearned = new ArrayList<>();
+        wordsLearned = new WordList();
+        phrasesLearned = new PhraseList();
     }
 
     // Method to add a word to the dictionary
     public void addWord(String word) {
         if (word != null && !word.isEmpty()) {
-            wordsLearned.add(word);
+            wordsLearned.addWord(word);
         }
     }
 
     // Method to add a phrase to the dictionary
-    public void addPhrase(String phrase) {
+    public void addPhrase(Phrase phrase) {
         if (phrase != null && !phrase.isEmpty()) {
-            phrasesLearned.add(phrase);
+            phrasesLearned.addPhrase(phrase);
         }
     }
 

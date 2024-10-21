@@ -18,15 +18,24 @@ public class Language {
         this.phraseList = phraseList;
         this.lessons = lessons;
     }
+
     public void addWord(Word word) {
         wordList.addWord(word);
     }
+
+    public void addPhrase(Phrase phrase) {
+        phraseList.addPhrase(phrase);
+    }
+
     public void addLesson(Lesson lesson){
         lessons.add(lesson);
     }
+
     public Progress calculateProgress(){
         // TODO calc progress
+        return null;
     }
+
     public String getName() {
         return name;
     }

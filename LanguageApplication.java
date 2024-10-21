@@ -26,42 +26,65 @@ public class LanguageApplication {
         return currentUser = userList.getUser(username);
     }
     
-    public User login(String username, String password){
-        User newLogin = new User(username.)
+    public void login(String username, String password){
+        if (userList.getUser(username) != null && userList.getUser(username).getPassword().equals(password))
+            currentUser = userList.getUser(username);
+        else
+            System.out.println("Username or password is incorrect.");
     }
     
     public void logout(){
-        //TODO: Method Stub
+        userList.saveUsers();
+        userList.clear();
+        currentUser = null;
+        currentLanguage = null;
+        dictionary = null;
+        lessonList = null;
+        progress = null;
+        languageList = null;
     }
     
-    public void setLanguage(){
-        //TODO: Method Stub
+    public void setLanguage(Language language) {
+        this.currentLanguage = language;
     }
     
-    public void addLanguage(String pleaseNameYourVariablesInTheUMLNextTime, String iDontKnowWhatTheseAreFor){
-        //TODO: Method Stub
+    public void addLanguage(Language language) {
+        languageList.addLanguage(language);
     }
     
-    public void addLesson(String unknownName, Lesson lesson){
-        //TODO: Method Stub
+    public void addLesson(Category category, Lesson lesson) {
+        category.addLesson(lesson);
     }
-    public void addWordToLanguage(String language, Word word){
-        //TODO: Method Stub
+
+    public void addWordToLanguage(Language language, Word word) {
+        language.addWord(word);
     }
-    public void addPhraseToLanguage(String language, Phrase phrase){
-        //TODO: Method Stub
+
+    public void addPhraseToLanguage(Language language, Phrase phrase){
+        language.addPhrase(phrase);
     }
+
+    public void addLessonToLanguage(Language language, Lesson lesson) {
+        language.addLesson(lesson);
+    }
+
     public void addStoryToLesson(Language language, Story story){
         //TODO: Method Stub
     }
-    public void startLesson(int lessonNumber){
-        //TODO: Method Stub
+
+    public void startLesson(int lessonNumber) {
+        if (currentLesson != null && !lessonList.isEmpty()) {
+            lessonList.get(lessonNumber).startLesson();
+            currentLesson = lessonList.get(lessonNumber);
+        }
     }
+
     public Progress getProgress(){
         //TODO: Method Stub
     }
+
     public List<String> getDictionaryWords(){
-        //TODO: Method Stub
+        dictionary.
     }
     
     public void addWord(Word word){
