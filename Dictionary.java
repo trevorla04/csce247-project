@@ -23,9 +23,10 @@ public class Dictionary {
     }
 
     // Method to access a random word from the dictionary
-    public String accessWordOfTheDay() {
+    public Word accessWordOfTheDay() {
         if (wordsLearned.isEmpty()) {
-            return "No words learned yet.";
+            System.out.println("No words learned yet.");
+            return null;
         }
         int index = (int) (Math.random() * wordsLearned.size());
         return wordsLearned.getWord(index);
