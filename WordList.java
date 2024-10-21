@@ -74,4 +74,13 @@ public class WordList extends Word {
 
     }
 
+    public boolean isEmpty ()
+    {
+        if(this.getSize() == 0)
+        {
+            return true;
+        }
+        return false;
+    }
+
 }
