@@ -49,7 +49,7 @@ public class WordList extends Word {
         System.out.println(words.get(index));
     }
 
-    public void contains(Word cWord) {
+    public boolean contains(Word cWord) {
         for (Word word : words)
             if (words.getWord().equalsIgnoreCase(cWord.get)) {
 

@@ -86,19 +86,15 @@ public class LanguageApplication {
     public List<String> getDictionaryWords(){
         dictionary.
     }
-    
-    public void addWord(Word word){
-        //TODO: Method Stub
-    }
-    public void addPhrase(Phrase phrase){
-        //TODO: Method Stub
-    }
+
     public Word getWordOfTheDay(){
         //TODO: Method Stub
     }
+
     public void saveAllLanguages(){
         //TODO: Method Stub
     }
+
     public void loadAllLanguages(){
         //TODO: Method Stub
     }
