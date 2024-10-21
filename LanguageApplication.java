@@ -81,6 +81,7 @@ public class LanguageApplication {
 
     public Progress getProgress(){
         //TODO: Method Stub
+        return null;
     }
 
     public WordList getDictionaryWords(){
