@@ -30,7 +30,7 @@ public class Phrase {
             this.language = language;
     }
     public String getTranslation(Language language) {
-        translations.get
+
     }
     public void addTranslations(Language language, String phrase) {
         translations.put(language, phrase);
