@@ -83,12 +83,12 @@ public class LanguageApplication {
         //TODO: Method Stub
     }
 
-    public List<String> getDictionaryWords(){
-        dictionary.
+    public WordList getDictionaryWords(){
+        return dictionary.getAllWords();
     }
 
     public Word getWordOfTheDay(){
-        //TODO: Method Stub
+        // TODO Create WOTD Method
     }
 
     public void saveAllLanguages(){

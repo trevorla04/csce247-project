@@ -5,13 +5,13 @@ public class Phrase {
     private String phrase;
     private String definition;
     private Language language;
-    private HashMap<Language, String> translations;
+    private ArrayList<HashMap<String,String>> translations;
     
     public Phrase(String phrase, String definition, Language language, ArrayList<HashMap<String,String>> translations) {
         this.phrase = phrase;
         this.definition = definition;
         this.language = language;
-        this.translations = translations != null ? translations : new HashMap<>();
+        this.translations = translations != null ? translations : new ArrayList<HashMap<String, String>>();
     }
     public String getPhrase(){
         return phrase;

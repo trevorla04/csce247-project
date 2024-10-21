@@ -14,7 +14,7 @@ public class User {
     private String email;  /** The email address of the user. */
     private String password;  /** The password of the user. */
     public String bio;  /** The bio of the user. */
-    private List<User> friendsList;  /** The list of friends associated with the user. */
+    private UserList friendsList;  /** The list of friends associated with the user. */
     //public Image profilePicture;  /** The profile picture of the user. */
     private List<Progress> languageProgress;  /** The progress of the user in various languages. */
     private UUID uuid;  /** The unique identifier for the user. */
@@ -29,7 +29,7 @@ public class User {
         this.username = username;
         this.email = email;
         this.password = password;
-        this.friendsList = new ArrayList<>();
+        this.friendsList = new UserList();
         this.languageProgress = new ArrayList<>();
         this.uuid = UUID.randomUUID();
     }
@@ -74,10 +74,10 @@ public class User {
      * @return a message indicating the result of the operation
      */
     public String addFriend(User user) {
-        if(friendsList.contains(user)) {
+        if(friendsList.containsUser(user)) {
             return "User is already in your friends list.";
         }
-        friendsList.add(user);
+        friendsList.addUser(user);
         return "User added as a friend.";
     }
 
@@ -139,7 +139,7 @@ public class User {
         return bio;
     }
 
-    public List <User> getFriendsList ()
+    public UserList getFriendsList ()
     {
         return friendsList;
     }
