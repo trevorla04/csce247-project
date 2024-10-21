@@ -28,7 +28,7 @@ public class PhraseList extends Phrase {
     }
 
     public Phrase getPhrase(int index) {
-        return phrases.get(index);
+        return phrases.getPhrase(index);
     }
 
     public Phrase findPhrase(String searchPhrase) {
