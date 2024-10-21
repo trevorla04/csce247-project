@@ -28,7 +28,7 @@ public class Dictionary {
             return "No words learned yet.";
         }
         int index = (int) (Math.random() * wordsLearned.size());
-        return wordsLearned.get(index);
+        return wordsLearned.getWord(index);
     }
 
     // Method to remove a word from the dictionary
