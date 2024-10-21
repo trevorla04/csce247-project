@@ -9,15 +9,15 @@ public class Dictionary {
     }
 
     // Method to add a word to the dictionary
-    public void addWord(String word) {
-        if (word != null && !word.isEmpty()) {
+    public void addWord(Word word) {
+        if (word != null && !wordsLearned.contains(word)) {
             wordsLearned.addWord(word);
         }
     }
 
     // Method to add a phrase to the dictionary
     public void addPhrase(Phrase phrase) {
-        if (phrase != null && !phrase.isEmpty()) {
+        if (phrase != null && !phrasesLearned.contains(phrase)) {
             phrasesLearned.addPhrase(phrase);
         }
     }
