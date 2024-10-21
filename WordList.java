@@ -33,7 +33,7 @@ public class WordList extends Word {
     }
 
     public Word findWord(String searchWord) {
-        for (Word word : words) {
+        for (Word word : wordList) {
             if (word.getWord().equalsIgnoreCase(searchWord))
                 return word;
         }
@@ -49,7 +49,7 @@ public class WordList extends Word {
     }
 
     public void clear() {
-        for (Word word : words)
+        for (Word word : wordList)
             words.removeWord(word);
     }
 
