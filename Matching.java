@@ -43,6 +43,7 @@ public class Matching {
                 return false; // One or more matches are incorrect
             }
         }
+        System.out.println("Correct!");
         return true; // All matches are correct
     }
 }
