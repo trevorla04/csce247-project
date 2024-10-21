@@ -5,9 +5,9 @@ public class Phrase {
     private String phrase;
     private String definition;
     private Language language;
-    private HashMap<Language, String> translations;
+    private HashMap<String, String> translations;
     
-    public Phrase(String phrase, String definition, Language language, ArrayList<HashMap<String,String>> translations) {
+    public Phrase(String phrase, String definition, Language language, HashMap<String,String> translations) {
         this.phrase = phrase;
         this.definition = definition;
         this.language = language;
@@ -26,31 +26,33 @@ public class Phrase {
     }
     
     public void setLanguage(Language language) {
-        if (language == null)
+        if (language != null)
             this.language = language;
     }
     public String getTranslation(Language language) {
-        translations.get
+        return translations.get(language.name);
     }
     public void addTranslations(Language language, String phrase) {
-        translations.put(language, phrase);
+        translations.put(language.name, phrase);
     }
     public void removetranslation(Language language){
-        //TODO: Method Stub
+        translations.remove(language.name);
     }
     public String getDefinition(){
-        //TODO: Method Stub
+        return this.definition;
     }
     
     public void setDefinition(String definition){
-        //TODO: Method Stub
+        this.definition = definition;
     }
     
     public String toString(){
-        //TODO: Method Stub
+        return this.phrase + " defined as: " + this.definition;
     }
     public boolean equals(Phrase phrase){
-        //TODO: Method Stub
+        String compPhrase = phrase.getPhrase();
+        String compDef = phrase.getDefinition();
+        return this.phrase.equals(compPhrase) && this.definition.equals(compDef);
     }
     
 }

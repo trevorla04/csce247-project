@@ -4,58 +4,70 @@ public class Word {
     private String word;
     private String definition;
     private Language language;
-    private HashMap<Language,String> translations;
+    private HashMap<Language,String> translations = new HashMap<Language,String>();
     private String partOfSpeech;
     
     
     public Word(String word, String definition, Language language){
-        //TODO: Method Stub
+        this.word = word;
+        this.definition = definition;
+        this.language = language;
+        translations.put(language,word);
+
+
     }
     public String getWord(){
         // Getword should be renamed to getWordString to be clearer, as Word is the object.
-        //TODO: Method Stub
+        return this.word;
         
     }
     public void setWord(String word){
-        //TODO: Method Stub
+        this.word = word;
+        translations.put(language,word);
         
         
     }
     public String getDefinition(){
-        //TODO: Method Stub
+        return this.definition;
     }
     public void setDefinition(){
-        //TODO: Method Stub
+        this.definition = definition;
     }
     public String getPartOfSpeech(){
-        //TODO: Method Stub
+        return this.partOfSpeech;
         
     }
     public void setPartOfSpeech(String speech){
-        //TODO: Method Stub
+        this.partOfSpeech = partOfSpeech;
     }
-    public void getLanguage(){
-        //TODO: Method Stub
+    public Language getLanguage(){
+        return this.language;
     }
-    public void addTranslation(String key, String value){
-        // The UML should have the names for these variables, no?
-        //TODO: Method Stub
+    public void addTranslation(Language language, String translation){
+        translations.put(language,translation);
     }
     public String getTranslation(Language language){
-        // Unsure as to what this does?
-        //TODO: Method Stub
+        return translations.get(language);
     }
     public void removeTranslation(Language language){
-        //TODO: Method Stub
+        translations.remove(language);
     }
     
     // Java methods
     public String toString(){
-        //TODO: Method Stub
+        return word + ", defined as: " + definition;
     }
     
     public boolean equals(Word word) {
-        //TODO: Method Stub
+        String wordText = word.getWord();
+        String wordPartOfSpeech = word.getPartOfSpeech();
+        String wordDefinition = word.getDefinition();
+
+
+        return this.word.equals(wordText) &&
+                this.partOfSpeech.equals(wordPartOfSpeech) &&
+                this.definition.equals(wordDefinition);
+
     }
     
 }
