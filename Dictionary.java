@@ -28,25 +28,25 @@ public class Dictionary {
             System.out.println("No words learned yet.");
             return null;
         }
-        int index = (int) (Math.random() * wordsLearned.size());
+        int index = (int) (Math.random() * wordsLearned.getSize());
         return wordsLearned.getWord(index);
     }
 
     // Method to remove a word from the dictionary
-    public void removeWord(String word) {
-        wordsLearned.remove(word);
+    public void removeWord(Word word) {
+        wordsLearned.removeWord(word);
     }
 
     // Method to remove a phrase from the dictionary
-    public void removePhrase(String phrase) {
-        phrasesLearned.remove(phrase);
+    public void removePhrase(Phrase phrase) {
+        phrasesLearned.removePhrase(phrase);
     }
 
-    public List<String> getAllWords() {
-        return new ArrayList<>(wordsLearned);
+    public WordList getAllWords() {
+        return wordsLearned;
     }
 
-    public List<String> getAllPhrases() {
-        return new ArrayList<>(phrasesLearned);
+    public PhraseList getAllPhrases() {
+        return phrasesLearned;
     }
 }

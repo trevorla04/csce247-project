@@ -20,16 +20,16 @@ public class WordList extends Word {
 
     public void addWord(Word word) {
         if (!words.contains(word))
-            words.add(word);
+            words.addWord(word);
     }
 
     public void removeWord(Word word) {
         if (words.contains(word))
-            words.remove(word);
+            words.removeWord(word);
     }
 
     public Word getWord(int index) {
-        return words.get(index);
+        return words.getWord(index);
     }
 
     public Word findWord(String searchWord) {
@@ -41,16 +41,16 @@ public class WordList extends Word {
     }
 
     public int getSize() {
-        return words.size();
+        return words.getSize();
     }
 
     public void printWord(int index) {
-        System.out.println(words.get(index));
+        System.out.println(words.getWord(index));
     }
 
     public void clear() {
         for (Word word : words)
-            words.remove(word);
+            words.removeWord(word);
     }
 
     public boolean contains (Word word)
