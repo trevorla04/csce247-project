@@ -10,7 +10,7 @@ public class UserList
     private static UserList userList;
     private ArrayList<User> users;
 
-    private UserList ()
+    UserList()
     {
         users = new ArrayList<>();
     }
@@ -42,6 +42,10 @@ public class UserList
 
     public ArrayList<User> getAllUsers() {
         return users;
+    }
+
+    public boolean containsUser(User user) {
+        return users.contains(user);
     }
 
     public void clear() {

@@ -7,7 +7,7 @@ public class Language {
     private WordList wordList;
     private PhraseList phraseList;
     private List<Lesson> lessons;
-    private Progress currentProgress = null;
+    private Progress currentProgress;
     private UUID uuid;
     
     // Now the reverse issue, these dont have data types.
@@ -18,18 +18,24 @@ public class Language {
         this.phraseList = phraseList;
         this.lessons = lessons;
     }
+
     public void addWord(Word word) {
         wordList.addWord(word);
     }
+
+    public void addPhrase(Phrase phrase) {
+        phraseList.addPhrase(phrase);
+    }
+
     public void addLesson(Lesson lesson){
         lessons.add(lesson);
     }
+
     public Progress calculateProgress(){
         // TODO calc progress
-        // Unsure as how to calculate progress, just returns the current progress object
-        return currentProgress;
-
+        return null;
     }
+
     public String getName() {
         return name;
     }

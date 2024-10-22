@@ -39,9 +39,11 @@ public class Matching {
         // Check if user's matches are correct
         for (String item : itemsToMatch) {
             if (!userMatches.getOrDefault(item, "").equals(correctMatches.get(item))) {
+                System.out.println("Incorrect...");
                 return false; // One or more matches are incorrect
             }
         }
+        System.out.println("Correct!");
         return true; // All matches are correct
     }
 }

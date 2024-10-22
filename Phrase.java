@@ -5,13 +5,13 @@ public class Phrase {
     private String phrase;
     private String definition;
     private Language language;
-    private HashMap<String, String> translations;
+    private ArrayList<HashMap<String,String>> translations;
     
-    public Phrase(String phrase, String definition, Language language, HashMap<String,String> translations) {
+    public Phrase(String phrase, String definition, Language language, ArrayList<HashMap<String,String>> translations) {
         this.phrase = phrase;
         this.definition = definition;
         this.language = language;
-        this.translations = translations != null ? translations : new HashMap<>();
+        this.translations = translations != null ? translations : new ArrayList<HashMap<String, String>>();
     }
     public String getPhrase(){
         return phrase;
@@ -26,33 +26,31 @@ public class Phrase {
     }
     
     public void setLanguage(Language language) {
-        if (language != null)
+        if (language == null)
             this.language = language;
     }
     public String getTranslation(Language language) {
-        return translations.get(language.name);
+
     }
     public void addTranslations(Language language, String phrase) {
-        translations.put(language.name, phrase);
+        translations.put(language, phrase);
     }
     public void removetranslation(Language language){
-        translations.remove(language.name);
+        //TODO: Method Stub
     }
     public String getDefinition(){
-        return this.definition;
+        //TODO: Method Stub
     }
     
     public void setDefinition(String definition){
-        this.definition = definition;
+        //TODO: Method Stub
     }
     
     public String toString(){
-        return this.phrase + " defined as: " + this.definition;
+        //TODO: Method Stub
     }
     public boolean equals(Phrase phrase){
-        String compPhrase = phrase.getPhrase();
-        String compDef = phrase.getDefinition();
-        return this.phrase.equals(compPhrase) && this.definition.equals(compDef);
+        //TODO: Method Stub
     }
     
 }
