@@ -8,7 +8,7 @@ public class Language {
     public String abbreviation;
     private WordList wordList;
     private PhraseList phraseList;
-    private List<Lesson> lessons;
+    private List<Category> categories;
     private Progress currentProgress;
     private UUID uuid;
     
@@ -18,7 +18,7 @@ public class Language {
         this.abbreviation = abbreviation;
         this.wordList = wordList;
         this.phraseList = phraseList;
-        this.lessons = lessons;
+        this.categories = categories;
     }
 
     public void addWord(Word word) {
@@ -29,8 +29,8 @@ public class Language {
         phraseList.addPhrase(phrase);
     }
 
-    public void addLesson(Lesson lesson){
-        lessons.add(lesson);
+    public void addCategory(Category category) {
+        categories.add(category);
     }
 
     public Progress calculateProgress(){

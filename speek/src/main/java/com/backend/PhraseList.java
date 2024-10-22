@@ -8,7 +8,7 @@ public class PhraseList extends Phrase {
     private List<Phrase> phraseList;
 
     public PhraseList() {
-        phraseList = new ArrayList<Phrase>();
+        phraseList = new ArrayList<>();
     }
 
     public static PhraseList getInstance() {
