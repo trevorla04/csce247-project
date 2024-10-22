@@ -1,9 +1,7 @@
-<<<<<<< HEAD:speek/src/main/java/com/backend/Dictionary.java
-package com.backend;
-=======
+package speek.src.main.java.com.backend;
+
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
->>>>>>> a050378218e55f610588a3b5d79fd683b550d4c5:Dictionary.java
 
 public class Dictionary {
 

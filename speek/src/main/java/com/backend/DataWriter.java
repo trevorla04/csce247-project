@@ -1,4 +1,4 @@
-package com.backend;
+package speek.src.main.java.com.backend;
 
 import org.json.simple.*;
 import org.json.simple.parser.JSONParser;

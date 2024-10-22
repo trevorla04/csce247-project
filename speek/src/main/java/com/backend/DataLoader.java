@@ -1,4 +1,4 @@
-package com.backend;
+package speek.src.main.java.com.backend;
 
 import java.io.File;
 import java.io.FileReader;
