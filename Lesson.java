@@ -7,13 +7,6 @@ public class Lesson {
     private Progress progress;
     private int difficulty;
 
-    public Lesson(List<Question> questions, Category category, int difficulty) {
-        this.questions = questions != null ? questions : new ArrayList<>();
-        this.category = category;
-        this.difficulty = difficulty;
-        this.progress = new Progress();
-    }
-
     public void addQuestion(Question question) {
         if (question != null) {
             questions.add(question);
