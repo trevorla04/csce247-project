@@ -1,4 +1,4 @@
-package com.backend;
+package speek.src.main.java.com.backend;
 
 import java.util.List;
 import java.util.UUID;

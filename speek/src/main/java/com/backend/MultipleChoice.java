@@ -1,11 +1,8 @@
-<<<<<<< HEAD:speek/src/main/java/com/backend/MultipleChoice.java
-package com.backend;
+package speek.src.main.java.com.backend;
 
 import java.util.Arrays;
 import java.util.Scanner;
-=======
 import java.util.List;
->>>>>>> a050378218e55f610588a3b5d79fd683b550d4c5:MultipleChoice.java
 
 public class MultipleChoice {
 
