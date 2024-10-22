@@ -45,7 +45,6 @@ public class Narriator {
             InputStream stream = synthesize(polly, text, voice, OutputFormat.MP3);
             AdvancedPlayer player = new AdvancedPlayer(stream,
                     javazoom.jl.player.FactoryRegistry.systemRegistry().createAudioDevice());
-                    
             player.setPlayBackListener(new PlaybackListener(){});
 
             player.play();

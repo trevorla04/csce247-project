@@ -5,20 +5,21 @@ public class Phrase {
     private String phrase;
     private String definition;
     private Language language;
-    private ArrayList<HashMap<String,String>> translations;
+    private HashMap<Language,String> translations;
     
-    public Phrase(String phrase, String definition, Language language, ArrayList<HashMap<String,String>> translations) {
+    public Phrase(String phrase, String definition, Language language, HashMap<Language,String> translations) {
         this.phrase = phrase;
         this.definition = definition;
         this.language = language;
-        this.translations = translations != null ? translations : new ArrayList<HashMap<String, String>>();
+        this.translations = translations != null ? translations : new HashMap<Language, String>();
     }
     public String getPhrase(){
         return phrase;
     }
     public void setPhrase(String phrase){
-        if (phrase == null)
+        if (phrase != null){
             this.phrase = phrase;
+        }
     }
     
     public Language getLanguage(){
@@ -26,31 +27,34 @@ public class Phrase {
     }
     
     public void setLanguage(Language language) {
-        if (language == null)
+        if (language != null) {
             this.language = language;
+        }
     }
     public String getTranslation(Language language) {
-
+        return translations.get(language);
     }
     public void addTranslations(Language language, String phrase) {
         translations.put(language, phrase);
     }
     public void removetranslation(Language language){
-        //TODO: Method Stub
+        translations.remove(language);
     }
     public String getDefinition(){
-        //TODO: Method Stub
+        return definition;
     }
     
     public void setDefinition(String definition){
-        //TODO: Method Stub
+        this.definition = definition;
     }
     
     public String toString(){
-        //TODO: Method Stub
+        return this.phrase + " defined as: " + this.definition;
     }
     public boolean equals(Phrase phrase){
-        //TODO: Method Stub
+        String phraseText = phrase.getPhrase();
+        String phraseDefinition = phrase.getDefinition();
+        return phraseText.equals(this.phrase) && phraseDefinition.equals(this.definition);
     }
     
 }
