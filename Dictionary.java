@@ -4,14 +4,14 @@ import java.util.concurrent.ThreadLocalRandom;
 public class Dictionary {
 
     // Private attributes
-    private List<Word> wordsLearned;   
-    private List<Phrase> phrasesLearned;
+    private WordList wordsLearned;
+    private PhraseList phrasesLearned;
     private Word wordOfTheDay; // Tracks the current word of the day
 
     // Public method to add a word to the dictionary
     public void addWord(Word word) {
         if (word != null) {
-            wordsLearned.add(word);
+            wordsLearned.addWord(word);
         }
     }
 
