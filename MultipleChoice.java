@@ -1,28 +1,40 @@
-import java.util.Arrays;
-import java.util.Scanner;
+import java.util.List;
 
 public class MultipleChoice {
-    public static void main(String[] args) {
-        List<String> choices = Arrays.asList("Option A", "Option B", "Option C", "Option D");
-        MultipleChoice question = new MultipleChoice("What is the capital of France?", choices, 1); // Correct answer is Option B
 
-        question.askQuestion();
+    // Attributes
+    private String question;
+    private List<String> answerChoices;
+    private int correctAnswer;
 
-        Scanner scanner = new Scanner(System.in);
-        int userAnswer = scanner.nextInt();
+    // Constructor to initialize question, choices, and correct answer
+    public MultipleChoice(String question, List<String> answerChoices, int correctAnswer) {
+        this.question = question;
+        this.answerChoices = answerChoices;
+        this.correctAnswer = correctAnswer;
+    }
 
-        if (question.checkAnswer(userAnswer)) {
-            System.out.println("Correct!");
-        } else {
-            System.out.println("Incorrect.");
+    // Method to return the type of question
+    public String getType() {
+        return "Multiple Choice";
+    }
+
+    // Method to display the question and answer choices
+    public void askQuestion() {
+        System.out.println("Question: " + question);
+        for (int i = 0; i < answerChoices.size(); i++) {
+            System.out.println((i + 1) + ": " + answerChoices.get(i));
         }
     }
 
-    private void askQuestion() {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    private boolean checkAnswer(int userAnswer) {
-        throw new UnsupportedOperationException("Not supported yet.");
+    // Method to check if the provided answer is correct
+    public boolean checkAnswer(String answer) {
+        try {
+            int selectedAnswer = Integer.parseInt(answer);
+            return selectedAnswer == correctAnswer;
+        } catch (NumberFormatException e) {
+            System.out.println("Invalid input. Please enter a number.");
+            return false;
+        }
     }
 }
