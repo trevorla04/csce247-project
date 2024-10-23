@@ -20,7 +20,7 @@ public class Dictionary {
     // Public method to add a phrase to the dictionary
     public void addPhrase(Phrase phrase) {
         if (phrase != null) {
-            phrasesLearned.add(phrase);
+            phrasesLearned.addPhrase(phrase);
         }
     }
 
@@ -30,8 +30,8 @@ public class Dictionary {
             return null; // No word of the day if no words have been learned
         }
         if (wordOfTheDay == null) { // If no word of the day is set, choose one
-            int index = ThreadLocalRandom.current().nextInt(wordsLearned.size());
-            wordOfTheDay = wordsLearned.get(index);
+            int index = ThreadLocalRandom.current().nextInt(wordsLearned.getSize());
+            wordOfTheDay = wordsLearned.getWord(index);
         }
         return wordOfTheDay;
     }
@@ -39,7 +39,7 @@ public class Dictionary {
     // Public method to remove a word from the dictionary
     public void removeWord(Word word) {
         if (word != null) {
-            wordsLearned.remove(word);
+            wordsLearned.removeWord(word);
             removeWordOfTheDay(word); // If this is the word of the day, remove it
         }
     }
@@ -47,7 +47,7 @@ public class Dictionary {
     // Public method to remove a phrase from the dictionary
     public void removePhrase(Phrase phrase) {
         if (phrase != null) {
-            phrasesLearned.remove(phrase);
+            phrasesLearned.removePhrase(phrase);
         }
     }
 
