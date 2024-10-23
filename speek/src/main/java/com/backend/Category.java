@@ -11,7 +11,7 @@ public class Category {
     
     private String name;  /** The name of the category. */
     private Language language;  /** The language associated with the category. */
-    private List<Lesson> lessonList;
+    private static List<Lesson> lessonList;
     private UUID uuid;  /** The unique identifier for the category. */
 
     /**
