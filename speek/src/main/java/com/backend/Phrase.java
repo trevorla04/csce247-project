@@ -53,10 +53,8 @@ public class Phrase {
     public String toString(){
         return this.phrase + " defined as: " + this.definition;
     }
-    public boolean equals(Phrase phrase){
-        String phraseText = phrase.getPhrase();
-        String phraseDefinition = phrase.getDefinition();
-        return phraseText.equals(this.phrase) && phraseDefinition.equals(this.definition);
+    public boolean equals(Phrase phrase) {
+        return phrase.getPhrase().equalsIgnoreCase(this.phrase) && phrase.getDefinition().equals(this.definition);
     }
     
 }

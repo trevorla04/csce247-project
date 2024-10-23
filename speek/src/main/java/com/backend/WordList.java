@@ -36,7 +36,7 @@ public class WordList extends Word {
 
     public Word findWord(String searchWord) {
         for (Word word : wordList) {
-            if (word.getWord().equalsIgnoreCase(searchWord))
+            if (word.getWordString().equalsIgnoreCase(searchWord))
                 return word;
         }
         return null;
