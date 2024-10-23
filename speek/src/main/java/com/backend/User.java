@@ -31,7 +31,7 @@ public class User {
         this.username = username;
         this.email = email;
         this.password = password;
-        this.friendsList = new UserList;
+        this.friendsList = new UserList();
         this.languageProgress = new ArrayList<>();
         this.uuid = UUID.randomUUID();
     }
