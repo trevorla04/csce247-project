@@ -2,6 +2,7 @@ package com.backend;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.ArrayList;
 
 /**
  * Represents a story with a title, content, language, key vocabulary, 
@@ -13,7 +14,7 @@ public class Story {
     private HashMap<Integer, String> content = new HashMap<>();  /** The content of the story, mapped by page numbers. */
     private Language language;  /** The language in which the story is written. */
     private WordList keyVocab;  /** The key vocabulary used in the story. */
-    private List<Question> comprehensionQuestions = new List<>();  /** The comprehension questions related to the story. */
+    private List<Question> comprehensionQuestions = new ArrayList<>();  /** The comprehension questions related to the story. */
     private int numPages;  /** The number of pages in the story. */
 
     /**
@@ -96,9 +97,9 @@ public class Story {
      * Adds key vocabulary to the story.
      * @param keyVocab the key vocabulary to be added
      */
-    public void addKeyVocab(WordList keyVocab) {
+    /*public void addKeyVocab(WordList keyVocab) {
         this.keyVocab.addAll(keyVocab);
-    }
+    }*/
 
     /**
      * Returns the list of comprehension questions related to the story.
