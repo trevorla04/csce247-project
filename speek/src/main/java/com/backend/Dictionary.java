@@ -64,4 +64,8 @@ public class Dictionary {
             wordOfTheDay = null; // Clear the word of the day if it matches
         }
     }
+
+    public WordList getAllWords() {
+        return this.wordsLearned;
+    }
 }

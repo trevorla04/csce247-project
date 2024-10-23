@@ -92,6 +92,7 @@ public class LanguageApplication {
 
     public Word getWordOfTheDay(){
         // TODO Create WOTD Method
+        return null;
     }
 
     public void saveAllLanguages(){
