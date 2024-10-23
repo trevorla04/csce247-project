@@ -14,6 +14,7 @@ public class Phrase {
         this.language = language;
         this.translations = translations != null ? translations : new HashMap<Language, String>();
     }
+
     public String getPhrase(){
         return phrase;
     }

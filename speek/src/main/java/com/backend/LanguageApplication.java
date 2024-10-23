@@ -66,8 +66,8 @@ public class LanguageApplication {
         language.addPhrase(phrase);
     }
 
-    public void addLessonToLanguage(Language language, Lesson lesson) {
-        language.addLesson(lesson);
+    public void addLessonToCategory(Category category, Lesson lesson) {
+        Category.addLesson(lesson);
     }
 
     public void addStoryToLesson(Language language, Story story){

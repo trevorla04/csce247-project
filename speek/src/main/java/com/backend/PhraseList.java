@@ -19,52 +19,52 @@ public class PhraseList extends Phrase {
     }
 
     public void addPhrase(Phrase phrase) {
-        if (!phrases.contains(phrase))
-            phrases.addPhrase(phrase);
+        if (!phraseList.contains(phrase))
+            phraseList.add(phrase);
     }
 
     public void removePhrase(Phrase phrase) {
-        if (phrases.contains(phrase)) {
-            phrases.removePhrase(phrase);
+        if (phraseList.contains(phrase)) {
+            phraseList.remove(phrase);
         }
     }
 
     public Phrase getPhrase(int index) {
-        return phrases.getPhrase(index);
-    }
-
-    public Phrase findPhrase(String searchPhrase) {
-        for (Phrase phrase: phraseList) {
-            if(phrase.getPhrase().equalsIgnoreCase(searchPhrase))
-                return phrase;
+        if (index >= 0 && index < phraseList.size()) {
+            return phraseList.get(index);
         }
         return null;
     }
 
-    public boolean contains(Phrase cWord) {
+    public Phrase findPhrase(String searchPhrase) {
         for (Phrase phrase : phraseList)
-            if (phrases.contains(phrase)) {
-                return true;
-            }
-        return false;
+            if (phrase.getPhrase().equalsIgnoreCase(searchPhrase))
+                return phrase;
+        return null;
+    }
+
+    public boolean contains(Phrase cWord) {
+        return phraseList.contains(cWord);
     }
 
     public boolean isEmpty() {
-        return phrases.isEmpty();
+        return phraseList.isEmpty();
     }
 
     public int getSize() {
-        return phrases.getSize();
+        return phraseList.size();
     }
 
     public void printPhrase(int index) {
-        System.out.println(phrases.getPhrase(index));
+        Phrase phrase = getPhrase(index);
+        if (phrase != null) {
+            System.out.println(phrase.getPhrase());
+        }
     }
 
 
     public void clear() {
-        for (Phrase phrase : phraseList)
-            phrases.removePhrase(phrase);
+        phraseList.clear();
     }
 
     public void savePhrases() {
