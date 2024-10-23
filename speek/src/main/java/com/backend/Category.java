@@ -66,7 +66,7 @@ public class Category {
         return uuid;
     }
 
-    public static void addLesson(Lesson lesson) {
+    public void addLesson(Lesson lesson) {
         lessonList.add(lesson);
     }
 }
