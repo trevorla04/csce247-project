@@ -44,12 +44,12 @@ public class Word {
 
     
     // Java methods
-    public String toString(Language language) {
-        return word + ", defined as: \"" + translations.get(language) + "\" in " + language;
+    public String toString() {
+        return translations.toString();
     }
     
     public boolean equals(Word word) {
-        return
+        return false;
 
     }
     
