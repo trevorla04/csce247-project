@@ -1,24 +1,25 @@
 package com.backend;
 
 import java.util.HashMap;
+import java.util.UUID;
 
 public class Word {
-    private String word;
+    private UUID uuid = UUID.randomUUID();
     private HashMap<Language,String> translations = new HashMap<Language,String>();
     private String partOfSpeech;
-    
-    
-    public Word(String word, String definition, Language language){
-        this.word = word;
-        translations.put(language, definition);
+
+
+
+    public Word(HashMap<Language,String> translations, UUID uuid){
+        if (translations != null){
+            this.translations = translations;
+        }
+        if(uuid != null){
+            this.uuid = uuid;
+        }
+
     }
-    public String getWordString() {
-        return this.word;
-    }
-    public void setWordString(String word) {
-        this.word = word;
-    }
-    public String getDefinition(Language language){
+    public String getWordString(Language language){
         return translations.get(language);
     }
     public void setDefinition(Language language, String definition) {
@@ -41,9 +42,6 @@ public class Word {
         translations.remove(language);
     }
 
-    public HashMap<Language, String> getTranslations() {
-        return translations;
-    }
     
     // Java methods
     public String toString(Language language) {
@@ -51,9 +49,7 @@ public class Word {
     }
     
     public boolean equals(Word word) {
-        return this.word.equals(word.getWordString()) &&
-                this.partOfSpeech.equals(word.getPartOfSpeech()) &&
-                this.translations.equals(word.getTranslations());
+        return
 
     }
     

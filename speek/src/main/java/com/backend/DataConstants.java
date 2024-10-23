@@ -11,4 +11,13 @@ public class DataConstants
     protected static final String USER_EMAIL = "email";
     protected static final String USER_BIO = "bio";
     protected static final UUID USER_UUID = UUID.randomUUID();
+
+    protected static final String WORD_FILE_NAME = (System.getProperty("os.name").equals("Linux")
+            ? "./demo/src/main/java/data/words.json"
+            : ".\\demo\\src\\main\\java\\data\\words.json");
+
+
+
+
+
 }

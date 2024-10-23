@@ -1,11 +1,13 @@
 package com.backend;
 
-import java.util.List;
 import java.util.ArrayList;
+import java.util.List;
 
 public class PhraseList {
     private static PhraseList phrases;
     private List<Phrase> phraseList;
+
+
 
     public PhraseList(){
         phraseList = new ArrayList<>();
