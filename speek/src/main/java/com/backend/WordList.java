@@ -3,7 +3,7 @@ package com.backend;
 import java.util.ArrayList;
 import java.util.List;
 
-public class WordList extends Word {
+public class WordList {
     private static WordList words;
     private ArrayList<Word> wordList;
 
@@ -43,7 +43,7 @@ public class WordList extends Word {
     }
 
     public int getSize() {
-        return words.getSize();
+        return wordList.size();
     }
 
     public void printWord(int index) {
@@ -51,21 +51,17 @@ public class WordList extends Word {
     }
 
     public void clear() {
-        for (Word word : wordList)
-            words.removeWord(word);
+        wordList.clear();
     }
 
     public boolean contains (Word word)
     {
-        
-        for (Word w : wordList) 
-        {
-            if (w.equals(word)) 
-            {
-                return true;
-            }
-        }
-        return false;
+        return wordList.contains(word);
+    }
+
+    public boolean isEmpty ()
+    {
+        return wordList.isEmpty();
     }
 
     public void saveWord() {
@@ -74,15 +70,6 @@ public class WordList extends Word {
 
     public void loadWord() {
 
-    }
-
-    public boolean isEmpty ()
-    {
-        if(this.getSize() == 0)
-        {
-            return true;
-        }
-        return false;
     }
 
 }

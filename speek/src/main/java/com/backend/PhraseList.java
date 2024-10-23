@@ -3,7 +3,7 @@ package com.backend;
 import java.util.List;
 import java.util.ArrayList;
 
-public class PhraseList extends Phrase {
+public class PhraseList {
     private static PhraseList phrases;
     private List<Phrase> phraseList;
 
