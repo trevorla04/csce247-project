@@ -1,12 +1,11 @@
-package speek.src.main.java.com.backend;
+package com.backend;
 
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.UUID;
-import org.json.simple.*;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
+
+import java.io.FileReader;
+import java.util.UUID;
 
 public class DataLoader extends DataConstants {
     public static UserList loadUsers()  {

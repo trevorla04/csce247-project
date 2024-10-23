@@ -1,4 +1,4 @@
-package speek.src.main.java.com.backend;
+package com.backend;
 
 import java.util.List;
 import java.util.UUID;
@@ -11,7 +11,9 @@ public class Language {
     private List<Category> categories;
     private Progress currentProgress;
     private UUID uuid;
-    
+
+
+
     // Now the reverse issue, these dont have data types.
     public Language(String name, String abbreviation, WordList wordList, PhraseList phraseList, List<Lesson> lessons){
         this.name = name;

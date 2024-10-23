@@ -1,11 +1,10 @@
-package speek.src.main.java.com.backend;
+package com.backend;
 
-import org.json.simple.*;
-import org.json.simple.parser.JSONParser;
-import java.io.File;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.List;
 
 public class DataWriter extends DataConstants 
 {

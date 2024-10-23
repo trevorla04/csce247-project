@@ -1,4 +1,4 @@
-package speek.src.main.java.com.backend;
+package com.backend;
 
 public class Settings {
     private boolean notificationsEnabled;

@@ -1,7 +1,5 @@
-package speek.src.main.java.com.backend;
+package com.backend;
 
-import java.util.Arrays;
-import java.util.Scanner;
 import java.util.List;
 
 public class MultipleChoice {

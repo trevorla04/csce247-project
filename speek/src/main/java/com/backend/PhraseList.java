@@ -1,4 +1,4 @@
-package speek.src.main.java.com.backend;
+package com.backend;
 
 import java.util.List;
 import java.util.ArrayList;
@@ -7,7 +7,7 @@ public class PhraseList extends Phrase {
     private static PhraseList phrases;
     private List<Phrase> phraseList;
 
-    public PhraseList() {
+    public PhraseList(){
         phraseList = new ArrayList<>();
     }
 

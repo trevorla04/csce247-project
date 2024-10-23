@@ -1,4 +1,4 @@
-package speek.src.main.java.com.backend;
+package com.backend;
 
 import java.util.HashMap;
 import java.util.List;

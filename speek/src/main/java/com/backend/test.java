@@ -1,7 +1,4 @@
-package speek.src.main.java.com.backend;
-
-import java.util.ArrayList;
-import java.util.List;
+package com.backend;
 
 public class test {
 
