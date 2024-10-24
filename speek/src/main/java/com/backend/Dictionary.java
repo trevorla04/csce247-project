@@ -6,8 +6,8 @@ import java.util.concurrent.ThreadLocalRandom;
 public class Dictionary {
 
     // Private attributes
-    private WordList wordsLearned;
-    private PhraseList phrasesLearned;
+    private WordList wordsLearned; //stores all learned words
+    private PhraseList phrasesLearned; //stores all learned phrases
     private Word wordOfTheDay; // Tracks the current word of the day
 
     // Public method to add a word to the dictionary
@@ -65,6 +65,7 @@ public class Dictionary {
         }
     }
 
+    // Retrieves the list of all learned words.
     public WordList getAllWords() {
         return this.wordsLearned;
     }
