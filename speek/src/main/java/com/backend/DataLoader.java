@@ -5,6 +5,7 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
 import java.io.FileReader;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.UUID;
 
@@ -14,8 +15,8 @@ public class DataLoader extends DataConstants {
 
         try {
             FileReader reader = new FileReader(USER_FILE_NAME);
-            JSONArray usersJSON = (JSONArray) new JSONParser().parse(reader);
 
+            JSONArray usersJSON = (JSONArray) new JSONParser().parse(reader);
 
 
             for (int i = 0; i < usersJSON.size(); i++) 

@@ -42,11 +42,9 @@ public class User {
     public static boolean createAccount(String username, String email, String password) {
         UserList userList = UserList.getInstance();
 
-        for (User user : userList.getAllUsers()) {
-            if (user.getEmail().equals(email)) {
-                System.out.println("Email already exists.");
-                return false;
-            }
+        if(userList.containsUser(username)){
+            System.out.println("User with this username already exists.");
+            return false;
         }
 
         User newUser = new User(username, email, password);
@@ -59,9 +57,19 @@ public class User {
      * Validates the user's login credentials.
      * @return true if the login is valid; false otherwise
      */
-    public boolean validLogin(String inputEmail, String inputPassword) {
-        return this.email.equals(inputEmail) && this.password.equals(inputPassword);
-    }
+
+
+    // This should probably be handled by LanguageApplication instead
+
+//    public boolean validLogin(String loginText, String inputPassword) {
+//        if (!(loginText.equals(email) || loginText.equals(username))) {
+//            System.out.println("Invalid login information. Please try again.");
+//            return false;
+//        }
+//
+//
+//        return this.email.equals(loginText) && this.password.equals(inputPassword);
+//    }
 
     /**
      * Initiates the password recovery process for the user.

@@ -5,16 +5,15 @@ import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class UserList 
 {
     private static UserList userList;
-    private ArrayList<User> users;
+    private HashMap<String,User> userLookup = new HashMap<String,User>();
 
-    UserList()
-    {
-        users = new ArrayList<>();
-    }
+
+    UserList() {}
 
     public static UserList getInstance ()
     {
@@ -27,53 +26,56 @@ public class UserList
 
     public User getUser (String s)
     {
-        for (User user : users) 
-        {
-            if (user.getUsername().equalsIgnoreCase(s))
-            {
-                return user;
-            }
-        }
+        userLookup.get(s);
         return null;
     }
 
     public void addUser(User user) {
-        users.add(user);
+        userLookup.put(user.username,user);
     }
 
-    public ArrayList<User> getAllUsers() {
-        return users;
+    // This should be replaced with relevant getUser or addUser calls, it could be
+    // bad to have direct access to the private variable. that's what the getter functions here are for.
+
+//    public ArrayList<User> getAllUsers() {
+//        return users;
+//    }
+
+    public boolean containsUser(String username){
+        return userLookup.containsKey(username);
     }
 
     public boolean containsUser(User user) {
-        return users.contains(user);
+        return userLookup.containsKey(user.username);
     }
 
     public void clear() {
-        users.clear();
+        userLookup.clear();
     }
 
-    public void saveUsers ()
-    {
-        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("users.dat"))) 
-        {
-            oos.writeObject(users);
-        } 
-        catch (Exception e) 
-        {
-            e.printStackTrace();
-        }
-    }
+    // this should be handled by the DataWriter class.
+//    public void saveUsers ()
+//    {
+//        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("users.dat")))
+//        {
+//            oos.writeObject(users);
+//        }
+//        catch (Exception e)
+//        {
+//            e.printStackTrace();
+//        }
+//    }
 
-    public void loadUsers ()
-    {
-        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream("users.dat"))) 
-        {
-            users = (ArrayList<User>) ois.readObject();
-        } 
-        catch (Exception e) 
-        {
-            e.printStackTrace();
-        }
-    }
+    // And this by the data writer class;
+//    public void loadUsers ()
+//    {
+//        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream("users.dat")))
+//        {
+//            users = (ArrayList<User>) ois.readObject();
+//        }
+//        catch (Exception e)
+//        {
+//            e.printStackTrace();
+//        }
+//    }
 }

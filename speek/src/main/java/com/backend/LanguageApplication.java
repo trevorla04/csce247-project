@@ -36,7 +36,7 @@ public class LanguageApplication {
     }
     
     public void logout(){
-        userList.saveUsers();
+
         userList.clear();
         currentUser = null;
         currentLanguage = null;
