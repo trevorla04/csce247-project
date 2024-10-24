@@ -13,6 +13,12 @@ public class PhraseList {
         phraseList = new ArrayList<>();
     }
 
+    /**
+     * Returns the single instance of {@code PhraseList}.
+     * If the instance does not exist, it creates one.
+     * 
+     * @return the singleton instance of {@code PhraseList}.
+     */
     public static PhraseList getInstance() {
         if (phrases == null) {
             phrases = new PhraseList();
@@ -20,17 +26,34 @@ public class PhraseList {
         return phrases;
     }
 
+     /**
+     * Adds a phrase to the phrase list.
+     * If the phrase is already present in the list, it is not added again.
+     * 
+     * @param phrase the {@link Phrase} to be added to the list.
+     */
     public void addPhrase(Phrase phrase) {
         if (!phraseList.contains(phrase))
             phraseList.add(phrase);
     }
 
+    /**
+     * Removes the specified phrase from the list.
+     * 
+     * @param phrase the {@link Phrase} to be removed from the list.
+     */
     public void removePhrase(Phrase phrase) {
         if (phraseList.contains(phrase)) {
             phraseList.remove(phrase);
         }
     }
 
+     /**
+     * Retrieves a phrase by its index in the list.
+     * 
+     * @param index the index of the phrase in the list.
+     * @return the {@link Phrase} at the specified index, or {@code null} if the index is invalid.
+     */
     public Phrase getPhrase(int index) {
         if (index >= 0 && index < phraseList.size()) {
             return phraseList.get(index);
@@ -38,6 +61,12 @@ public class PhraseList {
         return null;
     }
 
+    /**
+     * Finds a phrase in the list by its text content, ignoring case.
+     * 
+     * @param searchPhrase the text of the phrase to search for.
+     * @return the {@link Phrase} object matching the search term, or {@code null} if not found.
+     */
     public Phrase findPhrase(String searchPhrase) {
         for (Phrase phrase : phraseList)
             if (phrase.getPhrase().equalsIgnoreCase(searchPhrase))
@@ -45,18 +74,39 @@ public class PhraseList {
         return null;
     }
 
+    /**
+     * Checks if the list contains a specific phrase.
+     * 
+     * @param cWord the {@link Phrase} to check.
+     * @return {@code true} if the phrase exists in the list, {@code false} otherwise.
+     */
     public boolean contains(Phrase cWord) {
         return phraseList.contains(cWord);
     }
-
+    
+    /**
+     * Checks if the phrase list is empty.
+     * 
+     * @return {@code true} if the list is empty, {@code false} otherwise.
+     */
     public boolean isEmpty() {
         return phraseList.isEmpty();
     }
 
+    /**
+     * Returns the size of the phrase list.
+     * 
+     * @return the number of phrases in the list.
+     */
     public int getSize() {
         return phraseList.size();
     }
 
+    /**
+     * Prints the phrase at the specified index to the console.
+     * 
+     * @param index the index of the phrase to print.
+     */
     public void printPhrase(int index) {
         Phrase phrase = getPhrase(index);
         if (phrase != null) {
@@ -64,15 +114,25 @@ public class PhraseList {
         }
     }
 
-
+    /**
+     * Clears all phrases from the list.
+     */
     public void clear() {
         phraseList.clear();
     }
 
+    /**
+     * Saves the current list of phrases.
+     * <p>This method is currently not implemented.</p>
+     */
     public void savePhrases() {
 
     }
 
+    /**
+     * Loads a list of phrases.
+     * <p>This method is currently not implemented.</p>
+     */
     public void loadPhrases() {
 
     }
