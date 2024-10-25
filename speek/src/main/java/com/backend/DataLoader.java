@@ -71,5 +71,9 @@ public class DataLoader extends DataConstants {
         return null;
     }
 
+    public static LanguageList loadLanguages() {
+        return null;
+    }
+
 
 }

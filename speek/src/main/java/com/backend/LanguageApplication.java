@@ -4,8 +4,8 @@ import java.util.List;
 
 public class LanguageApplication {
     // Private attributes for managing user, language, and application data
-    private UserList userList;         // List of users in the application
-    private User currentUser;          // The currently logged-in user
+    public UserList userList;         // List of users in the application
+    public User currentUser;          // The currently logged-in user
     private Language currentLanguage;  // The currently selected language
     private Dictionary dictionary;     // The dictionary associated with the current language
     private List<Lesson> lessonList;   // List of lessons available in the current language
@@ -13,15 +13,27 @@ public class LanguageApplication {
     private Progress progress;         // The progress of the current user in learning the current language
     private LanguageList languageList; // List of available languages in the application
     
+<<<<<<< HEAD
     // Constructs a LanguageApplication with the specified user list, current user, current language,
     //dictionary, lesson list, current lesson, progress, and language list
     public LanguageApplication (UserList userlist, User currentUser, Language currentLanguage, Dictionary dictionary, List<Lesson> lessonList, Lesson currentLesson, Progress progress, LanguageList languageList) {
+=======
+    /**
+     * Constructs a {@code LanguageApplication} with the specified user list, current user, current language,
+     * dictionary, lesson list, current lesson, progress, and language list.
+     * 
+     * @param userlist the list of users.
+     * @param currentUser the currently logged-in user.
+     * @param currentLanguage the currently selected language.
+     * @param dictionary the dictionary of words and phrases for the selected language.
+     * @param lessonList the list of lessons available for the selected language.
+     * @param currentLesson the currently active lesson.
+     * @param progress the user's progress in learning the current language.
+     * @param languageList the list of available languages in the application.
+     */
+    public LanguageApplication (UserList userlist, LanguageList languageList) {
+>>>>>>> trevor
         this.userList = userlist;
-        this.currentUser = currentUser;
-        this.currentLanguage = currentLanguage;
-        this.dictionary = dictionary;
-        this.lessonList = lessonList;
-        this.progress = progress;
         this.languageList = languageList;
     }
 
@@ -33,9 +45,9 @@ public class LanguageApplication {
      * @return the created User object
      */
     // This UML really needs to name the variables
-    public User createAccount(String username, String email, String password) {
-        User.createAccount(username, email, password);
-        return currentUser = userList.getUser(username);
+    public boolean createAccount(String username, String email, String password) {
+        if(User.createAccount(username, email, password))
+            return true;
     }
     
     /**
@@ -43,16 +55,14 @@ public class LanguageApplication {
      * @param username the username of the user
      * @param password the password of the user
      */
-    public void login(String username, String password){
-        if (userList.getUser(username) != null && userList.getUser(username).getPassword().equals(password))
-            currentUser = userList.getUser(username);
-        else
-            System.out.println("Username or password is incorrect.");
+    public boolean login(String username, String password){
+        return(User.validLogin(username, password));
     }
     
     // Logs out the current user and clears the session data
     public void logout(){
-
+        //DataWriter.saveUsers();
+        //DataWriter.saveLangauges();
         userList.clear();
         currentUser = null;
         currentLanguage = null;
