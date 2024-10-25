@@ -37,12 +37,9 @@ public class UserList
         userLookup.put(user.username,user);
     }
 
-    // This should be replaced with relevant getUser or addUser calls, it could be
-    // bad to have direct access to the private variable. that's what the getter functions here are for
-
-//    public ArrayList<User> getAllUsers() {
-//        return users;
-//    }
+    public ArrayList<User> getAllUsers() {
+        return users;
+    }
 
     // Checks if a user with the specified username exists in the user list
     public boolean containsUser(String username){
