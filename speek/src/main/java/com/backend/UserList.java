@@ -13,7 +13,7 @@ public class UserList
     private HashMap<String,User> userLookup = new HashMap<String,User>();
 
     // Private constructor to prevent instantiation outside of the singleton pattern
-    UserList() {}
+    public UserList() {}
 
     // Retrieves the single instance of UserList. Creates a new instance if none exists
     public static UserList getInstance ()
