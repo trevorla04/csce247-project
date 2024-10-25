@@ -81,7 +81,7 @@ public class User {
      * @return a message indicating the result of the operation
      */
     public String addFriend(User user) {
-        if(friendsList.containsUser(user)) {
+        if(friendsList.containsUser(user.getUsername())) {
             return "User is already in your friends list.";
         }
         friendsList.addUser(user);
