@@ -42,16 +42,16 @@ public class LanguageApplication {
         if(User.createAccount(username, email, password))
             return true;
     }
-    
+
     /**
      * Logs in a user with the specified username and password
      * @param username the username of the user
      * @param password the password of the user
      */
-    public boolean login(String username, String password){
+    public boolean validLogin(String username, String password){
         return(User.validLogin(username, password));
     }
-    
+
     // Logs out the current user and clears the session data
     public void logout(){
         //DataWriter.saveUsers();
@@ -64,17 +64,17 @@ public class LanguageApplication {
         progress = null;
         languageList = null;
     }
-    
+
     // Sets the currently active language for the user
     public void setLanguage(Language language) {
         this.currentLanguage = language;
     }
-    
+
     // Adds a new language to the list of available languages
     public void addLanguage(Language language) {
         languageList.addLanguage(language);
     }
-    
+
     // Adds a lesson to a specified category
     public void addLesson(Category category, Lesson lesson) {
         category.addLesson(lesson);
@@ -134,7 +134,7 @@ public class LanguageApplication {
     public void loadAllLanguages(){
         //TODO: Method Stub
     }
-    
-    
-    
+
+
+
 }

@@ -60,12 +60,23 @@ public class User {
 
 
     // This should probably be handled by LanguageApplication instead
-    public boolean validLogin(String loginText, String inputPassword) {
-        if (!(loginText.equals(email) || !loginText.equals(username))) {
-            System.out.println("Invalid login information. Please try again.");
+    public static boolean validLogin(String loginText, String inputPassword) {
+        UserList userList = UserList.getInstance();
+
+        User user = userList.getUser(loginText);
+        if (user == null) {
+            System.out.println("Invalid login information. User not found.");
             return false;
         }
-        return this.email.equals(loginText) && this.password.equals(inputPassword);
+
+        // Check if the password matches
+        if (user.password.equals(inputPassword)) {
+            System.out.println("Login successful.");
+            return true;
+        } else {
+            System.out.println("Incorrect password.");
+            return false;
+        }
     }
 
     /**
