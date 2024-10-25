@@ -5,7 +5,7 @@ import java.util.UUID;
 import java.util.List;
 
 /**
- * Represents a category with a name, associated language, and a unique identifier.
+ * Represents a category with a name, associated language, and a unique identifier
  */
 public class Category {
     
@@ -17,7 +17,7 @@ public class Category {
     /**
      * Constructor to initialize a category with a name, language, and a UUID
      * @param name the name of the category
-     * @param language the language asssociated with the category
+     * @param language the language associated with the category
      */
     public Category(String name, Language language) {
         this.name = name;
