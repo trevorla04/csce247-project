@@ -60,16 +60,13 @@ public class User {
 
 
     // This should probably be handled by LanguageApplication instead
-
-//    public boolean validLogin(String loginText, String inputPassword) {
-//        if (!(loginText.equals(email) || loginText.equals(username))) {
-//            System.out.println("Invalid login information. Please try again.");
-//            return false;
-//        }
-//
-//
-//        return this.email.equals(loginText) && this.password.equals(inputPassword);
-//    }
+    public boolean validLogin(String loginText, String inputPassword) {
+        if (!(loginText.equals(email) || !loginText.equals(username))) {
+            System.out.println("Invalid login information. Please try again.");
+            return false;
+        }
+        return this.email.equals(loginText) && this.password.equals(inputPassword);
+    }
 
     /**
      * Initiates the password recovery process for the user.

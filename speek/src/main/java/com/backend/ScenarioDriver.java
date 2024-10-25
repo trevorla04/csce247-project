@@ -4,8 +4,8 @@ import java.util.Scanner;
 
 public class ScenarioDriver {
     private static Scanner keyboard = new Scanner(System.in);
-    private static LanguageApplication app = new LanguageApplication(DataLoader.loadUsers(), DataLoader.loadLanguages());
     public static void main(String[] args) {
+        LanguageApplication app = new LanguageApplication(DataLoader.loadUsers(), DataLoader.loadLanguages());
         System.out.println("Welcome to Language Learning App");
         printLoginOptions();
         int choice = keyboard.nextInt();

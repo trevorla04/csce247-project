@@ -41,6 +41,8 @@ public class DataLoader extends DataConstants {
 
         return null;
     }
+    // Commented out to test
+    /*
     public static WordList loadWords(){
         WordList words = WordList.getInstance();
         try{
@@ -70,6 +72,8 @@ public class DataLoader extends DataConstants {
 
         return null;
     }
+
+     */
 
     public static LanguageList loadLanguages() {
         return null;
