@@ -9,14 +9,23 @@ public class MultipleChoice {
     private List<String> answerChoices;
     private int correctAnswer;
 
-    // Constructor to initialize question, choices, and correct answer
+    /**
+     * Constructs a MultipleChoice question with the specified question text, answer choices,
+     * and index of the correct answer.
+     * @param question      The text of the multiple-choice question.
+     * @param answerChoices A list of possible answer choices.
+     * @param correctAnswer The index of the correct answer in the answerChoices list (0-based).
+     */
     public MultipleChoice(String question, List<String> answerChoices, int correctAnswer) {
         this.question = question;
         this.answerChoices = answerChoices;
         this.correctAnswer = correctAnswer;
     }
 
-    // Method to return the type of question
+    /**
+     * Returns the type of this question as "Multiple Choice".
+     * @return A string representing the type of this question.
+     */
     public String getType() {
         return "Multiple Choice";
     }

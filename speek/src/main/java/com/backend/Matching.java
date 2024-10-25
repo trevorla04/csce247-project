@@ -9,16 +9,31 @@ public class Matching {
     private List<String> itemsToMatch;
     private HashMap<String, String> correctMatches;
 
+    /**
+     * Constructs a Matching question with the specified question text, items to match,
+     * and correct matches.
+     * @param question       The text of the matching question.
+     * @param itemsToMatch   A list of items that need to be matched.
+     * @param correctMatches A map of correct matches where each key-value pair represents an item and its correct match.
+     */
     public Matching(String question, List<String> itemsToMatch, HashMap<String, String> correctMatches) {
         this.question = question;
         this.itemsToMatch = itemsToMatch;
         this.correctMatches = correctMatches;
     }
 
+    /**
+     * Returns the type of this question as "Matching".
+     * @return A string representing the type of this question.
+     */
     public String getType() {
         return "Matching";
     }
 
+    /**
+     * Displays the question and the items to be matched. Prompts the user to provide answers
+     * in a specified format.
+     */
     public void askQuestion() {
         System.out.println(question);
         for (String item : itemsToMatch) {
@@ -27,6 +42,11 @@ public class Matching {
         System.out.println("Please provide your answers in the format 'item1:match1,item2:match2,...'");
     }
 
+    /**
+     * Checks if the user's answer is correct by comparing it to the correct matches.
+     * @param answer The user's answer in the format 'item1:match1,item2:match2,...'.
+     * @return True if the user's matches are correct, false otherwise.
+     */
     public boolean checkAnswer(String answer) {
         String[] pairs = answer.split(",");
         HashMap<String, String> userMatches = new HashMap<>();
