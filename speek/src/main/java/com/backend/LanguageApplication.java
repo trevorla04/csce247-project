@@ -23,12 +23,6 @@ public class LanguageApplication {
          * dictionary, lesson list, current lesson, progress, and language list.
          *
          * @param userlist the list of users.
-         * @param currentUser the currently logged-in user.
-         * @param currentLanguage the currently selected language.
-         * @param dictionary the dictionary of words and phrases for the selected language.
-         * @param lessonList the list of lessons available for the selected language.
-         * @param currentLesson the currently active lesson.
-         * @param progress the user's progress in learning the current language.
          * @param languageList the list of available languages in the application.
          */
     public LanguageApplication (UserList userlist, LanguageList languageList) {
