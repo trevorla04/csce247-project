@@ -15,44 +15,50 @@ public class LanguageApplication {
 
     // Constructs a LanguageApplication with the specified user list, current user, current language,
     //dictionary, lesson list, current lesson, progress, and language list
-    public LanguageApplication(UserList userlist, User currentUser, Language currentLanguage,
-                               Dictionary dictionary, List<Lesson> lessonList, Lesson currentLesson,
-                               Progress progress, LanguageList languageList) {
-    }
-
-    /**
-     * Constructs a {@code LanguageApplication} with the specified user list, current user, current language,
-     * dictionary, lesson list, current lesson, progress, and language list.
-     *
-     * @param userlist     the list of users.
-     * @param languageList the list of available languages in the application.
-     */
-    public LanguageApplication(UserList userlist, LanguageList languageList) {
+    public LanguageApplication (UserList userlist, User currentUser, Language currentLanguage,
+                                Dictionary dictionary, List<Lesson> lessonList, Lesson currentLesson,
+                                Progress progress, LanguageList languageList) {}
+        /**
+         * Constructs a {@code LanguageApplication} with the specified user list, current user, current language,
+         * dictionary, lesson list, current lesson, progress, and language list.
+         *
+         * @param userlist the list of users.
+         * @param languageList the list of available languages in the application.
+         */
+    public LanguageApplication (UserList userlist, LanguageList languageList) {
         this.userList = userlist;
         this.languageList = languageList;
     }
 
     /**
      * Creates a new user account with the specified username, email, and password
-     *
      * @param username the username for the new account
-     * @param email    the email for the new account
+     * @param email the email for the new account
      * @param password the password for the new account
      * @return the created User object
      */
     // This UML really needs to name the variables
     public boolean createAccount(String username, String email, String password) {
-        return (userList.createAccount(username, email, password));
+        if(User.createAccount(username, email, password))
+            return true;
+        return false;
     }
 
     /**
      * Logs in a user with the specified username and password
-     *
      * @param username the username of the user
      * @param password the password of the user
      */
-    public boolean validLogin(String username, String password) {
-        return (userList.validLogin(username, password));
+
+    public boolean login(String username, String password) {
+        if (userList.getUser(username) != null && userList.getUser(username).getPassword().equals(password)){
+            currentUser = userList.getUser(username);
+            return true;
+        }
+        else{
+            System.out.println("Username or password is incorrect.");
+            return false;
+        }
     }
 
     // Logs out the current user and clears the session data
@@ -89,7 +95,7 @@ public class LanguageApplication {
     }
 
     // Adds a phrase to the specified language
-    public void addPhraseToLanguage(Language language, Phrase phrase) {
+    public void addPhraseToLanguage(Language language, Phrase phrase){
         language.addPhrase(phrase);
     }
 
@@ -99,7 +105,7 @@ public class LanguageApplication {
     }
 
     // Adds a story to the specified lesson in a language
-    public void addStoryToLesson(Language language, Story story) {
+    public void addStoryToLesson(Language language, Story story){
         //TODO: Method Stub
     }
 
@@ -112,31 +118,32 @@ public class LanguageApplication {
     }
 
     // Retrieves the user's progress in the current language
-    public Progress getProgress() {
+    public Progress getProgress(){
         //TODO: Method Stub
         return null;
     }
 
     // Retrieves all words in the dictionary for the current language
-    public WordList getDictionaryWords() {
+    public WordList getDictionaryWords(){
         return dictionary.getAllWords();
     }
 
     // Retrieves the word of the day
-    public Word getWordOfTheDay() {
+    public Word getWordOfTheDay(){
         // TODO Create WOTD Method
         return null;
     }
 
     // Saves all language data
-    public void saveAllLanguages() {
+    public void saveAllLanguages(){
         //TODO: Method Stub
     }
 
     // Loads all language data
-    public void loadAllLanguages() {
+    public void loadAllLanguages(){
         //TODO: Method Stub
     }
+
 
 
 }

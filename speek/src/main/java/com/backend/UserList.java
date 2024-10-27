@@ -9,9 +9,7 @@ public class UserList
     private List<User> userList;
 
     // Private constructor to prevent instantiation outside of the singleton pattern
-    public UserList() {
-        users = DataLoader.loadUsers();
-    }
+    private UserList() {}
 
     // Retrieves the single instance of UserList. Creates a new instance if none exists
     public static UserList getInstance ()
