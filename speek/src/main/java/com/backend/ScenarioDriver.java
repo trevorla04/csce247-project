@@ -69,6 +69,7 @@ public class ScenarioDriver {
         System.out.println("9. to exit application.");
     }
     public void addFlashcardsToLesson(LanguageApplication spanishApp) {
-
+        spanishApp.setLanguage(spanishApp.getLanguage("Spanish"));
+        spanishApp.add
     }
 }

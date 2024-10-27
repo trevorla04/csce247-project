@@ -98,7 +98,6 @@ public class LanguageApplication {
         category.addLesson(lesson);
     }
 
-
     // Adds a story to the specified lesson in a language
     public void addStoryToLesson(Language language, Story story) {
         //TODO: Method Stub
@@ -116,6 +115,10 @@ public class LanguageApplication {
     public Progress getProgress() {
         //TODO: Method Stub
         return null;
+    }
+
+    public Language getLanguage(String language) {
+        return(languageList.findLanguage(language));
     }
 
     // Retrieves all words in the dictionary for the current language
