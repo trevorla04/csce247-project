@@ -2,7 +2,7 @@ package com.backend;
 
 import java.util.List;
 
-public class MultipleChoice {
+public class MultipleChoice implements Question {
 
     // Attributes
     private String question;
@@ -19,14 +19,6 @@ public class MultipleChoice {
         this.question = question;
         this.answerChoices = answerChoices;
         this.correctAnswer = correctAnswer;
-    }
-
-    /**
-     * Returns the type of this question as "Multiple Choice"
-     * @return A string representing the type of this question
-     */
-    public String getType() {
-        return "Multiple Choice";
     }
 
     // Method to display the question and answer choices
