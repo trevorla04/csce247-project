@@ -149,7 +149,7 @@ public class ScenarioDriver {
         familyWordsLesson.addFlashcard(flashcard4);
         familyWordsLesson.addFlashcard(flashcard5);
 
-        ArrayList<P> familyTerms = new ArrayList<Phrase>();
+        ArrayList<Word> familyTerms = new ArrayList<Word>();
         familyTerms.add()
 
         familyWordsLesson.addQuestion(new FillInTheBlank(dad, spanish));

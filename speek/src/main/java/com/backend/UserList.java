@@ -1,6 +1,7 @@
 package com.backend;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class UserList 
@@ -8,7 +9,7 @@ public class UserList
     private static UserList userList;
     private HashMap<String,User> userLookup = new HashMap<String,User>();
 
-    // Private constructor to prevent instantiation outside of the singleton pattern
+    // Private constructor to prevent instantiation outside the singleton pattern
     public UserList() {}
 
     // Retrieves the single instance of UserList. Creates a new instance if none exists
@@ -18,7 +19,7 @@ public class UserList
         {
             userList = new UserList();
         }
-        return users;
+        return userList;
     }
 
     // Retrieves a user by their username
