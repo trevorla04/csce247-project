@@ -8,7 +8,7 @@ import java.util.ArrayList;
 /**
  * Represents a user in the application.
  * This class contains user information and methods for managing user accounts,
- * including account creation, login validation, friend management, and progress tracking.
+ * including account creation, login validation, friend management, and progress tracking
  */
 public class User {
 
