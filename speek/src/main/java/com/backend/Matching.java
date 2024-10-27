@@ -3,7 +3,7 @@ package com.backend;
 import java.util.HashMap;
 import java.util.List;
 
-public class Matching {
+public class Matching implements Question {
 
     private String question;
     private List<String> itemsToMatch;
