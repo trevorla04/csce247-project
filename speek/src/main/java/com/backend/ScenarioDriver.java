@@ -4,18 +4,19 @@ import java.util.Scanner;
 
 public class ScenarioDriver {
     private static Scanner keyboard = new Scanner(System.in);
-    private static LanguageApplication app = new LanguageApplication(DataLoader.loadUsers(), DataLoader.loadLanguages());
-    public static void main(String[] args) {
+    public static void main(String[] args)  {
+        LanguageApplication app = new LanguageApplication(DataLoader.loadUsers(), DataLoader.loadLanguages());
         System.out.println("Welcome to Language Learning App");
         printLoginOptions();
         int choice = keyboard.nextInt();
+        keyboard.nextLine();
         switch (choice) {
             case 1:
                 System.out.println("Enter username");
                 String username = keyboard.nextLine();
                 System.out.println("Enter password");
                 String password = keyboard.nextLine();
-                if (app.login(username, password)) {
+                if (app.validLogin(username, password)) {
                     System.out.println("Successfully logged into: " + username);
                     app.currentUser = app.userList.getUser(username);
                 }
