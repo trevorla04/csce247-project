@@ -42,7 +42,7 @@ public class LanguageApplication {
      */
 
     public boolean login(String username, String password) {
-        if(!userList.validLogin(username,password){
+        if(!userList.validLogin(username,password)) {
             return false;
         }
         this.currentUser = userList.getUser(username);

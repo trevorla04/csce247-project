@@ -150,12 +150,17 @@ public class ScenarioDriver {
         familyWordsLesson.addFlashcard(flashcard5);
 
         ArrayList<Word> familyTerms = new ArrayList<Word>();
-        familyTerms.add()
+        familyTerms.add(dad);
+        familyTerms.add(mom);
+        familyTerms.add(sister);
+        familyTerms.add(brother);
+        familyTerms.add(family);
 
         familyWordsLesson.addQuestion(new FillInTheBlank(dad, spanish));
         familyWordsLesson.addQuestion(new FillInTheBlank(mom, spanish));
         familyWordsLesson.addQuestion(new FillInTheBlank(sister, spanish));
-        familyWordsLesson.addQuestion(new MultipleChoice());
+        familyWordsLesson.addQuestion(new MultipleChoice("What is the Spanish word for brother?",
+                familyTerms, 4));
         familyWordsLesson.addQuestion(new Matching());
 
         familyWords.addLesson(familyWordsLesson);
