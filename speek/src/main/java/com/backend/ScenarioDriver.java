@@ -165,5 +165,5 @@ public class ScenarioDriver {
 
         familyWords.addLesson(familyWordsLesson);
         spanish.addCategory(familyWords);
-
+    }
 }
