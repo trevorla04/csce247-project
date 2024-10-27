@@ -8,12 +8,16 @@ public class Lesson {
     private Category category;
     private Progress progress;
     private int difficulty;
-    private int questionIndex = 0;
+    private int questionIndex;
 
-    /**
-     * Adds a question to the lesson
-     * @param question The question to add to the lesson
-     */
+    public Lesson(List<Question> questions, Category category, Progress progress) {
+        this.questions = questions;
+        this.category = category;
+        this.progress = progress;
+        this.difficulty = 0;
+        this.questionIndex = 0;
+    }
+
     public void addQuestion(Question question) {
         if (question != null) {
             questions.add(question);
@@ -35,9 +39,10 @@ public class Lesson {
      * Displays the specified question if it exists in the lesson
      * @param question The question to display
      */
-    public void showQuestion(Question question) {
-        if (questions.contains(question)) {
-            System.out.println("Question: " + question.askQuestion());
+    public void showQuestion(int questionIndex) {
+        if (questions.size() < questionIndex) {
+            System.out.println("Question: " );
+            questions.get(questionIndex).askQuestion();
         } else {
             System.out.println("Question not found in the lesson.");
         }
