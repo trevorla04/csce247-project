@@ -112,7 +112,7 @@ public class ScenarioDriver {
         greetingsLesson.addQuestion(new FillInTheBlank(goodAfternoon, spanish));
         greetingsLesson.addQuestion(new MultipleChoice("How do you say good morning in Spanish",
                 greetingsList, 1));
-        //greetingsLesson.addQuestion(new Matching());
+        greetingsLesson.addQuestion(new TrueFalse(goodNight, spanish));
 
         greetings.addLesson(greetingsLesson);
         spanish.addCategory(greetings);
@@ -161,7 +161,7 @@ public class ScenarioDriver {
         familyWordsLesson.addQuestion(new FillInTheBlank(sister, spanish));
         familyWordsLesson.addQuestion(new MultipleChoice("What is the Spanish word for brother?",
                 familyTerms, 4));
-        familyWordsLesson.addQuestion(new Matching());
+        familyWordsLesson.addQuestion(new TrueFalse(family, spanish));
 
         familyWords.addLesson(familyWordsLesson);
         spanish.addCategory(familyWords);
