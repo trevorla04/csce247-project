@@ -79,8 +79,8 @@ public class LanguageApplication {
     }
 
     // Adds a lesson to a specified category
-    public void addLesson(Category category, Lesson lesson) {
-        category.addLesson(lesson);
+    public void addCategoryToLanguage(Category category, Language language) {
+        language.addCategory(category);
     }
 
     // Adds a word to the specified language
@@ -97,6 +97,7 @@ public class LanguageApplication {
     public void addLessonToCategory(Category category, Lesson lesson) {
         category.addLesson(lesson);
     }
+
 
     // Adds a story to the specified lesson in a language
     public void addStoryToLesson(Language language, Story story) {
