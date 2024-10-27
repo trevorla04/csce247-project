@@ -8,6 +8,7 @@ public class Lesson {
     private Category category;
     private Progress progress;
     private int difficulty;
+    private int questionIndex = 0;
 
     /**
      * Adds a question to the lesson
@@ -41,12 +42,11 @@ public class Lesson {
             System.out.println("Question not found in the lesson.");
         }
     }
-
-    // Advances to the next lesson
-    public void goToNextLesson() {
-        // Logic to go to the next lesson (implementation can vary)
-        System.out.println("Going to the next lesson...");
+    public void goToNextQuestion(){
+        questionIndex ++;
+        questions.get(questionIndex).askQuestion();
     }
+
 
     // Returns to the previous lesson
     public void goToPreviousLesson() {
