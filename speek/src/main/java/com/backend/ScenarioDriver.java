@@ -73,7 +73,8 @@ public class ScenarioDriver {
         Language spanish = spanishApp.getLanguage("Spanish");
         spanishApp.setLanguage(spanish);
         Category greetings = new Category("Greetings", spanish);
-        Lesson greetingsLesson = new Lesson("Greetings Lesson", )
+        Lesson greetingsLesson = new Lesson("Greetings Lesson", null, greetings, null);
+
         greetings.addLesson();
         spanish.addCategory();
     }
