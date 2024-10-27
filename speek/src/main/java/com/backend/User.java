@@ -27,11 +27,24 @@ public class User {
      * @param email the email address of the user
      * @param password the password of the user
      */
+
+    public User(String username, String email, String password, UUID uuid){
+        this.username = username;
+        this.email = email;
+        this.password = password;
+        this.uuid = uuid;
+
+    }
+
     public User(String username, String email, String password) {
         this.username = username;
         this.email = email;
         this.password = password;
+<<<<<<< HEAD
         //this.friendsList = new UserList();
+=======
+        this.friendsList = null;
+>>>>>>> 3a2cbec2ae1214aeb223df1a9d9b179958011742
         this.languageProgress = new ArrayList<>();
         this.uuid = UUID.randomUUID();
     }
@@ -60,7 +73,7 @@ public class User {
 
 
     // This should probably be handled by LanguageApplication instead
-    public static boolean validLogin(String loginText, String inputPassword) {
+    public boolean validLogin(String loginText, String inputPassword) {
         UserList userList = UserList.getInstance();
 
         User user = userList.getUser(loginText);
@@ -124,12 +137,6 @@ public class User {
         HashMap<Lesson, Integer> lessonProgressMap = new HashMap<>();
         return lessonProgressMap;
     }
-
-    /**
-     * Sets the profile picture for the user.
-     * @param pfp the new profile picture
-     */
-    //public void setProfilePicture(Image pfp) { this.profilePicture = pfp; }
 
     public String getUsername() {
         return username;

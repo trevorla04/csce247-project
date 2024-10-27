@@ -17,7 +17,7 @@ public class ScenarioDriver {
                 String username = keyboard.nextLine();
                 System.out.println("Enter password");
                 String password = keyboard.nextLine();
-                if (app.validLogin(username, password)) {
+                if (UserList.getInstance().validLogin(username, password)) {
                     System.out.println("Successfully logged into: " + username);
                     app.currentUser = app.userList.getUser(username);
                 }
@@ -34,6 +34,7 @@ public class ScenarioDriver {
         }
         printMenuOptions();
         choice = keyboard.nextInt();
+        keyboard.nextLine();
         switch (choice) {
             case 1:
                 System.out.println("What language would you like to learn?");
@@ -46,7 +47,12 @@ public class ScenarioDriver {
             case 9:
                 System.exit(0);
         }
+        printModuleOptions();
+        choice = keyboard.nextInt();
+        double moduleOneProgress, moduleTwoProgress = 0;
+        if (choice == 1) {
 
+        }
 
     }
     public static void printLoginOptions() {
@@ -58,5 +64,16 @@ public class ScenarioDriver {
         System.out.println("1. to a select a language");
         System.out.println("9. to exit application.");
     }
-    //public static void
+    public static void printModuleOptions() {
+        System.out.println("1. to start Module 1: Greetings");
+        System.out.println("2. to start Module 2: Basic Sentences");
+        System.out.println("9. to exit application.");
+    }
+    public void addFlashcardsToLesson(LanguageApplication spanishApp) {
+        spanishApp.setLanguage(spanishApp.getLanguage("Spanish"));
+        Category greetings = new Category("Greetings", spanishApp.getLanguage("Spanish"));
+        Lesson greetingsLesson = new Lesson("Greetings Lesson", )
+        greetings.addLesson();
+        spanishApp.getLanguage("Spanish").addCategory();
+    }
 }

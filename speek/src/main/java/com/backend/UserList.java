@@ -6,12 +6,10 @@ import java.util.List;
 public class UserList
 {
     private static UserList users;
-    private List<User> userList;
+    private ArrayList<User> userList = new ArrayList<>();
 
     // Private constructor to prevent instantiation outside of the singleton pattern
-    public UserList() {
-        users = DataLoader.loadUsers();
-    }
+    private UserList() {}
 
     // Retrieves the single instance of UserList. Creates a new instance if none exists
     public static UserList getInstance ()
@@ -45,6 +43,7 @@ public class UserList
 
     public boolean validLogin(String loginUsername, String loginPassword) {
         if (!users.containsUser(loginUsername)) {
+<<<<<<< HEAD
             if (users.getUser(loginUsername).getPassword().equals(loginPassword))
                 return true;
             else
@@ -52,6 +51,20 @@ public class UserList
         } else
             return false;
 
+=======
+            if (users.getUser(loginUsername).getPassword().equals(loginPassword)) {
+                System.out.println("Successfully logged into: " +loginUsername);
+                return true;
+            }
+            else {
+                System.out.println("Invalid username or password.");
+                return false;
+            }
+        } else {
+            System.out.println("Invalid username or password.");
+            return false;
+        }
+>>>>>>> 3a2cbec2ae1214aeb223df1a9d9b179958011742
     }
 
     /**

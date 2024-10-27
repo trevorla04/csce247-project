@@ -4,12 +4,19 @@ import java.util.ArrayList;
 import java.util.List;
 public class LanguageList {
 
+    private static LanguageList instance;
     // A list of languages managed by this class
-    private List<Language> languages ;
+    private ArrayList<Language> languages = new ArrayList<>();
 
     // Constructs an empty object with an empty list of languages
-    public LanguageList() {
-        this.languages = new ArrayList<>();
+    private LanguageList() {
+    }
+
+    public static LanguageList getInstance(){
+        if(instance == null){
+            instance = new LanguageList();
+        }
+        return instance;
     }
 
     /**

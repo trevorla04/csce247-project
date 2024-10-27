@@ -23,7 +23,7 @@ public class Language {
      * @param lessons a list of lessons associated with this language (currently unused in this constructor).
      */
     // Now the reverse issue, these don't have data types.
-    public Language(String name, String abbreviation, WordList wordList, PhraseList phraseList, List<Lesson> lessons){
+    public Language(String name, String abbreviation, WordList wordList, PhraseList phraseList, List<Category> categories) {
         this.name = name;
         this.abbreviation = abbreviation;
         this.wordList = wordList;

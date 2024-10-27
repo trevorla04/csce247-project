@@ -49,12 +49,13 @@ public class LanguageApplication {
      * @param username the username of the user
      * @param password the password of the user
      */
-    public boolean validLogin(String username, String password){
-        return(User.validLogin(username, password));
+
+    public boolean login(String username, String password) {
+        return (userList.validLogin(username, password));
     }
 
     // Logs out the current user and clears the session data
-    public void logout(){
+    public void logout() {
         //DataWriter.saveUsers();
         //DataWriter.saveLangauges();
         userList.clear();
@@ -77,8 +78,8 @@ public class LanguageApplication {
     }
 
     // Adds a lesson to a specified category
-    public void addLesson(Category category, Lesson lesson) {
-        category.addLesson(lesson);
+    public void addCategoryToLanguage(Category category, Language language) {
+        language.addCategory(category);
     }
 
     // Adds a word to the specified language
@@ -113,6 +114,10 @@ public class LanguageApplication {
     public Progress getProgress(){
         //TODO: Method Stub
         return null;
+    }
+
+    public Language getLanguage(String language) {
+        return(languageList.findLanguage(language));
     }
 
     // Retrieves all words in the dictionary for the current language

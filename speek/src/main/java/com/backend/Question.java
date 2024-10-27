@@ -11,7 +11,7 @@ public interface Question {
     String getType();
 
     // Displays or retrieves the question text.
-    String askQuestion();
+    void askQuestion();
 
     /**
      * Checks if the provided answer is correct.
