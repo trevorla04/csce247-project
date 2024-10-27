@@ -42,7 +42,7 @@ public class UserList
     }
 
     public boolean validLogin(String loginUsername, String loginPassword) {
-        if (!users.containsUser(loginUsername)) {
+        if (users.containsUser(loginUsername)) {
             if (users.getUser(loginUsername).getPassword().equals(loginPassword)) {
                 System.out.println("Successfully logged into: " +loginUsername);
                 return true;
@@ -73,6 +73,10 @@ public class UserList
 
     // Checks if a user with the specified username exists in the user list
     public boolean containsUser(String username){
+        if(getUser(username) == null){
+            return false;
+        }
+
         if(getUser(username).getUsername().equalsIgnoreCase(username))
             return true;
         else

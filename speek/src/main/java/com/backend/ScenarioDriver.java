@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class ScenarioDriver {
     private static Scanner keyboard = new Scanner(System.in);
     public static void main(String[] args)  {
-        LanguageApplication app = new LanguageApplication(null, DataLoader.loadLanguages());
+        LanguageApplication app = new LanguageApplication();
         //LanguageApplication app = new LanguageApplication(null, null);
         System.out.println("Welcome to Language Learning App");
         printLoginOptions();
@@ -17,9 +17,9 @@ public class ScenarioDriver {
                 String username = keyboard.nextLine();
                 System.out.println("Enter password");
                 String password = keyboard.nextLine();
-                if (UserList.getInstance().validLogin(username, password)) {
+                if (app.login(username,password)) {
                     System.out.println("Successfully logged into: " + username);
-                    app.currentUser = app.userList.getUser(username);
+
                 }
                 break;
             case 2:
@@ -75,7 +75,7 @@ public class ScenarioDriver {
         Category greetings = new Category("Greetings", spanish);
         Lesson greetingsLesson = new Lesson("Greetings Lesson", null, greetings, null);
 
-        greetings.addLesson();
-        spanish.addCategory();
+        greetings.addLesson(greetingsLesson);
+        spanish.addCategory(greetings);
     }
 }

@@ -15,19 +15,10 @@ public class LanguageApplication {
 
     // Constructs a LanguageApplication with the specified user list, current user, current language,
     //dictionary, lesson list, current lesson, progress, and language list
-    public LanguageApplication (UserList userlist, User currentUser, Language currentLanguage,
-                                Dictionary dictionary, List<Lesson> lessonList, Lesson currentLesson,
-                                Progress progress, LanguageList languageList) {}
-        /**
-         * Constructs a {@code LanguageApplication} with the specified user list, current user, current language,
-         * dictionary, lesson list, current lesson, progress, and language list.
-         *
-         * @param userlist the list of users.
-         * @param languageList the list of available languages in the application.
-         */
-    public LanguageApplication (UserList userlist, LanguageList languageList) {
-        this.userList = userlist;
-        this.languageList = languageList;
+
+    public LanguageApplication(){
+        DataLoader.loadUsers();
+        DataLoader.loadLanguages();
     }
 
     /**
@@ -51,12 +42,17 @@ public class LanguageApplication {
      */
 
     public boolean login(String username, String password) {
-        return (userList.validLogin(username, password));
+        if(!userList.validLogin(username,password){
+            return false;
+        }
+        this.currentUser = userList.getUser(username);
+        return true;
+
     }
 
     // Logs out the current user and clears the session data
     public void logout() {
-        //DataWriter.saveUsers();
+        DataWriter.saveUsers();
         //DataWriter.saveLangauges();
         userList.clear();
         currentUser = null;
