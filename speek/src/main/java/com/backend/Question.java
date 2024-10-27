@@ -10,11 +10,6 @@ public interface Question {
     // Displays or retrieves the question text.
     void askQuestion();
 
-    /**
-     * Checks if the provided answer is correct.
-     * @param answer The user's answer as a string.
-     * @return True if the answer is correct, false otherwise.
-     */
-    boolean checkAnswer(String answer);
+
 
 }

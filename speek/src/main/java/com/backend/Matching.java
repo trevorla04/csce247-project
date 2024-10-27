@@ -2,12 +2,22 @@ package com.backend;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Random;
+import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.Collections;
+
 
 public class Matching implements Question {
 
     private String question;
-    private List<String> itemsToMatch;
-    private HashMap<String, String> correctMatches;
+    private List<Word> spanishWords;
+    private List<Word> englishWords;
+    private List<Word> shuffledSpanishWords;
+    private List<Word> shuffledEnglishWords;
+    private Language language;
+    Scanner scanner = new Scanner(System.in);
+    //private HashMap<String, String> correctMatches;
 
     /**
      * Constructs a Matching question with the specified question text, items to match, and correct matches
@@ -15,46 +25,61 @@ public class Matching implements Question {
      * @param itemsToMatch   A list of items that need to be matched
      * @param correctMatches A map of correct matches where each key-value pair represents an item and its correct match
      */
-    public Matching(List<String> itemsToMatch, HashMap<String, String> correctMatches) {
+    public Matching(List<Word> words, Language language) {
+        this.language = language;
         this.question = "Match the following words or phrases.";
-        this.itemsToMatch = itemsToMatch;
-        this.correctMatches = correctMatches;
+        this.englishWords = new ArrayList<>();
+        this.spanishWords = new ArrayList<>();
+
+
+        for (Word word : words) {
+            englishWords.add(word);
+            spanishWords.add(new Word(word.getTranslation(language)));
+        }
+
+        this.shuffledSpanishWords = new ArrayList<>(spanishWords);
+        this.shuffledEnglishWords = new ArrayList<>(englishWords);
+        Collections.shuffle(shuffledSpanishWords);
+        Collections.shuffle(shuffledEnglishWords);
     }
 
-    // Displays the question and the items to be matched. Prompts the user to provide answers in a specified format.
     public void askQuestion() {
+
         System.out.println(question);
-        for (String item : itemsToMatch) {
-            System.out.println(item);
+
+        for (int i = 0; i < shuffledSpanishWords.size(); i++) {
+            System.out.println(i + shuffledSpanishWords.get(i));
         }
-        System.out.println("Please provide your answers in the format 'englishWord1:languageWord1, " +
-                "englishWord2:languageWord2,...'");
+
+        System.out.println("\n");
+
+        for (int i = 0; i < shuffledEnglishWords.size(); i++) {
+            System.out.println(i + shuffledEnglishWords.get(i));
+        }
+
+        for (int i = 0; i < 3; i++){
+            System.out.println("Enter number of spanish word to match");
+            int spanishChoice = scanner.nextInt();
+            System.out.println("Enter number of english word to match");
+            int englishChoice = scanner.nextInt();
+            checkAnswer(spanishChoice, englishChoice);
+        }
     }
 
-    /**
-     * Checks if the user's answer is correct by comparing it to the correct matches
-     * @param answer The user's answer in the format 'item1:match1,item2:match2,...'
-     * @return True if the user's matches are correct, false otherwise
-     */
-    public boolean checkAnswer(String answer) {
-        String[] pairs = answer.split(",");
-        HashMap<String, String> userMatches = new HashMap<>();
+    public boolean checkAnswer(int spanishChoice, int englishChoice) {
 
-        for (String pair : pairs) {
-            String[] items = pair.split(":");
-            if (items.length == 2) {
-                userMatches.put(items[0].trim(), items[1].trim());
-            }
-        }
+        String chosenSpanishWord = shuffledSpanishWords.get(spanishChoice);
+        String chosenEnglishWord = shuffledEnglishWords.get(englishChoice);
 
-        // Check if user's matches are correct
-        for (String item : itemsToMatch) {
-            if (!userMatches.getOrDefault(item, "").equals(correctMatches.get(item))) {
-                System.out.println("Incorrect...");
-                return false; // One or more matches are incorrect
-            }
+        int originalSpanishIndex = spanishWords.indexOf(chosenSpanishWord);
+        int originalEnglishIndex = englishWords.indexOf(chosenEnglishWord);
+
+        if (originalSpanishIndex == originalEnglishIndex) {
+            System.out.println("Correct match!");
+            return true;
+        } else {
+            System.out.println("Incorrect match. Try again.");
+            return false;
         }
-        System.out.println("Correct!");
-        return true; // All matches are correct
     }
 }
