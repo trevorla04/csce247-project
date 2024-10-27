@@ -70,6 +70,9 @@ public class ScenarioDriver {
     }
     public void addFlashcardsToLesson(LanguageApplication spanishApp) {
         spanishApp.setLanguage(spanishApp.getLanguage("Spanish"));
-        //spanishApp.add
+        Category greetings = new Category("Greetings", spanishApp.getLanguage("Spanish"));
+        Lesson greetingsLesson = new Lesson("Greetings Lesson", )
+        greetings.addLesson();
+        spanishApp.getLanguage("Spanish").addCategory();
     }
 }

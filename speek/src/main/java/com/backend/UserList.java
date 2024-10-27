@@ -43,13 +43,18 @@ public class UserList
 
     public boolean validLogin(String loginUsername, String loginPassword) {
         if (!users.containsUser(loginUsername)) {
-            if (users.getUser(loginUsername).getPassword().equals(loginPassword))
+            if (users.getUser(loginUsername).getPassword().equals(loginPassword)) {
+                System.out.println("Successfully logged into: " +loginUsername);
                 return true;
-            else
+            }
+            else {
+                System.out.println("Invalid username or password.");
                 return false;
-        } else
+            }
+        } else {
+            System.out.println("Invalid username or password.");
             return false;
-
+        }
     }
 
     /**

@@ -51,14 +51,7 @@ public class LanguageApplication {
      */
 
     public boolean login(String username, String password) {
-        if (userList.getUser(username) != null && userList.getUser(username).getPassword().equals(password)){
-            currentUser = userList.getUser(username);
-            return true;
-        }
-        else{
-            System.out.println("Username or password is incorrect.");
-            return false;
-        }
+        return (userList.validLogin(username, password));
     }
 
     // Logs out the current user and clears the session data
