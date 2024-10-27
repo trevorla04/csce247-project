@@ -6,7 +6,7 @@ import java.util.List;
 public class UserList 
 {
     private static UserList users;
-    private List<User> userList;
+    private ArrayList<User> userList = new ArrayList<>();
 
     // Private constructor to prevent instantiation outside of the singleton pattern
     private UserList() {}

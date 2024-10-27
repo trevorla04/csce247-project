@@ -27,7 +27,7 @@ public class DataLoader extends DataConstants {
                     String userName = (String) userJSON.get(USER_USERNAME);
                     UUID userID = UUID.fromString((String) userJSON.get(USER_UUID));
                     String email = (String) userJSON.get(USER_EMAIL);
-                    User aU = new User(userName, email, password,userID);
+                    User aU = new User(userName, email, password, userID);
                     users.addUser(aU);
                 }
             }

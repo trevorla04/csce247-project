@@ -16,7 +16,7 @@ public class ScenarioDriver {
                 String username = keyboard.nextLine();
                 System.out.println("Enter password");
                 String password = keyboard.nextLine();
-                if (app.validLogin(username, password)) {
+                if (UserList.getInstance().validLogin(username, password)) {
                     System.out.println("Successfully logged into: " + username);
                     app.currentUser = app.userList.getUser(username);
                 }
@@ -70,6 +70,6 @@ public class ScenarioDriver {
     }
     public void addFlashcardsToLesson(LanguageApplication spanishApp) {
         spanishApp.setLanguage(spanishApp.getLanguage("Spanish"));
-        spanishApp.add
+        //spanishApp.add
     }
 }

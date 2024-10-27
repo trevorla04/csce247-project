@@ -28,7 +28,7 @@ public class User {
      * @param password the password of the user
      */
 
-    User(String username, String email, String password, UUID uuid){
+    public User(String username, String email, String password, UUID uuid){
         this.username = username;
         this.email = email;
         this.password = password;
