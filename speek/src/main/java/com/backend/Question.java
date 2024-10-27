@@ -7,11 +7,8 @@ package com.backend;
  */
 public interface Question {
 
-    // Returns the type of the question.
-    String getType();
-
     // Displays or retrieves the question text.
-    String askQuestion();
+    void askQuestion();
 
     /**
      * Checks if the provided answer is correct.

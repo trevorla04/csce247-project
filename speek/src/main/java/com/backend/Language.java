@@ -6,7 +6,6 @@ import java.util.UUID;
 public class Language {
     public String name;
     public String abbreviation;   // The name of the language
-    public String abbreviation;  // The abbreviation of the language
     // Private attributes for managing the language's word list, phrase list, and categories
     private WordList wordList; // List of words associated with the language
     private PhraseList phraseList; // List of phrases associated with the language
@@ -24,7 +23,7 @@ public class Language {
      * @param lessons a list of lessons associated with this language (currently unused in this constructor).
      */
     // Now the reverse issue, these don't have data types.
-    public Language(String name, String abbreviation, WordList wordList, PhraseList phraseList, List<Lesson> lessons){
+    public Language(String name, String abbreviation, WordList wordList, PhraseList phraseList, List<Category> categories) {
         this.name = name;
         this.abbreviation = abbreviation;
         this.wordList = wordList;

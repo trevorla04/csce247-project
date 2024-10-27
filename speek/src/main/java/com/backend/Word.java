@@ -5,6 +5,7 @@ import java.util.UUID;
 
 public class Word {
     private UUID uuid = UUID.randomUUID();
+    private String wordString;
     private HashMap<Language,String> translations = new HashMap<Language,String>();
     private String partOfSpeech;
 
@@ -14,7 +15,8 @@ public class Word {
      * @param translations A map of translations by language
      * @param uuid         The unique identifier for this Word object
      */
-    public Word(HashMap<Language,String> translations, UUID uuid){
+    public Word(String wordString, HashMap<Language,String> translations, UUID uuid){
+        this.wordString = wordString;
         if (translations != null){
             this.translations = translations;
         }
@@ -29,8 +31,8 @@ public class Word {
      * @param language The language of the requested translation
      * @return The translation in the specified language, or null if none exists
      */
-    public String getWordString(Language language){
-        return translations.get(language);
+    public String getWordString(){
+        return wordString;
     }
 
     /**

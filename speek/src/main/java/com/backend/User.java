@@ -27,11 +27,24 @@ public class User {
      * @param email the email address of the user
      * @param password the password of the user
      */
+
+    public User(String username, String email, String password, UUID uuid){
+        this.username = username;
+        this.email = email;
+        this.password = password;
+        this.uuid = uuid;
+
+    }
+
     public User(String username, String email, String password) {
         this.username = username;
         this.email = email;
         this.password = password;
-        this.friendsList = new UserList();
+<<<<<<< HEAD
+        //this.friendsList = new UserList();
+=======
+        this.friendsList = null;
+>>>>>>> 3a2cbec2ae1214aeb223df1a9d9b179958011742
         this.languageProgress = new ArrayList<>();
         this.uuid = UUID.randomUUID();
     }
@@ -60,16 +73,24 @@ public class User {
 
 
     // This should probably be handled by LanguageApplication instead
+    public boolean validLogin(String loginText, String inputPassword) {
+        UserList userList = UserList.getInstance();
 
-//    public boolean validLogin(String loginText, String inputPassword) {
-//        if (!(loginText.equals(email) || loginText.equals(username))) {
-//            System.out.println("Invalid login information. Please try again.");
-//            return false;
-//        }
-//
-//
-//        return this.email.equals(loginText) && this.password.equals(inputPassword);
-//    }
+        User user = userList.getUser(loginText);
+        if (user == null) {
+            System.out.println("Invalid login information. User not found.");
+            return false;
+        }
+
+        // Check if the password matches
+        if (user.password.equals(inputPassword)) {
+            System.out.println("Login successful.");
+            return true;
+        } else {
+            System.out.println("Incorrect password.");
+            return false;
+        }
+    }
 
     /**
      * Initiates the password recovery process for the user.
@@ -84,7 +105,7 @@ public class User {
      * @return a message indicating the result of the operation
      */
     public String addFriend(User user) {
-        if(friendsList.containsUser(user)) {
+        if(friendsList.containsUser(user.getUsername())) {
             return "User is already in your friends list.";
         }
         friendsList.addUser(user);
@@ -116,12 +137,6 @@ public class User {
         HashMap<Lesson, Integer> lessonProgressMap = new HashMap<>();
         return lessonProgressMap;
     }
-
-    /**
-     * Sets the profile picture for the user.
-     * @param pfp the new profile picture
-     */
-    //public void setProfilePicture(Image pfp) { this.profilePicture = pfp; }
 
     public String getUsername() {
         return username;

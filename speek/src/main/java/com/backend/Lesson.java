@@ -4,15 +4,24 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Lesson {
+    private String lessonName;
     private List<Question> questions;
     private Category category;
     private Progress progress;
     private int difficulty;
+    private int questionIndex;
+    private List<Flashcard> flashcards;
 
-    /**
-     * Adds a question to the lesson
-     * @param question The question to add to the lesson
-     */
+    public Lesson(String lessonName, List<Question> questions, Category category, Progress progress, List<Flashcard> flashcards) {
+        this.lessonName = lessonName;
+        this.questions = questions;
+        this.category = category;
+        this.progress = progress;
+        this.difficulty = 0;
+        this.questionIndex = 0;
+        this.flashcards = flashcards;
+    }
+
     public void addQuestion(Question question) {
         if (question != null) {
             questions.add(question);
@@ -34,18 +43,21 @@ public class Lesson {
      * Displays the specified question if it exists in the lesson
      * @param question The question to display
      */
-    public void showQuestion(Question question) {
-        if (questions.contains(question)) {
-            System.out.println("Question: " + question.getText());
+    public void showQuestion(int questionIndex) {
+        if (questions.size() < questionIndex) {
+            System.out.println("Question: " );
+            questions.get(questionIndex).askQuestion();
         } else {
             System.out.println("Question not found in the lesson.");
         }
     }
+    public void goToNextQuestion(){
+        questionIndex ++;
+        questions.get(questionIndex).askQuestion();
+    }
 
-    // Advances to the next lesson
-    public void goToNextLesson() {
-        // Logic to go to the next lesson (implementation can vary)
-        System.out.println("Going to the next lesson...");
+    public void addFlashcard(Flashcard flashcard) {
+        flashcards.add(flashcard);
     }
 
     // Returns to the previous lesson
@@ -94,84 +106,4 @@ public class Lesson {
         // Logic to end the lesson goes here
     }
 
-    // Represents a question within the lesson
-    class Question {
-        private String text;
-
-        public Question(String text) {
-            this.text = text;
-        }
-
-        public String getText() {
-            return text;
-        }
-    }
-
-    // Represents a word to be learned within the lesson
-    class Word {
-        private String word;
-
-        public Word(String word) {
-            this.word = word;
-        }
-
-        public String getWord() {
-            return word;
-        }
-    }
-
-    // Represents a dictionary containing words learned in the lesson
-    class Dictionary {
-        private List<Word> words;
-
-        public Dictionary() {
-            words = new ArrayList<>();
-        }
-
-        public void addWord(Word word) {
-            if (word != null) {
-                words.add(word);
-            }
-        }
-
-        public List<Word> getWords() {
-            return words;
-        }
-    }
-    
-    // Represents the category of the lesson
-    class Category {
-        private String name;
-
-        public Category(String name) {
-            this.name = name;
-        }
-
-        public String getName() {
-            return name;
-        }
-    }
-
-    // Represents the progress within the lesson, tracking the current question index
-    class Progress {
-        private int currentQuestionIndex;
-
-        public Progress() {
-            this.currentQuestionIndex = 0;
-        }
-
-        public int getCurrentQuestionIndex() {
-            return currentQuestionIndex;
-        }
-
-        public void nextQuestion() {
-            currentQuestionIndex++;
-        }
-
-        public void previousQuestion() {
-            if (currentQuestionIndex > 0) {
-                currentQuestionIndex--;
-            }
-        }
-    }
 }

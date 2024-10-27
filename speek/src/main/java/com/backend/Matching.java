@@ -3,7 +3,7 @@ package com.backend;
 import java.util.HashMap;
 import java.util.List;
 
-public class Matching {
+public class Matching implements Question {
 
     private String question;
     private List<String> itemsToMatch;
@@ -15,18 +15,10 @@ public class Matching {
      * @param itemsToMatch   A list of items that need to be matched
      * @param correctMatches A map of correct matches where each key-value pair represents an item and its correct match
      */
-    public Matching(String question, List<String> itemsToMatch, HashMap<String, String> correctMatches) {
-        this.question = question;
+    public Matching(List<String> itemsToMatch, HashMap<String, String> correctMatches) {
+        this.question = "Match the following words or phrases.";
         this.itemsToMatch = itemsToMatch;
         this.correctMatches = correctMatches;
-    }
-
-    /**
-     * Returns the type of this question as "Matching"
-     * @return A string representing the type of this question
-     */
-    public String getType() {
-        return "Matching";
     }
 
     // Displays the question and the items to be matched. Prompts the user to provide answers in a specified format.
@@ -35,7 +27,8 @@ public class Matching {
         for (String item : itemsToMatch) {
             System.out.println(item);
         }
-        System.out.println("Please provide your answers in the format 'item1:match1,item2:match2,...'");
+        System.out.println("Please provide your answers in the format 'englishWord1:languageWord1, " +
+                "englishWord2:languageWord2,...'");
     }
 
     /**
