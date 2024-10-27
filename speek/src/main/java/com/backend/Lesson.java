@@ -4,13 +4,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Lesson {
+    private String lessonName;
     private List<Question> questions;
     private Category category;
     private Progress progress;
     private int difficulty;
     private int questionIndex;
 
-    public Lesson(List<Question> questions, Category category, Progress progress) {
+    public Lesson(String lessonName, List<Question> questions, Category category, Progress progress) {
+        this.lessonName = lessonName;
         this.questions = questions;
         this.category = category;
         this.progress = progress;
