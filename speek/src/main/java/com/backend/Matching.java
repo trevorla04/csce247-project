@@ -21,14 +21,6 @@ public class Matching implements Question {
         this.correctMatches = correctMatches;
     }
 
-    /**
-     * Returns the type of this question as "Matching"
-     * @return A string representing the type of this question
-     */
-    public String getType() {
-        return "Matching";
-    }
-
     // Displays the question and the items to be matched. Prompts the user to provide answers in a specified format.
     public void askQuestion() {
         System.out.println(question);

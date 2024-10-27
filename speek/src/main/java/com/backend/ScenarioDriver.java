@@ -70,10 +70,11 @@ public class ScenarioDriver {
         System.out.println("9. to exit application.");
     }
     public void addFlashcardsToLesson(LanguageApplication spanishApp) {
-        spanishApp.setLanguage(spanishApp.getLanguage("Spanish"));
-        Category greetings = new Category("Greetings", spanishApp.getLanguage("Spanish"));
+        Language spanish = spanishApp.getLanguage("Spanish");
+        spanishApp.setLanguage(spanish);
+        Category greetings = new Category("Greetings", spanish);
         Lesson greetingsLesson = new Lesson("Greetings Lesson", )
         greetings.addLesson();
-        spanishApp.getLanguage("Spanish").addCategory();
+        spanish.addCategory();
     }
 }
