@@ -11,9 +11,14 @@ public class Flashcard {
      * @param front the question or prompt on the front of the flashcard
      * @param back the answer on the back of the flashcard
      */
-    public Flashcard(String front, String back) {
-        this.front = front;
-        this.back = back;
+    public Flashcard(Word word, Language language) {
+        this.front = word.getWordString();
+        this.back = word.getTranslation(language);
+    }
+
+    public Flashcard(Phrase phrase, Language language) {
+        this.front = phrase.getPhraseString();
+        this.back = phrase.getTranslation(language);
     }
 
     /**
@@ -32,47 +37,4 @@ public class Flashcard {
         return back;
     }
 
-    /**
-     * Returns the type of this flashcard, which is "Flashcard"
-     * @return the string "Flashcard"
-     */
-    public String getType() {
-        return "Flashcard";
-    }
-
-    /**
-     * Prints the question on the front of the flashcard to the console
-     * This simulates asking the user the question on the flashcard
-     */
-    public void askQuestion() {
-        System.out.println("Question: " + front);
-    }
-
-    /**
-     * Checks if the provided answer matches the answer on the back of the flashcard
-     * The comparison is case-insensitive
-     * @param answer the answer provided by the user
-     * @return True if the provided answer matches the back of the flashcard False otherwise
-     */
-    public boolean checkAnswer(String answer) {
-        return back.equalsIgnoreCase(answer);
-    }
-
-    // Main method to demonstrate the functionality of the Flashcard class
-    // It asks a question and checks the user's input against the correct answer
-    public static void main(String[] args) {
-        Flashcard flashcard = new Flashcard("What is the capital of France?", "Paris");
-        flashcard.askQuestion();
-
-        java.util.Scanner scanner = new java.util.Scanner(System.in);
-        System.out.print("Your answer: ");
-        String userAnswer = scanner.nextLine();
-
-        if (flashcard.checkAnswer(userAnswer)) {
-            System.out.println("Correct!");
-        } else {
-            System.out.println("Incorrect. The correct answer is: " + flashcard.getBack());
-        }
-        scanner.close();
-    }
 }

@@ -1,44 +1,37 @@
 package com.backend;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class UserList
 {
-    private static UserList users;
-    private ArrayList<User> userList = new ArrayList<>();
+    private static UserList userList;
+    private HashMap<String,User> userLookup = new HashMap<String,User>();
 
-    // Private constructor to prevent instantiation outside of the singleton pattern
-    private UserList() {}
+    // Private constructor to prevent instantiation outside the singleton pattern
+    public UserList() {}
 
     // Retrieves the single instance of UserList. Creates a new instance if none exists
     public static UserList getInstance ()
     {
-        if (users == null)
+        if (userList == null)
         {
-            users = new UserList();
+            userList = new UserList();
         }
-        return users;
+        return userList;
     }
 
     // Retrieves a user by their username
     public User getUser (String s)
     {
-        for (User user : userList) {
-            if (user.getUsername().equalsIgnoreCase(s))
-                return user;
-        }
+        userLookup.get(s);
         return null;
     }
 
     // Adds a user to the user list
     public void addUser(User user) {
-        if (!userList.contains(user))
-            userList.add(user);
-    }
-
-    public List<User> getAllUsers() {
-        return userList;
+        userLookup.put(user.username,user);
     }
 
     public boolean validLogin(String loginUsername, String loginPassword) {
@@ -57,33 +50,47 @@ public class UserList
         }
     }
 
-    /**
-     * Creates a new account for the user.
-     */
-    public boolean createAccount(String username, String email, String password) {
-        if(users.containsUser(username)){
-            System.out.println("User with this username already exists.");
-            return false;
-        }
-        User newUser = new User(username, email, password);
-        users.addUser(newUser);
-        System.out.println("New user created with username: " + newUser.getUsername());
-        return true;
-    }
+//    public ArrayList<User> getAllUsers() {
+//        return users;
+//    }
 
     // Checks if a user with the specified username exists in the user list
     public boolean containsUser(String username){
-        if(getUser(username) == null){
-            return false;
-        }
+        return userLookup.containsKey(username);
+    }
 
-        if(getUser(username).getUsername().equalsIgnoreCase(username))
-            return true;
-        else
-            return false;
+    // Checks if a user with the specified username exists in the user list
+    public boolean containsUser(User user) {
+        return userLookup.containsKey(user.username);
     }
 
     public void clear() {
-        userList.clear();
+        userLookup.clear();
     }
+
+    // this should be handled by the DataWriter class
+//    public void saveUsers ()
+//    {
+//        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("users.dat")))
+//        {
+//            oos.writeObject(users);
+//        }
+//        catch (Exception e)
+//        {
+//            e.printStackTrace();
+//        }
+//    }
+
+    // And this by the data writer class;
+//    public void loadUsers ()
+//    {
+//        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream("users.dat")))
+//        {
+//            users = (ArrayList<User>) ois.readObject();
+//        }
+//        catch (Exception e)
+//        {
+//            e.printStackTrace();
+//        }
+//    }
 }

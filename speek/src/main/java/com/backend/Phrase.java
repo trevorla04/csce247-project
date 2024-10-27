@@ -3,7 +3,7 @@ package com.backend;
 import java.util.HashMap;
 
 public class Phrase {
-    private String phrase;
+    private String phraseString;
     private String definition;
     private Language language;
     private HashMap<Language,String> translations;
@@ -16,21 +16,26 @@ public class Phrase {
      * @param translations A map of translations for the phrase, keyed by language
      */
     public Phrase(String phrase, String definition, Language language, HashMap<Language,String> translations) {
-        this.phrase = phrase;
+        this.phraseString = phrase;
         this.definition = definition;
         this.language = language;
         this.translations = translations != null ? translations : new HashMap<Language, String>();
     }
 
+    public Phrase(String phraseString, HashMap<Language, String> translations) {
+        this.phraseString = phraseString;
+        this.translations = translations != null ? translations : new HashMap<Language, String>();
+    }
+
     // Returns the phrase text
-    public String getPhrase(){
-        return phrase;
+    public String getPhraseString(){
+        return phraseString;
     }
 
     // Sets the phrase text
-    public void setPhrase(String phrase){
-        if (phrase != null){
-            this.phrase = phrase;
+    public void setPhraseString(String phraseString) {
+        if (phraseString != null){
+            this.phraseString = phraseString;
         }
     }
     
@@ -73,12 +78,12 @@ public class Phrase {
     
     // Returns a string representation of the phrase with its definition
     public String toString(){
-        return this.phrase + " defined as: " + this.definition;
+        return this.phraseString + " defined as: " + this.definition;
     }
 
     // Checks if two phrases are equal by comparing their text and definitions, ignoring case differences in the text
     public boolean equals(Phrase phrase) {
-        return phrase.getPhrase().equalsIgnoreCase(this.phrase) && phrase.getDefinition().equals(this.definition);
+        return phrase.getPhraseString().equalsIgnoreCase(this.phraseString) && phrase.getDefinition().equals(this.definition);
     }
     
 }
