@@ -41,6 +41,7 @@ public class LanguageApplication {
     public boolean createAccount(String username, String email, String password) {
         if(User.createAccount(username, email, password))
             return true;
+        return false;
     }
 
     /**
@@ -92,7 +93,7 @@ public class LanguageApplication {
 
     // Adds a story to the specified lesson in a language
     public void addLessonToCategory(Category category, Lesson lesson) {
-        Category.addLesson(lesson);
+        category.addLesson(lesson);
     }
 
     // Adds a story to the specified lesson in a language

@@ -36,7 +36,7 @@ public class Lesson {
      */
     public void showQuestion(Question question) {
         if (questions.contains(question)) {
-            System.out.println("Question: " + question.getText());
+            System.out.println("Question: " + question.askQuestion());
         } else {
             System.out.println("Question not found in the lesson.");
         }
@@ -94,84 +94,4 @@ public class Lesson {
         // Logic to end the lesson goes here
     }
 
-    // Represents a question within the lesson
-    class Question {
-        private String text;
-
-        public Question(String text) {
-            this.text = text;
-        }
-
-        public String getText() {
-            return text;
-        }
-    }
-
-    // Represents a word to be learned within the lesson
-    class Word {
-        private String word;
-
-        public Word(String word) {
-            this.word = word;
-        }
-
-        public String getWord() {
-            return word;
-        }
-    }
-
-    // Represents a dictionary containing words learned in the lesson
-    class Dictionary {
-        private List<Word> words;
-
-        public Dictionary() {
-            words = new ArrayList<>();
-        }
-
-        public void addWord(Word word) {
-            if (word != null) {
-                words.add(word);
-            }
-        }
-
-        public List<Word> getWords() {
-            return words;
-        }
-    }
-    
-    // Represents the category of the lesson
-    class Category {
-        private String name;
-
-        public Category(String name) {
-            this.name = name;
-        }
-
-        public String getName() {
-            return name;
-        }
-    }
-
-    // Represents the progress within the lesson, tracking the current question index
-    class Progress {
-        private int currentQuestionIndex;
-
-        public Progress() {
-            this.currentQuestionIndex = 0;
-        }
-
-        public int getCurrentQuestionIndex() {
-            return currentQuestionIndex;
-        }
-
-        public void nextQuestion() {
-            currentQuestionIndex++;
-        }
-
-        public void previousQuestion() {
-            if (currentQuestionIndex > 0) {
-                currentQuestionIndex--;
-            }
-        }
-    }
 }
