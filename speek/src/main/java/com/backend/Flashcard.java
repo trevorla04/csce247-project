@@ -17,7 +17,7 @@ public class Flashcard {
     }
 
     public Flashcard(Phrase phrase, Language language) {
-        this.front = phrase.getPhrase();
+        this.front = phrase.getPhraseString();
         this.back = phrase.getTranslation(language);
     }
 

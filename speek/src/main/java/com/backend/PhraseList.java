@@ -64,7 +64,7 @@ public class PhraseList {
      */
     public Phrase findPhrase(String searchPhrase) {
         for (Phrase phrase : phraseList)
-            if (phrase.getPhrase().equalsIgnoreCase(searchPhrase))
+            if (phrase.getPhraseString().equalsIgnoreCase(searchPhrase))
                 return phrase;
         return null;
     }
@@ -101,7 +101,7 @@ public class PhraseList {
     public void printPhrase(int index) {
         Phrase phrase = getPhrase(index);
         if (phrase != null) {
-            System.out.println(phrase.getPhrase());
+            System.out.println(phrase.getPhraseString());
         }
     }
 

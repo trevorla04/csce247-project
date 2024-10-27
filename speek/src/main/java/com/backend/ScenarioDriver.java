@@ -1,6 +1,7 @@
 package com.backend;
 
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class ScenarioDriver {
     private static Scanner keyboard = new Scanner(System.in);
@@ -66,16 +67,98 @@ public class ScenarioDriver {
     }
     public static void printModuleOptions() {
         System.out.println("1. to start Module 1: Greetings");
-        System.out.println("2. to start Module 2: Basic Sentences");
+        System.out.println("2. to start Module 2: FamilyBasic Sentences");
         System.out.println("9. to exit application.");
     }
-    public void addFlashcardsToLesson(LanguageApplication spanishApp) {
+    public static void createGreetingsLesson(LanguageApplication spanishApp) {
         Language spanish = spanishApp.getLanguage("Spanish");
         spanishApp.setLanguage(spanish);
-        Category greetings = new Category("Greetings", spanish);
-        Lesson greetingsLesson = new Lesson("Greetings Lesson", null, greetings, null);
 
-        greetings.addLesson();
-        spanish.addCategory();
+        Category greetings = new Category("Greetings", spanish);
+        Lesson greetingsLesson = new Lesson("Greetings Lesson", null,
+                greetings, null, null);
+
+        Word hello = new Word("Hello", null);
+        hello.addTranslation(spanish, "hola");
+        Phrase goodMorning = new Phrase("Good morning", null);
+        goodMorning.addTranslations(spanish, "buenos dias");
+        Phrase goodAfternoon = new Phrase("Good afternoon", null);
+        goodAfternoon.addTranslations(spanish, "buenos tardes");
+        Phrase goodNight = new Phrase("Good night/evening", null);
+        goodNight.addTranslations(spanish, "buenas noches");
+        Phrase howAreYou = new Phrase("How are you?", null);
+        howAreYou.addTranslations(spanish, "Como estas?");
+
+        Flashcard flashcard1 = new Flashcard(hello, spanish);
+        Flashcard flashcard2 = new Flashcard(goodMorning, spanish);
+        Flashcard flashcard3 = new Flashcard(goodAfternoon, spanish);
+        Flashcard flashcard4 = new Flashcard(goodNight, spanish);
+        Flashcard flashcard5 = new Flashcard(howAreYou, spanish);
+
+        greetingsLesson.addFlashcard(flashcard1);
+        greetingsLesson.addFlashcard(flashcard2);
+        greetingsLesson.addFlashcard(flashcard3);
+        greetingsLesson.addFlashcard(flashcard4);
+        greetingsLesson.addFlashcard(flashcard5);
+
+        ArrayList<Phrase> greetingsList = new ArrayList<Phrase>();
+        greetingsList.add(goodMorning);
+        greetingsList.add(goodAfternoon);
+        greetingsList.add(goodNight);
+        greetingsList.add(howAreYou);
+
+        greetingsLesson.addQuestion(new FillInTheBlank(hello, spanish));
+        greetingsLesson.addQuestion(new FillInTheBlank(goodMorning, spanish));
+        greetingsLesson.addQuestion(new FillInTheBlank(goodAfternoon, spanish));
+        greetingsLesson.addQuestion(new MultipleChoice("How do you say good morning in Spanish",
+                greetingsList, 1));
+        //greetingsLesson.addQuestion(new Matching());
+
+        greetings.addLesson(greetingsLesson);
+        spanish.addCategory(greetings);
     }
+
+    public static void createFamilyLesson(LanguageApplication spanishApp) {
+        Language spanish = spanishApp.getLanguage("Spanish");
+        spanishApp.setLanguage(spanish);
+
+        Category familyWords = new Category("Family Words", spanish);
+        Lesson familyWordsLesson = new Lesson("Family Lesson", null,
+                familyWords, null, null);
+
+        Word dad = new Word("dad", null);
+        dad.addTranslation(spanish, "padre");
+        Word mom = new Word("mom", null);
+        mom.addTranslation(spanish, "madre");
+        Word sister = new Word("sister", null);
+        sister.addTranslation(spanish, "hermana");
+        Word brother = new Word("brother", null);
+        brother.addTranslation(spanish, "hermano");
+        Word family = new Word("family", null);
+        family.addTranslation(spanish, "familia");
+
+        Flashcard flashcard1 = new Flashcard(dad, spanish);
+        Flashcard flashcard2 = new Flashcard(mom, spanish);
+        Flashcard flashcard3 = new Flashcard(sister, spanish);
+        Flashcard flashcard4 = new Flashcard(brother, spanish);
+        Flashcard flashcard5 = new Flashcard(family, spanish);
+
+        familyWordsLesson.addFlashcard(flashcard1);
+        familyWordsLesson.addFlashcard(flashcard2);
+        familyWordsLesson.addFlashcard(flashcard3);
+        familyWordsLesson.addFlashcard(flashcard4);
+        familyWordsLesson.addFlashcard(flashcard5);
+
+        ArrayList<P> familyTerms = new ArrayList<Phrase>();
+        familyTerms.add()
+
+        familyWordsLesson.addQuestion(new FillInTheBlank(dad, spanish));
+        familyWordsLesson.addQuestion(new FillInTheBlank(mom, spanish));
+        familyWordsLesson.addQuestion(new FillInTheBlank(sister, spanish));
+        familyWordsLesson.addQuestion(new MultipleChoice());
+        familyWordsLesson.addQuestion(new Matching());
+
+        familyWords.addLesson(familyWordsLesson);
+        spanish.addCategory(familyWords);
+
 }

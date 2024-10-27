@@ -40,11 +40,8 @@ public class User {
         this.username = username;
         this.email = email;
         this.password = password;
-<<<<<<< HEAD
         //this.friendsList = new UserList();
-=======
         this.friendsList = null;
->>>>>>> 3a2cbec2ae1214aeb223df1a9d9b179958011742
         this.languageProgress = new ArrayList<>();
         this.uuid = UUID.randomUUID();
     }
