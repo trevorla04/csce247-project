@@ -50,10 +50,12 @@ public class ScenarioDriver {
         }
         printModuleOptions();
         choice = keyboard.nextInt();
-        double moduleOneProgress, moduleTwoProgress = 0;
+        keyboard.nextLine();
+        double moduleOneScore, moduleTwoScore = 0;
         if (choice == 1) {
+            createGreetingsLesson(app);
 
-        }
+        } else if (choice == 2 && )
 
     }
     public static void printLoginOptions() {
@@ -70,7 +72,7 @@ public class ScenarioDriver {
         System.out.println("2. to start Module 2: FamilyBasic Sentences");
         System.out.println("9. to exit application.");
     }
-    public static void createGreetingsLesson(LanguageApplication spanishApp) {
+    public static void greetingsLesson(LanguageApplication spanishApp) {
         Language spanish = spanishApp.getLanguage("Spanish");
         spanishApp.setLanguage(spanish);
 
@@ -116,9 +118,12 @@ public class ScenarioDriver {
 
         greetings.addLesson(greetingsLesson);
         spanish.addCategory(greetings);
+
+        System.out.println("Displaying flashcards for this lesson. Press enter to see the back");
+        greetingsLesson.
     }
 
-    public static void createFamilyLesson(LanguageApplication spanishApp) {
+    public static void familyLesson(LanguageApplication spanishApp) {
         Language spanish = spanishApp.getLanguage("Spanish");
         spanishApp.setLanguage(spanish);
 
@@ -166,4 +171,5 @@ public class ScenarioDriver {
         familyWords.addLesson(familyWordsLesson);
         spanish.addCategory(familyWords);
     }
+
 }
