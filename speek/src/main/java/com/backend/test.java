@@ -30,15 +30,15 @@ public class test {
         }
 
         // Testing valid login
-        System.out.println("Testing user1's valid login: " + user1.validLogin("john@example.com",
-                "password123"));
+        // System.out.println("Testing user1's valid login: " + user1.validLogin("john@example.com",
+        //        "password123"));
 
         // Testing valid add user
         System.out.println("Testing adding a valid user: " + loadedUsers.getAllUsers().contains(user1));
 
         // Testing invalid login
-        System.out.println("Testing an invalid login for user1: " + user1.validLogin("john@example.com",
-                "password"));
+        //System.out.println("Testing an invalid login for user1: " + user1.validLogin("john@example.com",
+        //        "password"));
 
         // Testing invalid add user
         System.out.println("Testing adding an invalid user: " + loadedUsers.getAllUsers().contains(user4));

@@ -37,49 +37,6 @@ public class User {
     }
 
     /**
-     * Creates a new account for the user.
-     */
-    public static boolean createAccount(String username, String email, String password) {
-        UserList userList = UserList.getInstance();
-
-        if(userList.containsUser(username)){
-            System.out.println("User with this username already exists.");
-            return false;
-        }
-
-        User newUser = new User(username, email, password);
-        userList.addUser(newUser);
-        System.out.println("New user created with username: " + newUser.getUsername());
-        return true;
-    }
-
-    /**
-     * Validates the user's login credentials.
-     * @return true if the login is valid; false otherwise
-     */
-
-
-    // This should probably be handled by LanguageApplication instead
-    public static boolean validLogin(String loginText, String inputPassword) {
-        UserList userList = UserList.getInstance();
-
-        User user = userList.getUser(loginText);
-        if (user == null) {
-            System.out.println("Invalid login information. User not found.");
-            return false;
-        }
-
-        // Check if the password matches
-        if (user.password.equals(inputPassword)) {
-            System.out.println("Login successful.");
-            return true;
-        } else {
-            System.out.println("Incorrect password.");
-            return false;
-        }
-    }
-
-    /**
      * Initiates the password recovery process for the user.
      */
     public void forgotPassword() {
@@ -124,12 +81,6 @@ public class User {
         HashMap<Lesson, Integer> lessonProgressMap = new HashMap<>();
         return lessonProgressMap;
     }
-
-    /**
-     * Sets the profile picture for the user.
-     * @param pfp the new profile picture
-     */
-    //public void setProfilePicture(Image pfp) { this.profilePicture = pfp; }
 
     public String getUsername() {
         return username;
