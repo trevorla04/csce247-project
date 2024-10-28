@@ -24,8 +24,10 @@ public class MultipleChoice<T> implements Question {
     // Method to display the question and answer choices
     public void askQuestion() {
         System.out.println("Question: " + question);
+        com.narriation.Narriator.playSound("Question: " + question);
         for (int i = 0; i < answerChoices.size(); i++) {
             System.out.println((i + 1) + ": " + answerChoices.get(i));
+            com.narriation.Narriator.playSound("Answer: " + answerChoices.get(i));
         }
     }
 

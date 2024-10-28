@@ -15,6 +15,7 @@ public class FillInTheBlank implements Question {
     @Override
     public void askQuestion() {
         System.out.println(text+ " means _____");
+        com.narriation.Narriator.playSound(text + " means blank");
     }
     @Override
     public boolean checkAnswer(String answer) {
