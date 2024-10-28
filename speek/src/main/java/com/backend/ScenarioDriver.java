@@ -58,19 +58,17 @@ public class ScenarioDriver {
                 System.exit(0);
         }
         printModuleOptions();
-        choice = keyboard.nextInt();
-        keyboard.nextLine();
         double moduleOneScore = 0, moduleTwoScore = 0;
         while (choice != 9) {
             choice = keyboard.nextInt();
             keyboard.nextLine();
             if (choice == 1) {
                 greetingsLesson(app, moduleOneScore);
-            } else if (choice == 2 && moduleOneScore <= 0.8) {
-                System.out.println("You must first pass module 1.");
-                break;
-            } else if (choice == 2 && moduleOneScore >= 0.8) {
-                familyLesson(app, moduleTwoScore);
+            } else if (choice == 2) {
+                if (moduleOneScore < 0.8)
+                    System.out.println("You must first pass module 1.");
+                else
+                    familyLesson(app, moduleTwoScore);
             } else if (choice == 9) {
                 break;
             }
