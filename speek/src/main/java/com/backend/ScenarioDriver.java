@@ -176,5 +176,4 @@ public class ScenarioDriver {
         spanish.addCategory(familyWords);
     }
 
-    }
 }
