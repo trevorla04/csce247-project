@@ -174,12 +174,17 @@ public class ScenarioDriver {
     }
 
     public static double familyLesson(LanguageApplication spanishApp, double scoreCounter) {
+        WordList esWordList = new WordList();
+        PhraseList esPhraseList = new PhraseList();
+        ArrayList<Category> esCategories = new ArrayList<>();
         Language spanish = spanishApp.getLanguage("Spanish");
         spanishApp.setLanguage(spanish);
 
         Category familyWords = new Category("Family Words", spanish);
+        esCategories.add(familyWords)
         Lesson familyWordsLesson = new Lesson("Family Lesson", null,
                 familyWords, null, null);
+        familyWords.addLesson(familyWordsLesson);
 
         Word dad = new Word("dad", null);
         dad.addTranslation(spanish, "padre");
