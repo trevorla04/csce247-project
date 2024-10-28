@@ -16,7 +16,7 @@ public class DataLoader extends DataConstants {
         UserList users = UserList.getInstance();
 
         try {
-            System.out.println("Attempting to load users");
+            //System.out.println("Attempting to load users");
             FileReader reader = new FileReader(USER_FILE_NAME);
 
             JSONArray usersJSON = (JSONArray) new JSONParser().parse(reader);
@@ -33,7 +33,7 @@ public class DataLoader extends DataConstants {
 
 
 
-                    System.out.println("User: " + aU);
+                    //System.out.println("User: " + aU);
                     users.addUser(aU);
 
                 }
