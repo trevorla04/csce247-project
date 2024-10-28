@@ -26,6 +26,7 @@ public class Flashcard {
      * @return the front of the flashcard
      */
     public String getFront() {
+        com.narriation.Narriator.playSound(front);
         return front;
     }
 
@@ -34,6 +35,7 @@ public class Flashcard {
      * @return the back of the flashcard
      */
     public String getBack() {
+        com.narriation.Narriator.playSound(back);
         return back;
     }
 

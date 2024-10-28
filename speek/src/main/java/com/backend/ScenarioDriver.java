@@ -55,9 +55,7 @@ public class ScenarioDriver {
         double moduleOneScore, moduleTwoScore = 0;
         if (choice == 1) {
             createGreetingsLesson(app);
-
-        } else if (choice == 2 && )
-
+        }
     }
 
     public static void printLoginOptions() {
@@ -174,7 +172,5 @@ public class ScenarioDriver {
 
         familyWords.addLesson(familyWordsLesson);
         spanish.addCategory(familyWords);
-    }
-
     }
 }

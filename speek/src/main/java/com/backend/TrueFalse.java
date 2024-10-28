@@ -36,6 +36,7 @@ public class TrueFalse implements Question {
     @Override
     public void askQuestion() {
         System.out.println(question);
+        com.narriation.Narriator.playSound(question);
     }
 
     @Override
