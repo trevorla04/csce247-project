@@ -9,12 +9,12 @@ public class FillInTheBlank implements Question {
     }
 
     public FillInTheBlank(Phrase phrase, Language language) {
-        this.blank = phrase.getPhrase();
+        this.blank = phrase.getPhraseString();
         this.text = phrase.getTranslation(language);
     }
     @Override
     public void askQuestion() {
-        System.out.println("______ means" +text);
+        System.out.println(text+ " means _____");
     }
     @Override
     public boolean checkAnswer(String answer) {

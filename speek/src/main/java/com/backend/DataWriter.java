@@ -19,7 +19,6 @@ public class DataWriter extends DataConstants
             userJSON.put(USER_EMAIL, user.getEmail());
             userJSON.put(USER_PASSWORD, user.getPassword());
             userJSON.put(USER_UUID, user.getUUID().toString());
-
             usersJSON.add(userJSON);
         }
 

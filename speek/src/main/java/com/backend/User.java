@@ -8,7 +8,7 @@ import java.util.ArrayList;
 /**
  * Represents a user in the application.
  * This class contains user information and methods for managing user accounts,
- * including account creation, login validation, friend management, and progress tracking.
+ * including account creation, login validation, friend management, and progress tracking
  */
 public class User {
 
@@ -40,11 +40,8 @@ public class User {
         this.username = username;
         this.email = email;
         this.password = password;
-
         //this.friendsList = new UserList();
-
         this.friendsList = null;
-
         this.languageProgress = new ArrayList<>();
         this.uuid = UUID.randomUUID();
     }
@@ -178,4 +175,11 @@ public class User {
     {
         return uuid;
     }
+
+    public String toString(){
+
+
+        return "Username: " + username + " Password: " + password + " uuid: " + uuid.toString();
+    }
+
 }

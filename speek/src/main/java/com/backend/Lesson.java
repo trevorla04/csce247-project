@@ -1,6 +1,7 @@
 package com.backend;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class Lesson {
@@ -14,12 +15,12 @@ public class Lesson {
 
     public Lesson(String lessonName, List<Question> questions, Category category, Progress progress, List<Flashcard> flashcards) {
         this.lessonName = lessonName;
-        this.questions = questions;
+        this.questions = questions != null ? questions : new ArrayList<Question>();
         this.category = category;
         this.progress = progress;
         this.difficulty = 0;
         this.questionIndex = 0;
-        this.flashcards = flashcards;
+        this.flashcards = flashcards != null ? flashcards : new ArrayList<Flashcard>();
     }
 
     public void addQuestion(Question question) {

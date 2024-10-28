@@ -4,7 +4,7 @@ import java.util.List;
 
 public class LanguageApplication {
     // Private attributes for managing user, language, and application data
-    public UserList userList;         // List of users in the application
+    public UserList userList = UserList.getInstance();         // List of users in the application
     public User currentUser;          // The currently logged-in user
     private Language currentLanguage;  // The currently selected language
     private Dictionary dictionary;     // The dictionary associated with the current language
@@ -15,19 +15,10 @@ public class LanguageApplication {
 
     // Constructs a LanguageApplication with the specified user list, current user, current language,
     //dictionary, lesson list, current lesson, progress, and language list
-    public LanguageApplication (UserList userlist, User currentUser, Language currentLanguage,
-                                Dictionary dictionary, List<Lesson> lessonList, Lesson currentLesson,
-                                Progress progress, LanguageList languageList) {}
-        /**
-         * Constructs a {@code LanguageApplication} with the specified user list, current user, current language,
-         * dictionary, lesson list, current lesson, progress, and language list.
-         *
-         * @param userlist the list of users.
-         * @param languageList the list of available languages in the application.
-         */
-    public LanguageApplication (UserList userlist, LanguageList languageList) {
-        this.userList = userlist;
-        this.languageList = languageList;
+
+    public LanguageApplication(){
+        DataLoader.loadUsers();
+        DataLoader.loadLanguages();
     }
 
     /**
@@ -51,12 +42,19 @@ public class LanguageApplication {
      */
 
     public boolean login(String username, String password) {
-        return (userList.validLogin(username, password));
+        if(!userList.validLogin(username,password)){
+            System.out.println("Invalid username or password.");
+            return false;
+        }
+        this.currentUser = userList.getUser(username);
+        System.out.println("Successfully logged into: " + username);
+        return true;
+
     }
 
     // Logs out the current user and clears the session data
     public void logout() {
-        //DataWriter.saveUsers();
+        DataWriter.saveUsers();
         //DataWriter.saveLangauges();
         userList.clear();
         currentUser = null;

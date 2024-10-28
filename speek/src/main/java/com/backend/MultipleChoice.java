@@ -2,11 +2,11 @@ package com.backend;
 
 import java.util.List;
 
-public class MultipleChoice implements Question {
+public class MultipleChoice<T> implements Question {
 
     // Attributes
     private String question;
-    private List<String> answerChoices;
+    private List<T> answerChoices;
     private int correctAnswer;
 
     /**
@@ -15,7 +15,7 @@ public class MultipleChoice implements Question {
      * @param answerChoices A list of possible answer choices
      * @param correctAnswer The index of the correct answer in the answerChoices list (0-based)
      */
-    public MultipleChoice(String question, List<String> answerChoices, int correctAnswer) {
+    public MultipleChoice(String question, List<T> answerChoices, int correctAnswer) {
         this.question = question;
         this.answerChoices = answerChoices;
         this.correctAnswer = correctAnswer;

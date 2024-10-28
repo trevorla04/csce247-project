@@ -23,7 +23,13 @@ public class Word {
         if(uuid != null){
             this.uuid = uuid;
         }
+    }
 
+    public Word(String wordString, HashMap<Language, String> translations) {
+        this.wordString = wordString;
+        if (translations != null){
+            this.translations = translations;
+        }
     }
 
     /**
