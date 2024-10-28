@@ -91,7 +91,7 @@ public class ScenarioDriver {
 
     public static void printModuleOptions() {
         System.out.println("1. to start Module 1: Greetings");
-        System.out.println("2. to start Module 2: FamilyBasic Sentences");
+        System.out.println("2. to start Module 2: Family");
         System.out.println("9. to exit application.");
     }
 
@@ -219,7 +219,7 @@ public class ScenarioDriver {
         familyWordsLesson.addQuestion(new FillInTheBlank(dad, spanish));
         familyWordsLesson.addQuestion(new FillInTheBlank(mom, spanish));
         familyWordsLesson.addQuestion(new FillInTheBlank(sister, spanish));
-        familyWordsLesson.addQuestion(new MultipleChoice("What is the Spanish word for brother?",
+        familyWordsLesson.addQuestion(new MultipleChoice("What does hermano mean in English?",
                 familyTerms, 4));
         familyWordsLesson.addQuestion(new TrueFalse(family, spanish));
 
@@ -246,9 +246,9 @@ public class ScenarioDriver {
 
         scoreCounter/=5;
         if (scoreCounter >= 0.8)
-            System.out.println("You have completed module 1 with a score of  " + scoreCounter);
+            System.out.println("You have completed module 2 with a score of  " + scoreCounter);
         else
-            System.out.println("You have not completed module 1 with a score of " + scoreCounter);
+            System.out.println("You have not completed module 2 with a score of " + scoreCounter);
         return scoreCounter;
     }
 }
