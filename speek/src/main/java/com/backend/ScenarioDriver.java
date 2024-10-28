@@ -65,12 +65,13 @@ public class ScenarioDriver {
             if (choice == 1) {
                 greetingsLesson(app, moduleOneScore);
             } else if (choice == 2) {
-                if (moduleOneScore < 0.8)
+                if (moduleOneScore <= 0.8)
                     System.out.println("You must first pass module 1.");
                 else
                     familyLesson(app, moduleTwoScore);
             } else if (choice == 9) {
-                break;
+                app.logout();
+                System.exit(0);
             }
             printModuleOptions();
         }
@@ -94,7 +95,7 @@ public class ScenarioDriver {
         System.out.println("9. to exit application.");
     }
 
-    public static void greetingsLesson(LanguageApplication spanishApp, double scoreCounter) {
+    public static double greetingsLesson(LanguageApplication spanishApp, double scoreCounter) {
         WordList esWordList = new WordList();
         PhraseList esPhraseList = new PhraseList();
         ArrayList<Category> esCategories = new ArrayList<>();
@@ -166,12 +167,13 @@ public class ScenarioDriver {
 
         scoreCounter/=5;
         if (scoreCounter >= 0.8)
-            System.out.println("You have completed module 1 with a score of  " + scoreCounter);
+            System.out.println("You have passed module 1 with a score of  " + scoreCounter);
         else
-            System.out.println("You have not completed module 1 with a score of " + scoreCounter);
+            System.out.println("You have not passed module 1 with a score of " + scoreCounter);
+        return scoreCounter;
     }
 
-    public static void familyLesson(LanguageApplication spanishApp, double scoreCounter) {
+    public static double familyLesson(LanguageApplication spanishApp, double scoreCounter) {
         Language spanish = spanishApp.getLanguage("Spanish");
         spanishApp.setLanguage(spanish);
 
@@ -242,5 +244,6 @@ public class ScenarioDriver {
             System.out.println("You have completed module 1 with a score of  " + scoreCounter);
         else
             System.out.println("You have not completed module 1 with a score of " + scoreCounter);
+        return scoreCounter;
     }
 }
