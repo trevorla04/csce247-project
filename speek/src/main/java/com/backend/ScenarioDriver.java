@@ -51,10 +51,12 @@ public class ScenarioDriver {
         }
         printModuleOptions();
         choice = keyboard.nextInt();
-        double moduleOneProgress, moduleTwoProgress = 0;
+        keyboard.nextLine();
+        double moduleOneScore, moduleTwoScore = 0;
         if (choice == 1) {
+            createGreetingsLesson(app);
 
-        }
+        } else if (choice == 2 && )
 
     }
 
@@ -117,13 +119,15 @@ public class ScenarioDriver {
         greetingsLesson.addQuestion(new FillInTheBlank(goodAfternoon, spanish));
         greetingsLesson.addQuestion(new MultipleChoice("How do you say good morning in Spanish",
                 greetingsList, 1));
-        //greetingsLesson.addQuestion(new Matching());
+        greetingsLesson.addQuestion(new TrueFalse(goodNight, spanish));
 
         greetings.addLesson(greetingsLesson);
         spanish.addCategory(greetings);
+
+        System.out.println("Displaying flashcards for this lesson. Press enter to see the back");
     }
 
-    public static void createFamilyLesson(LanguageApplication spanishApp) {
+    public static void familyLesson(LanguageApplication spanishApp) {
         Language spanish = spanishApp.getLanguage("Spanish");
         spanishApp.setLanguage(spanish);
 
@@ -154,17 +158,23 @@ public class ScenarioDriver {
         familyWordsLesson.addFlashcard(flashcard4);
         familyWordsLesson.addFlashcard(flashcard5);
 
-        //ArrayList<Word> familyTerms = new ArrayList<Word>();
-        //familyTerms.add()
+        ArrayList<Word> familyTerms = new ArrayList<Word>();
+        familyTerms.add(dad);
+        familyTerms.add(mom);
+        familyTerms.add(sister);
+        familyTerms.add(brother);
+        familyTerms.add(family);
 
         familyWordsLesson.addQuestion(new FillInTheBlank(dad, spanish));
         familyWordsLesson.addQuestion(new FillInTheBlank(mom, spanish));
         familyWordsLesson.addQuestion(new FillInTheBlank(sister, spanish));
-        //familyWordsLesson.addQuestion(new MultipleChoice());
-        //familyWordsLesson.addQuestion(new Matching());
+        familyWordsLesson.addQuestion(new MultipleChoice("What is the Spanish word for brother?",
+                familyTerms, 4));
+        familyWordsLesson.addQuestion(new TrueFalse(family, spanish));
 
         familyWords.addLesson(familyWordsLesson);
         spanish.addCategory(familyWords);
+    }
 
     }
 }

@@ -16,5 +16,4 @@ public interface Question {
      * @return True if the answer is correct, false otherwise.
      */
     boolean checkAnswer(String answer);
-
 }
