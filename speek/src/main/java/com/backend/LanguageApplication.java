@@ -17,6 +17,7 @@ public class LanguageApplication {
     //dictionary, lesson list, current lesson, progress, and language list
 
     public LanguageApplication(){
+        currentUser = null;
         DataLoader.loadUsers();
         DataLoader.loadLanguages();
     }
@@ -49,7 +50,6 @@ public class LanguageApplication {
         this.currentUser = userList.getUser(username);
         System.out.println("Successfully logged into: " + username);
         return true;
-
     }
 
     // Logs out the current user and clears the session data

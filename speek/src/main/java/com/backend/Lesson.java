@@ -29,6 +29,14 @@ public class Lesson {
         }
     }
 
+    public List<Flashcard> getFlashcards() {
+        return flashcards;
+    }
+
+    public List<Question> getQuestions() {
+        return questions;
+    }
+
     /**
      * Adds a learned word to the specified dictionary
      * @param word      The word to add to the dictionary

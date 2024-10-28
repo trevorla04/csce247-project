@@ -1,5 +1,6 @@
 package com.backend;
 
+import java.sql.SQLOutput;
 import java.util.Scanner;
 import java.util.ArrayList;
 
@@ -10,29 +11,35 @@ public class ScenarioDriver {
         LanguageApplication app = new LanguageApplication();
         //LanguageApplication app = new LanguageApplication(null, null);
         System.out.println("Welcome to Language Learning App");
-        printLoginOptions();
-        int choice = keyboard.nextInt();
-        keyboard.nextLine();
-        switch (choice) {
-            case 1:
-                System.out.println("Enter username");
-                String username = keyboard.nextLine();
-                System.out.println("Enter password");
-                String password = keyboard.nextLine();
-                if (app.login(username, password)) {
-                    System.out.println("Successfully logged into: " + username);
-
-                }
-                break;
-            case 2:
-                System.out.println("Enter email address");
-                String emailAddress = keyboard.nextLine();
-                String newUsername = keyboard.nextLine();
-                System.out.println("Enter password");
-                String newPassword = keyboard.nextLine();
-                app.createAccount(emailAddress, newUsername, newPassword);
-            case 3:
-                System.exit(0);
+        int choice = 0;
+        while (app.currentUser == null) {
+            printLoginOptions();
+            choice = keyboard.nextInt();
+            keyboard.nextLine();
+            switch (choice) {
+                case 1:
+                    System.out.println("Enter username");
+                    String username = keyboard.nextLine();
+                    System.out.println("Enter password");
+                    String password = keyboard.nextLine();
+                    if (app.login(username, password)) {
+                        //System.out.println("Successfully logged into: " + username);
+                    }
+                    break;
+                case 2:
+                    System.out.println("Enter email address");
+                    String emailAddress = keyboard.nextLine();
+                    System.out.println("Enter username");
+                    String newUsername = keyboard.nextLine();
+                    System.out.println("Enter password");
+                    String newPassword = keyboard.nextLine();
+                    app.createAccount(emailAddress, newUsername, newPassword);
+                    DataWriter.saveUsers();
+                    break;
+                case 3:
+                    System.exit(0);
+            }
+            DataLoader.loadUsers();
         }
         printMenuOptions();
         choice = keyboard.nextInt();
@@ -46,16 +53,30 @@ public class ScenarioDriver {
                     System.out.println("Loading Spanish language.");
                     break;
                 }
+                break;
             case 9:
                 System.exit(0);
         }
         printModuleOptions();
         choice = keyboard.nextInt();
         keyboard.nextLine();
-        double moduleOneScore, moduleTwoScore = 0;
-        if (choice == 1) {
-            createGreetingsLesson(app);
+        double moduleOneScore = 0, moduleTwoScore = 0;
+        while (choice != 9) {
+            choice = keyboard.nextInt();
+            keyboard.nextLine();
+            if (choice == 1) {
+                greetingsLesson(app, moduleOneScore);
+            } else if (choice == 2 && moduleOneScore <= 0.8) {
+                System.out.println("You must first pass module 1.");
+                break;
+            } else if (choice == 2 && moduleOneScore >= 0.8) {
+                familyLesson(app, moduleTwoScore);
+            } else if (choice == 9) {
+                break;
+            }
+            printModuleOptions();
         }
+        app.logout();
     }
 
     public static void printLoginOptions() {
@@ -75,13 +96,18 @@ public class ScenarioDriver {
         System.out.println("9. to exit application.");
     }
 
-    public static void createGreetingsLesson(LanguageApplication spanishApp) {
-        Language spanish = spanishApp.getLanguage("Spanish");
+    public static void greetingsLesson(LanguageApplication spanishApp, double scoreCounter) {
+        WordList esWordList = new WordList();
+        PhraseList esPhraseList = new PhraseList();
+        ArrayList<Category> esCategories = new ArrayList<>();
+        Language spanish = new Language("Spanish", "ES", esWordList, esPhraseList, esCategories);
         spanishApp.setLanguage(spanish);
 
         Category greetings = new Category("Greetings", spanish);
+        esCategories.add(greetings);
         Lesson greetingsLesson = new Lesson("Greetings Lesson", null,
                 greetings, null, null);
+        greetings.addLesson(greetingsLesson);
 
         Word hello = new Word("Hello", null);
         hello.addTranslation(spanish, "hola");
@@ -115,7 +141,7 @@ public class ScenarioDriver {
         greetingsLesson.addQuestion(new FillInTheBlank(hello, spanish));
         greetingsLesson.addQuestion(new FillInTheBlank(goodMorning, spanish));
         greetingsLesson.addQuestion(new FillInTheBlank(goodAfternoon, spanish));
-        greetingsLesson.addQuestion(new MultipleChoice("How do you say good morning in Spanish",
+        greetingsLesson.addQuestion(new MultipleChoice("What does buenos dias mean in English",
                 greetingsList, 1));
         greetingsLesson.addQuestion(new TrueFalse(goodNight, spanish));
 
@@ -123,9 +149,31 @@ public class ScenarioDriver {
         spanish.addCategory(greetings);
 
         System.out.println("Displaying flashcards for this lesson. Press enter to see the back");
+        for (Flashcard flashcard : greetingsLesson.getFlashcards()) {
+            System.out.println("Front: " + flashcard.getFront());
+            keyboard.nextLine();
+            System.out.println("Back: " + flashcard.getBack());
+        }
+
+        System.out.println("\nLesson Questions (Must get 4/5 to move on):\n");
+        for (Question question : greetingsLesson.getQuestions()) {
+            question.askQuestion();
+            String userAnswer = keyboard.nextLine();
+            if (question.checkAnswer(userAnswer)) {
+                System.out.println("Correct.");
+                scoreCounter++;
+            } else
+                System.out.println("Incorrect.");
+        }
+
+        scoreCounter/=5;
+        if (scoreCounter >= 0.8)
+            System.out.println("You have completed module 1 with a score of  " + scoreCounter);
+        else
+            System.out.println("You have not completed module 1 with a score of " + scoreCounter);
     }
 
-    public static void familyLesson(LanguageApplication spanishApp) {
+    public static void familyLesson(LanguageApplication spanishApp, double scoreCounter) {
         Language spanish = spanishApp.getLanguage("Spanish");
         spanishApp.setLanguage(spanish);
 
@@ -172,10 +220,29 @@ public class ScenarioDriver {
 
         familyWords.addLesson(familyWordsLesson);
         spanish.addCategory(familyWords);
-    }
-<<<<<<< HEAD
-}
-=======
 
+        System.out.println("Displaying flashcards for this lesson. Press enter to see the back");
+        for (Flashcard flashcard : familyWordsLesson.getFlashcards()) {
+            System.out.println("Front: " + flashcard.getFront());
+            keyboard.nextLine();
+            System.out.println("Back: " + flashcard.getBack());
+        }
+
+        System.out.println("\nLesson Questions (Must get 4/5 to move on):\n");
+        for (Question question : familyWordsLesson.getQuestions()) {
+            question.askQuestion();
+            String userAnswer = keyboard.nextLine();
+            if (question.checkAnswer(userAnswer)) {
+                System.out.println("Correct.");
+                scoreCounter++;
+            } else
+                System.out.println("Incorrect.");
+        }
+
+        scoreCounter/=5;
+        if (scoreCounter >= 0.8)
+            System.out.println("You have completed module 1 with a score of  " + scoreCounter);
+        else
+            System.out.println("You have not completed module 1 with a score of " + scoreCounter);
+    }
 }
->>>>>>> 90b6613e81a8460232257bc8b01a915ce63c6920

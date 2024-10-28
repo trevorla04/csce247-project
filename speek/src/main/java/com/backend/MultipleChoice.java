@@ -24,11 +24,30 @@ public class MultipleChoice<T> implements Question {
     // Method to display the question and answer choices
     public void askQuestion() {
         System.out.println("Question: " + question);
-        com.narriation.Narriator.playSound("Question: " + question);
+        com.narriation.Narriator.playSound(question);
+
+        for (int i = 0; i < answerChoices.size(); i++) {
+            T choice = answerChoices.get(i);
+            String answerText;
+
+            if (choice instanceof Word)
+                answerText = ((Word) choice).getWordString();
+            else if (choice instanceof Phrase)
+                answerText = ((Phrase) choice).getPhraseString();
+            else
+                answerText = choice.toString();
+
+            System.out.println((i + 1) + ": " + answerText);
+            com.narriation.Narriator.playSound(answerText);
+        }
+        /*
+        System.out.println("Question: " + question);
+        com.narriation.Narriator.playSound(question);
         for (int i = 0; i < answerChoices.size(); i++) {
             System.out.println((i + 1) + ": " + answerChoices.get(i));
-            com.narriation.Narriator.playSound("Answer: " + answerChoices.get(i));
+            com.narriation.Narriator.playSound(answerChoices.get(i).);
         }
+        */
     }
 
     // Method to check if the provided answer is correct
