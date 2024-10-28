@@ -65,7 +65,7 @@ public class ScenarioDriver {
             if (choice == 1) {
                 greetingsLesson(app, moduleOneScore);
             } else if (choice == 2) {
-                if (moduleOneScore < 0.8)
+                if (false)
                     System.out.println("You must first pass module 1.");
                 else
                     familyLesson(app, moduleTwoScore);
@@ -181,7 +181,7 @@ public class ScenarioDriver {
         spanishApp.setLanguage(spanish);
 
         Category familyWords = new Category("Family Words", spanish);
-        esCategories.add(familyWords)
+        esCategories.add(familyWords);
         Lesson familyWordsLesson = new Lesson("Family Lesson", null,
                 familyWords, null, null);
         familyWords.addLesson(familyWordsLesson);
