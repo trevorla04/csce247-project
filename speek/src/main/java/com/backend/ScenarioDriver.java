@@ -18,7 +18,7 @@ public class ScenarioDriver {
             keyboard.nextLine();
             switch (choice) {
                 case 1:
-                    System.out.println("Enter username");
+                    System.out.println("Enter email");
                     String username = keyboard.nextLine();
                     System.out.println("Enter password");
                     String password = keyboard.nextLine();

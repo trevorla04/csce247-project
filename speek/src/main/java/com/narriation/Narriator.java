@@ -23,7 +23,7 @@ public class Narriator {
     private Narriator(){};
 
     public static void playSound(String text){
-        PollyClient polly = PollyClient.builder().region(Region.EU_WEST_3).build();
+        PollyClient polly = PollyClient.builder().region(Region.EU_WEST_2).build();
 
         talkPolly(polly, text);
         polly.close();
