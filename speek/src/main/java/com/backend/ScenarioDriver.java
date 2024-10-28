@@ -5,7 +5,8 @@ import java.util.ArrayList;
 
 public class ScenarioDriver {
     private static Scanner keyboard = new Scanner(System.in);
-    public static void main(String[] args)  {
+
+    public static void main(String[] args) {
         LanguageApplication app = new LanguageApplication();
         //LanguageApplication app = new LanguageApplication(null, null);
         System.out.println("Welcome to Language Learning App");
@@ -18,7 +19,7 @@ public class ScenarioDriver {
                 String username = keyboard.nextLine();
                 System.out.println("Enter password");
                 String password = keyboard.nextLine();
-                if (app.login(username,password)) {
+                if (app.login(username, password)) {
                     System.out.println("Successfully logged into: " + username);
 
                 }
@@ -56,20 +57,24 @@ public class ScenarioDriver {
         }
 
     }
+
     public static void printLoginOptions() {
         System.out.println("1. to login.");
         System.out.println("2. to register an account.");
         System.out.println("9. to exit application.");
     }
+
     public static void printMenuOptions() {
         System.out.println("1. to a select a language");
         System.out.println("9. to exit application.");
     }
+
     public static void printModuleOptions() {
         System.out.println("1. to start Module 1: Greetings");
         System.out.println("2. to start Module 2: FamilyBasic Sentences");
         System.out.println("9. to exit application.");
     }
+
     public static void createGreetingsLesson(LanguageApplication spanishApp) {
         Language spanish = spanishApp.getLanguage("Spanish");
         spanishApp.setLanguage(spanish);
@@ -149,16 +154,17 @@ public class ScenarioDriver {
         familyWordsLesson.addFlashcard(flashcard4);
         familyWordsLesson.addFlashcard(flashcard5);
 
-        ArrayList<Word> familyTerms = new ArrayList<Word>();
-        familyTerms.add()
+        //ArrayList<Word> familyTerms = new ArrayList<Word>();
+        //familyTerms.add()
 
         familyWordsLesson.addQuestion(new FillInTheBlank(dad, spanish));
         familyWordsLesson.addQuestion(new FillInTheBlank(mom, spanish));
         familyWordsLesson.addQuestion(new FillInTheBlank(sister, spanish));
-        familyWordsLesson.addQuestion(new MultipleChoice());
-        familyWordsLesson.addQuestion(new Matching());
+        //familyWordsLesson.addQuestion(new MultipleChoice());
+        //familyWordsLesson.addQuestion(new Matching());
 
         familyWords.addLesson(familyWordsLesson);
         spanish.addCategory(familyWords);
 
+    }
 }

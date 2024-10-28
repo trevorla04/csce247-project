@@ -6,7 +6,7 @@ import java.util.List;
 
 public class UserList
 {
-    private static UserList userList;
+    private static UserList instance;
     private HashMap<String,User> userLookup = new HashMap<String,User>();
 
     // Private constructor to prevent instantiation outside the singleton pattern
@@ -15,18 +15,17 @@ public class UserList
     // Retrieves the single instance of UserList. Creates a new instance if none exists
     public static UserList getInstance ()
     {
-        if (userList == null)
+        if (instance == null)
         {
-            userList = new UserList();
+            instance = new UserList();
         }
-        return userList;
+        return instance;
     }
 
     // Retrieves a user by their username
     public User getUser (String s)
     {
-        userLookup.get(s);
-        return null;
+        return userLookup.get(s);
     }
 
     // Adds a user to the user list
@@ -35,24 +34,15 @@ public class UserList
     }
 
     public boolean validLogin(String loginUsername, String loginPassword) {
-        if (users.containsUser(loginUsername)) {
-            if (users.getUser(loginUsername).getPassword().equals(loginPassword)) {
-                System.out.println("Successfully logged into: " +loginUsername);
-                return true;
-            }
-            else {
-                System.out.println("Invalid username or password.");
-                return false;
-            }
-        } else {
-            System.out.println("Invalid username or password.");
-            return false;
+        if (containsUser(loginUsername)) {
+            return getUser(loginUsername).getPassword().equals(loginPassword);
         }
+        return false;
     }
 
-//    public ArrayList<User> getAllUsers() {
-//        return users;
-//    }
+    public ArrayList<User> getAllUsers() {
+        return new ArrayList<User>(userLookup.values());
+    }
 
     // Checks if a user with the specified username exists in the user list
     public boolean containsUser(String username){
@@ -61,7 +51,7 @@ public class UserList
 
     // Checks if a user with the specified username exists in the user list
     public boolean containsUser(User user) {
-        return userLookup.containsKey(user.username);
+        return userLookup.get(user) != null;
     }
 
     public void clear() {

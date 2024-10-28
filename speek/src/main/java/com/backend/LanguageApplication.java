@@ -4,7 +4,7 @@ import java.util.List;
 
 public class LanguageApplication {
     // Private attributes for managing user, language, and application data
-    public UserList userList;         // List of users in the application
+    public UserList userList = UserList.getInstance();         // List of users in the application
     public User currentUser;          // The currently logged-in user
     private Language currentLanguage;  // The currently selected language
     private Dictionary dictionary;     // The dictionary associated with the current language
@@ -42,10 +42,12 @@ public class LanguageApplication {
      */
 
     public boolean login(String username, String password) {
-        if(!userList.validLogin(username,password){
+        if(!userList.validLogin(username,password)){
+            System.out.println("Invalid username or password.");
             return false;
         }
         this.currentUser = userList.getUser(username);
+        System.out.println("Successfully logged into: " + username);
         return true;
 
     }
