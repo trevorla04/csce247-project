@@ -51,7 +51,7 @@ public class UserList
 
     // Checks if a user with the specified username exists in the user list
     public boolean containsUser(User user) {
-        return userLookup.get(user) != null;
+        return userLookup.containsKey(user.username);
     }
 
     public void clear() {

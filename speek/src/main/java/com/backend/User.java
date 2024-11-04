@@ -53,6 +53,13 @@ public class User {
      * Creates a new account for the user.
      */
     public static boolean createAccount(String username, String email, String password) {
+        if(username == null || email == null || password == null){
+            return false;
+        }
+        if(username.isBlank() || email.isBlank() || password.isBlank()){
+            return false;
+        }
+
         UserList userList = UserList.getInstance();
 
         if(userList.containsUser(username)){
