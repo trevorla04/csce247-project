@@ -62,7 +62,7 @@ public class LanguageApplication {
         currentUser = null;
         currentLanguage = null;
         dictionary = null;
-        lessonList = null;
+        //lessonList = null;
         progress = null;
         languageList = null;
     }
@@ -118,7 +118,7 @@ public class LanguageApplication {
 
     // Retrieves the word of the day
     public Word getWordOfTheDay(){
-
+        return null;
     }
 
 

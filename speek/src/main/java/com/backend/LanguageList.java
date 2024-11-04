@@ -46,6 +46,10 @@ public class LanguageList {
         return languages.get(index);
     }
 
+    public ArrayList<Language> getLanguages() {
+        return languages;
+    }
+
     /**
      * Searches for a language by its name, performing a case-insensitive match
      * @param search the name of the language to search for

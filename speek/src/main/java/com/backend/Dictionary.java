@@ -35,6 +35,7 @@ public class Dictionary {
         return wordOfTheDay;
     }
 
+
     // Public method to remove a word from the dictionary
     public void removeWord(Word word) {
         if (word != null) {
@@ -67,5 +68,9 @@ public class Dictionary {
     // Retrieves the list of all learned words.
     public WordList getAllWords() {
         return this.wordsLearned;
+    }
+
+    public PhraseList getAllPhrases() {
+        return this.phrasesLearned;
     }
 }

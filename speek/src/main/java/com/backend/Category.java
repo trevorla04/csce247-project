@@ -66,6 +66,10 @@ public class Category {
         return uuid;
     }
 
+    public List<Lesson> getLessonList() {
+        return lessonList;
+    }
+
     public void addLesson(Lesson lesson) {
         lessonList.add(lesson);
     }
