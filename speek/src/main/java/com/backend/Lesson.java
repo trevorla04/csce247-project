@@ -3,9 +3,11 @@ package com.backend;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.UUID;
 
 public class Lesson {
     private String lessonName;
+    private UUID uuid;
     private List<Question> questions;
     private Category category;
     private Progress progress;
@@ -21,12 +23,27 @@ public class Lesson {
         this.difficulty = 0;
         this.questionIndex = 0;
         this.flashcards = flashcards != null ? flashcards : new ArrayList<Flashcard>();
+        this.uuid = UUID.randomUUID();
+    }
+    public Lesson(String lessonName, List<Question> questions, Category category, Progress progress, List<Flashcard> flashcards,UUID uuid) {
+        this.lessonName = lessonName;
+        this.questions = questions != null ? questions : new ArrayList<Question>();
+        this.category = category;
+        this.progress = progress;
+        this.difficulty = 0;
+        this.questionIndex = 0;
+        this.flashcards = flashcards != null ? flashcards : new ArrayList<Flashcard>();
+        this.uuid = uuid;
     }
 
     public void addQuestion(Question question) {
         if (question != null) {
             questions.add(question);
         }
+    }
+
+    public UUID getUUID(){
+        return this.uuid;
     }
 
     public List<Flashcard> getFlashcards() {

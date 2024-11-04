@@ -1,12 +1,13 @@
 package com.backend;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class MultipleChoice<T> implements Question {
 
     // Attributes
     private String question;
-    private List<T> answerChoices;
+    private ArrayList<T> answerChoices;
     private int correctAnswer;
 
     /**
@@ -15,7 +16,7 @@ public class MultipleChoice<T> implements Question {
      * @param answerChoices A list of possible answer choices
      * @param correctAnswer The index of the correct answer in the answerChoices list (0-based)
      */
-    public MultipleChoice(String question, List<T> answerChoices, int correctAnswer) {
+    public MultipleChoice(String question, ArrayList<T> answerChoices, int correctAnswer) {
         this.question = question;
         this.answerChoices = answerChoices;
         this.correctAnswer = correctAnswer;

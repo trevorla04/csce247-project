@@ -8,7 +8,7 @@ public class LanguageApplication {
     public User currentUser;          // The currently logged-in user
     private Language currentLanguage;  // The currently selected language
     private Dictionary dictionary;     // The dictionary associated with the current language
-    private List<Lesson> lessonList;   // List of lessons available in the current language
+      // List of lessons available in the current language
     private Lesson currentLesson;      // The currently active lesson
     private Progress progress;         // The progress of the current user in learning the current language
     private LanguageList languageList; // List of available languages in the application
@@ -31,9 +31,7 @@ public class LanguageApplication {
      */
     // This UML really needs to name the variables
     public boolean createAccount(String username, String email, String password) {
-        if(User.createAccount(username, email, password))
-            return true;
-        return false;
+        return User.createAccount(username, email, password);
     }
 
     /**
@@ -43,13 +41,17 @@ public class LanguageApplication {
      */
 
     public boolean login(String username, String password) {
+
         if(!userList.validLogin(username,password)){
             System.out.println("Invalid username or password.");
             return false;
         }
+
         this.currentUser = userList.getUser(username);
         System.out.println("Successfully logged into: " + username);
         return true;
+
+
     }
 
     // Logs out the current user and clears the session data
@@ -65,24 +67,15 @@ public class LanguageApplication {
         languageList = null;
     }
 
-    // Sets the currently active language for the user
-    public void setLanguage(Language language) {
-        this.currentLanguage = language;
-    }
-
     // Adds a new language to the list of available languages
     public void addLanguage(Language language) {
         languageList.addLanguage(language);
     }
 
-    // Adds a lesson to a specified category
-    public void addCategoryToLanguage(Category category, Language language) {
-        language.addCategory(category);
-    }
 
     // Adds a word to the specified language
     public void addWordToLanguage(Language language, Word word) {
-        language.addWord(word);
+        language.getWordList().addWord(word);
     }
 
     // Adds a phrase to the specified language
@@ -101,11 +94,11 @@ public class LanguageApplication {
     }
 
     // Starts a lesson with the specified lesson number
-    public void startLesson(int lessonNumber) {
-        if (currentLesson != null && !lessonList.isEmpty()) {
-            lessonList.get(lessonNumber).startLesson();
-            currentLesson = lessonList.get(lessonNumber);
+    public void startNextLesson() {
+        if(currentUser == null){
+            return;
         }
+        currentUser.startNextLesson();
     }
 
     // Retrieves the user's progress in the current language
@@ -125,18 +118,7 @@ public class LanguageApplication {
 
     // Retrieves the word of the day
     public Word getWordOfTheDay(){
-        // TODO Create WOTD Method
-        return null;
-    }
 
-    // Saves all language data
-    public void saveAllLanguages(){
-        //TODO: Method Stub
-    }
-
-    // Loads all language data
-    public void loadAllLanguages(){
-        //TODO: Method Stub
     }
 
 

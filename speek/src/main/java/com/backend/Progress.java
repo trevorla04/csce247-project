@@ -1,20 +1,40 @@
 package com.backend;
 
 import java.util.HashMap;
+import java.util.UUID;
 
 public class Progress {
-    private HashMap<Category, Integer> categoryProgress;
-    private HashMap<Lesson, Integer> lessonProgress;
+    private HashMap<UUID, Integer> categoryProgress = new HashMap<UUID, Integer>();
+    private HashMap<UUID, Integer> lessonProgress = new HashMap<UUID, Integer>();
 
     /**
      * Constructs a Progress object with initial progress values for categories and lessons
      * @param categoryProgress A map of initial progress values for each category
      * @param lessonProgress   A map of initial progress values for each lesson
      */
+
+
+
     public Progress(HashMap<Category, Integer> categoryProgress, HashMap<Lesson, Integer> lessonProgress) {
+
+
+        for(Object key: categoryProgress.keySet().toArray()){
+            this.categoryProgress.put(((Category) key).getUUID(),categoryProgress.get(key));
+        }
+        for(Object key:lessonProgress.keySet().toArray()){
+            this.lessonProgress.put(((Lesson) key).getUUID(),lessonProgress.get(key));
+        }
+    }
+    public Progress(HashMap<UUID,Integer> categoryProgress, HashMap<UUID,Integer> lessonProgress, boolean why){
+        // The boolean parameter only exists to differentiate these two constructors because java
+        // apparently cant tell the difference between 2 typed hashmaps? unfun.
+        // goes unused so go wild with your values. True? False? doesnt matter.
+
         this.categoryProgress = categoryProgress;
         this.lessonProgress = lessonProgress;
     }
+
+
 
     /**
      * Updates the progress for a given category by adding the specified progress value to the current progress. If the category is not yet tracked, it adds the category with the specified progress
