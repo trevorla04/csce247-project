@@ -59,35 +59,5 @@ public class LanguageList {
         return null;
     }
 
-    /**
-     * Prints the language at the specified index to the console
-     * @param index the index of the language to print
-     */
-    public void printLanguage(int index) {
-        System.out.println(languages.get(index));
-    }
 
-    /**
-     * Returns the number of languages in the list
-     * @return the size of the language list
-     */
-    public int getSize() {
-        return languages.size();
-    }
-
-    // Clears the list of languages by removing all entries
-    public void clear() {
-        for (Language language : languages)
-            languages.remove(language);
-    }
-
-    // Saves the list of languages
-    public void saveLanguage() {
-
-    }
-
-    // Loads the list of languages
-    public void loadLanguages() {
-
-    }
 }

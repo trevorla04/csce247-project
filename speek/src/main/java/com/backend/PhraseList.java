@@ -4,25 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PhraseList {
-    private static PhraseList phrases;
     private List<Phrase> phraseList;
 
 
 
     public PhraseList(){
         phraseList = new ArrayList<>();
-    }
-
-    /**
-     * Returns the single instance of PhraseList
-     * If the instance does not exist, it creates one
-     * @return the singleton instance of PhraseList
-     */
-    public static PhraseList getInstance() {
-        if (phrases == null) {
-            phrases = new PhraseList();
-        }
-        return phrases;
     }
 
      /**

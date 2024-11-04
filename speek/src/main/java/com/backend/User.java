@@ -18,8 +18,11 @@ public class User {
     public String bio;  /** The bio of the user. */
     private UserList friendsList;  /** The list of friends associated with the user. */
     //public Image profilePicture;  /** The profile picture of the user. */
-    private List<Progress> languageProgress;  /** The progress of the user in various languages. */
+    private ArrayList<Progress> languageProgress;  /** The progress of the user in various languages. */
     private UUID uuid;  /** The unique identifier for the user. */
+    private Language currentLanguage;
+    private ArrayList<Lesson> lessonList;
+
 
     /**
      * Constructs a new User with the specified username, email, and password.
@@ -69,7 +72,6 @@ public class User {
      */
 
 
-    // This should probably be handled by LanguageApplication instead
     public boolean validLogin(String loginText, String inputPassword) {
         UserList userList = UserList.getInstance();
 
@@ -175,6 +177,13 @@ public class User {
     {
         return uuid;
     }
+
+
+    // This is in users to remove having to clear refrences to stuff when logging out of users.
+    public void startNextLesson(){
+
+    }
+
 
     public String toString(){
 

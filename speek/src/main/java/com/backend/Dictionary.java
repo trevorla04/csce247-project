@@ -30,8 +30,7 @@ public class Dictionary {
             return null; // No word of the day if no words have been learned
         }
         if (wordOfTheDay == null) { // If no word of the day is set, choose one
-            int index = ThreadLocalRandom.current().nextInt(wordsLearned.getSize());
-            wordOfTheDay = wordsLearned.getWord(index);
+            wordOfTheDay = wordsLearned.getRandomWord();
         }
         return wordOfTheDay;
     }

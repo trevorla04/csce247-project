@@ -4,10 +4,18 @@ import java.util.HashMap;
 import java.util.UUID;
 
 public class Word {
-    private UUID uuid = UUID.randomUUID();
+    private UUID uuid;
     private String wordString;
-    private HashMap<Language,String> translations = new HashMap<Language,String>();
+    private String definition;
+    // Words are now unique per language and no longer need translations stored for each.
+
     private String partOfSpeech;
+
+    public UUID getUUID(){
+        return this.uuid;
+    }
+
+
 
     /**
      * Constructs a Word object with provided translations and UUID
@@ -15,21 +23,18 @@ public class Word {
      * @param translations A map of translations by language
      * @param uuid         The unique identifier for this Word object
      */
-    public Word(String wordString, HashMap<Language,String> translations, UUID uuid){
+    public Word(String wordString, String definition, UUID uuid){
         this.wordString = wordString;
-        if (translations != null){
-            this.translations = translations;
-        }
+        this.definition = definition;
         if(uuid != null){
             this.uuid = uuid;
         }
     }
 
-    public Word(String wordString, HashMap<Language, String> translations) {
+    public Word(String wordString, String definition) {
         this.wordString = wordString;
-        if (translations != null){
-            this.translations = translations;
-        }
+        this.definition = definition;
+        uuid = UUID.randomUUID();
     }
 
     /**

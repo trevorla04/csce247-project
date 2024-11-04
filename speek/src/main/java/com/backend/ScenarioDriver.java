@@ -99,7 +99,7 @@ public class ScenarioDriver {
         WordList esWordList = new WordList();
         PhraseList esPhraseList = new PhraseList();
         ArrayList<Category> esCategories = new ArrayList<>();
-        Language spanish = new Language("Spanish", "ES", esWordList, esPhraseList, esCategories);
+        Language spanish = new Language("Spanish", esWordList, esPhraseList);
         spanishApp.setLanguage(spanish);
 
         Category greetings = new Category("Greetings", spanish);
@@ -177,7 +177,7 @@ public class ScenarioDriver {
         WordList esWordList = new WordList();
         PhraseList esPhraseList = new PhraseList();
         ArrayList<Category> esCategories = new ArrayList<>();
-        Language spanish = new Language("Spanish", "ES", esWordList, esPhraseList, esCategories);
+        Language spanish = new Language("Spanish", esWordList, esPhraseList);
         spanishApp.setLanguage(spanish);
 
         Category familyWords = new Category("Family Words", spanish);

@@ -18,6 +18,11 @@ public class DataConstants
     protected static final String USER_EMAIL = "email";
     protected static final String USER_BIO = "bio";
     protected static final String USER_UUID = "uuid";
+    protected static final String USER_PROGRESS = "progress";
+
+    protected static final String LANGUAGE_NAME = "name";
+    protected static final String LANGUAGE_WORDS = "words";
+
 
     protected static final String WORD_FILE_NAME = (System.getProperty("os.name").equals("Linux")
             ? "./demo/src/main/java/data/words.json"
