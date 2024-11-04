@@ -1,12 +1,11 @@
 package com.backend;
 
-import java.util.HashMap;
+import java.util.UUID;
 
 public class Phrase {
     private String phraseString;
     private String definition;
-    private Language language;
-    private HashMap<Language,String> translations;
+    private UUID uuid;
     
     /**
      * Constructs a Phrase with the specified text, definition, language, and translations
@@ -15,20 +14,20 @@ public class Phrase {
      * @param language     The language of the phrase
      * @param translations A map of translations for the phrase, keyed by language
      */
-    public Phrase(String phrase, String definition, Language language, HashMap<Language,String> translations) {
+    public Phrase(String phrase, String definition, UUID uuid) {
         this.phraseString = phrase;
         this.definition = definition;
-        this.language = language;
-        this.translations = translations != null ? translations : new HashMap<Language, String>();
+        this.uuid = uuid;
     }
 
-    public Phrase(String phraseString, HashMap<Language, String> translations) {
+    public Phrase(String phraseString, String definition) {
         this.phraseString = phraseString;
-        this.translations = translations != null ? translations : new HashMap<Language, String>();
+        this.definition = definition;
+        this.uuid = UUID.randomUUID();
     }
 
     // Returns the phrase text
-    public String getPhraseString(){
+    public String getPhraseString() {
         return phraseString;
     }
 
@@ -38,46 +37,19 @@ public class Phrase {
             this.phraseString = phraseString;
         }
     }
-    
-    // Returns the language of the phrase
-    public Language getLanguage(){
-        return language;
-    }
-    
-    // Sets the language of the phrase
-    public void setLanguage(Language language) {
-        if (language != null) {
-            this.language = language;
-        }
-    }
-
-    // Returns the translation of the phrase in the specified language
-    public String getTranslation(Language language) {
-        return translations.get(language);
-    }
-
-    // Adds or updates a translation for the phrase in the specified language
-    public void addTranslations(Language language, String phrase) {
-        translations.put(language, phrase);
-    }
-
-    // Removes the translation for the specified language
-    public void removetranslation(Language language){
-        translations.remove(language);
-    }
 
     // Returns the definition of the phrase
-    public String getDefinition(){
+    public String getDefinition() {
         return definition;
     }
     
     // Sets the definition of the phrase
-    public void setDefinition(String definition){
+    public void setDefinition(String definition) {
         this.definition = definition;
     }
     
     // Returns a string representation of the phrase with its definition
-    public String toString(){
+    public String toString() {
         return this.phraseString + " defined as: " + this.definition;
     }
 

@@ -49,8 +49,14 @@ public class WordList {
         Word[] words = (Word[]) stringLookup.values().toArray();
         Random random = new Random();
         return words[random.nextInt(words.length)];
-
     }
 
+    public boolean isEmpty() {
+        return stringLookup.isEmpty();
+    }
+
+    public int getSize() {
+        return stringLookup.size();
+    }
 
 }

@@ -11,14 +11,14 @@ public class Flashcard {
      * @param front the question or prompt on the front of the flashcard
      * @param back the answer on the back of the flashcard
      */
-    public Flashcard(Word word, Language language) {
+    public Flashcard(Word word) {
         this.front = word.getWordString();
-        this.back = word.getTranslation(language);
+        this.back = word.getDefinition();
     }
 
-    public Flashcard(Phrase phrase, Language language) {
+    public Flashcard(Phrase phrase) {
         this.front = phrase.getPhraseString();
-        this.back = phrase.getTranslation(language);
+        this.back = phrase.getDefinition();
     }
 
     /**

@@ -3,14 +3,14 @@ package com.backend;
 public class FillInTheBlank implements Question {
     private String blank;
     private String text;
-    public FillInTheBlank(Word word, Language language) {
+    public FillInTheBlank(Word word) {
         this.blank = word.getWordString();
-        this.text = word.getTranslation(language);
+        this.text = word.getDefinition();
     }
 
-    public FillInTheBlank(Phrase phrase, Language language) {
+    public FillInTheBlank(Phrase phrase) {
         this.blank = phrase.getPhraseString();
-        this.text = phrase.getTranslation(language);
+        this.text = phrase.getDefinition();
     }
     @Override
     public void askQuestion() {

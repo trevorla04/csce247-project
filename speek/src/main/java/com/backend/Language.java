@@ -30,6 +30,13 @@ public class Language {
         this.uuid = uuid;
     }
 
+    public Language(String languageName, WordList wordList, PhraseList phraseList) {
+        this.languageName = languageName;
+        this.wordList = wordList;
+        this.phraseList = phraseList;
+        this.uuid = UUID.randomUUID();
+    }
+
     public WordList getWordList() {
         return wordList;
     }
@@ -50,7 +57,6 @@ public class Language {
     public void addPhrase(Phrase phrase) {
         phraseList.addPhrase(phrase);
     }
-
 
     /**
      * Calculates the progress of the user in learning this language.

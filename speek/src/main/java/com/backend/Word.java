@@ -15,8 +15,6 @@ public class Word {
         return this.uuid;
     }
 
-
-
     /**
      * Constructs a Word object with provided translations and UUID
      * If the translations map or UUID is null, default values are used
@@ -46,19 +44,27 @@ public class Word {
         return wordString;
     }
 
+    public String getDefinition(){
+        return definition;
+    }
+
     /**
      * Sets or updates the definition of the word in the specified language
      * @param language   The language for the definition
      * @param definition The definition to set
      */
-    public void setDefinition(Language language, String definition) {
-        if (translations.get(language) != null)
-            translations.put(language, definition);
-    }
 
     // Retrieves the part of speech for this word
     public String getPartOfSpeech(){
         return this.partOfSpeech;
+    }
+
+    public void setWordString(String wordString){
+        this.wordString = wordString;
+    }
+
+    public void setDefinition(String definition){
+        this.definition = definition;
     }
 
     // Sets the part of speech for this word
@@ -66,31 +72,16 @@ public class Word {
         this.partOfSpeech = partOfSpeech;
     }
 
-    // Adds a translation for a specified language
-    public void addTranslation(Language language, String translation){
-        translations.put(language,translation);
-    }
-
-    // Retrieves the translation for a specified language
-    public String getTranslation(Language language){
-        return translations.get(language);
-    }
-
-    // Removes the translation for a specified language
-    public void removeTranslation(Language language){
-        translations.remove(language);
-    }
-
     // Returns a string representation of the Word object, showing translations in all languages
     // Java methods
     public String toString() {
-        return translations.toString();
+        return wordString + " translates to: " + definition;
     }
     
     // Compares this Word object to another for equality based on translations and part of speech
     public boolean equals(Word word) {
-        return false;
-
+        return this.wordString.equals(word.getWordString()) && this.definition.equals(word.getDefinition())
+                && this.partOfSpeech.equals(word.getPartOfSpeech()) && this.uuid.equals(word.getUUID());
     }
     
 }

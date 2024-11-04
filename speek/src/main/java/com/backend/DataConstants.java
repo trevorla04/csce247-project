@@ -8,7 +8,8 @@ public class DataConstants
     /*(System.getProperty("os.name").equals("Linux")
     ? ".json/users.json"
     : ".\\json\\users.json");*/
-    protected static final String USER_FILE_NAME = System.getProperty("user.dir") + "/json/users.json";
+    //protected static final String USER_FILE_NAME = System.getProperty("user.dir") + "/json/users.json";
+    protected static final String USER_FILE_NAME = System.getProperty("user.dir") + "/src/test/resources/data/users.json";
 
     /*(System.getProperty("os.name").equals("Linux")
     ? "./demo/src/main/java/data/user.json"

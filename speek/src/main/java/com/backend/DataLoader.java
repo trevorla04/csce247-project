@@ -46,7 +46,7 @@ public class DataLoader extends DataConstants {
                         }
 
                     }
-                    Progress
+                    //Progress
 
 
                     //System.out.println("User: " + aU);
