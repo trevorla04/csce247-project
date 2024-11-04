@@ -22,6 +22,10 @@ public class LanguageApplication {
         DataLoader.loadLanguages();
     }
 
+    public User getCurrentUser() {
+        return currentUser;
+    }
+
     /**
      * Creates a new user account with the specified username, email, and password
      * @param username the username for the new account
@@ -31,6 +35,8 @@ public class LanguageApplication {
      */
     // This UML really needs to name the variables
     public boolean createAccount(String username, String email, String password) {
+
+
         return User.createAccount(username, email, password);
     }
 
@@ -41,6 +47,11 @@ public class LanguageApplication {
      */
 
     public boolean login(String username, String password) {
+
+        if(currentUser != null){
+            System.out.println("You cannot log in to 2 users");
+            return false;
+        }
 
         if(!userList.validLogin(username,password)){
             System.out.println("Invalid username or password.");
