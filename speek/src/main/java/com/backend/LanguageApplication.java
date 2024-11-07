@@ -7,10 +7,7 @@ public class LanguageApplication {
     public UserList userList = UserList.getInstance();         // List of users in the application
     public User currentUser;          // The currently logged-in user
     private Language currentLanguage;  // The currently selected language
-    private Dictionary dictionary;     // The dictionary associated with the current language
-      // List of lessons available in the current language
-    private Lesson currentLesson;      // The currently active lesson
-    private Progress progress;         // The progress of the current user in learning the current language
+    // The progress of the current user in learning the current language
     private LanguageList languageList; // List of available languages in the application
 
     // Constructs a LanguageApplication with the specified user list, current user, current language,
@@ -69,13 +66,8 @@ public class LanguageApplication {
     public void logout() {
         DataWriter.saveUsers();
         //DataWriter.saveLangauges();
-        userList.clear();
+        currentUser.logout();
         currentUser = null;
-        currentLanguage = null;
-        dictionary = null;
-        //lessonList = null;
-        progress = null;
-        languageList = null;
     }
 
     // Adds a new language to the list of available languages

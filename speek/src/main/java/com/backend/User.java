@@ -18,7 +18,7 @@ public class User {
     public String bio;  /** The bio of the user. */
     private UserList friendsList;  /** The list of friends associated with the user. */
     //public Image profilePicture;  /** The profile picture of the user. */
-    private ArrayList<Progress> languageProgress;  /** The progress of the user in various languages. */
+    private HashMap<Language,Progress> languageProgress;  /** The progress of the user in various languages. */
     private UUID uuid;  /** The unique identifier for the user. */
     private Language currentLanguage;
     private ArrayList<Lesson> lessonList;
@@ -45,7 +45,7 @@ public class User {
         this.password = password;
         //this.friendsList = new UserList();
         this.friendsList = null;
-        this.languageProgress = new ArrayList<>();
+        this.languageProgress = new HashMap<Language,Progress>();
         this.uuid = UUID.randomUUID();
     }
 
@@ -135,6 +135,14 @@ public class User {
         return progressMap;
     }
 
+    public Progress getCurrentLanguageProgress(){
+        return languageProgress.get(currentLanguage);
+    }
+    public Progress getLanguageProgress(Progress p){
+        return languageProgress.get(p);
+    }
+
+
     /**
      * Checks the progress of the user in various lessons.
      * @return a map of lessons to the user's progress
@@ -191,6 +199,15 @@ public class User {
 
     }
 
+
+    // Starts the logout method and flushes any crucial information to the data writer.
+    // May not be nessecary.
+    public void logout(){
+
+
+
+
+    }
 
     public String toString(){
 
